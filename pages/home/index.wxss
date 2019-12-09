@@ -1,0 +1,99 @@
+.page
+{
+  height: 100%;
+}
+
+.back
+{
+  width: 100%;
+  height: 100%;
+  position:fixed; 
+  background-size:100% 100%;
+  z-index: -1;
+}
+
+.test
+{
+  padding-left: 25rpx
+}
+
+.back2
+{
+  width: 100%;
+  height: 98%;
+  position:fixed; 
+  background-size:100% 40%;
+  z-index: -1;
+}
+
+.swipersUp
+{
+  margin-top: 35px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family: "正楷";
+  font-size: 5vw; 
+}
+
+.swipersDown
+{
+  margin-top: 10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family: "正楷";
+  font-size: 24px;
+}
+
+.search
+{
+  width: 75%;
+	display: flex;
+  flex-direction: row;
+  border: 2px solid #cccccc;
+  height: 55rpx;
+  margin-left: 45px;
+  /*margin-right: 4px;
+  margin-top: 10px;*/
+  border-radius: 10px;
+	align-items: center;
+}
+
+.search-icon
+{
+  width: 15px;
+  margin-left:55px; 
+
+}
+
+.big-logo
+{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.logoinfo
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width:160rpx; 
+	height: 160rpx; 
+}
+
+.logotext
+{
+	color: #aaa;
+	font-size: 22rpx;
+}
+
+.couplets
+{
+  display: flex;
+	flex-direction: column;
+	align-items: left;
+  border-block-start-width: 1px solid #cccccc;
+}

@@ -1,0 +1,56 @@
+/**分类栏**/
+.classify{ 
+  width: 100%;  
+  height: 100%;  
+  background-color: #fff;  
+  color: #939393;  
+}
+.left-navbar{
+  position:absolute;
+  left:0;
+  width:20%;
+  height:100%;
+  background-color:#eee;
+  font-size:15px;
+}
+.left-navbar view{
+  height:120rpx;
+  line-height: 120rpx;
+  text-align:center;
+}
+.active{
+  background-color:#FFF;
+  color:red;
+  font-size:17px;
+}
+
+#right{
+  position:absolute;
+  right:0;
+  width:80%;
+  height:90%;
+}
+.img-banner{
+  height:150rpx;
+  width:100%;
+}
+.couplets_list{
+  /*display:flex;
+  flex-wrap:wrap;
+  margin-top:30rpx;*/
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  
+  margin-bottom :5rpx;
+  border-bottom: 1px solid #cccccc;
+}
+.couplets_type{
+  margin-bottom: 10rpx;
+  margin-left: 5rpx;
+}
+/*::-webkit-scrollbar { 
+	width: 0; 
+	height: 0; 
+	color: transparent; 
+}*/

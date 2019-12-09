@@ -1,0 +1,30 @@
+/* pages/moreinfo/index.wxss */
+
+.page
+{
+  margin: 8rpx;
+  height: 100%;
+}
+
+.container
+{
+  padding: 10px 20px;
+  align-content: left;
+}
+
+.back
+{
+  width: 100%;
+  height: 100%;
+  position:fixed; 
+  background-size:100% 100%;
+  z-index: -1;
+}
+
+.couplets
+{
+display: flex;
+flex-direction: column;
+align-items: left;
+border: 1px solid #cccccc;
+}

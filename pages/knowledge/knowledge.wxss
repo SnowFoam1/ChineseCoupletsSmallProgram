@@ -1,0 +1,70 @@
+/* pages/knowledge/knowledge.wxss */
+
+page {
+  background: #f8f8f8;
+}
+
+.header {
+  padding: 0 25rpx;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  width: 94%;
+  background: #fff;
+  position: relative;
+  border-radius: 10px;
+  margin-top: 10rpx;
+}
+
+.book {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.book-box {
+  display: flex;
+  align-items: center;
+  
+}
+
+.logo {
+  width: 160rpx;
+  height: 200rpx;
+  border-radius: 15%;
+  background: rgb(126, 119, 119);
+  will-change: transform;
+  position: relative;
+  margin-left:25rpx;
+}
+
+
+.logo image {
+  width: 100%;
+  height: 100%;
+  border-radius: 15%;
+  will-change: transform;
+}
+
+.book-info {
+  padding-left: 32rpx;
+}
+
+.book-name {
+  display: flex;
+  align-items: center;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: rgb(80, 80, 80);
+}
+
+.book-name image {
+  margin-left: 16rpx;
+  width: 84rpx;
+  height: 31rpx;
+}
+
+.introduction {
+  margin-top: 12rpx;
+  font-size: 27rpx;
+  color: rgb(80, 80, 80);
+}

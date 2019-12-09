@@ -1,0 +1,14 @@
+<!--pages/purchaseHistory/purchaseHistory.wxml-->
+
+<view class='message' wx:for="{{items}}" wx:for-index="index" wx:for-item="items">
+  <view bindtap="bindDetialTap">
+    <view class='total'>
+      <view class='middle'>
+        <view class='title'>{{items.messageTitle}}</view>
+        <view class='detailMessage'>{{items.messageContain}}</view>
+      </view>
+      <view class='messageTime'>{{items.messageTime}}</view>
+    </view>
+  </view>
+  <view class='line'></view>
+</view>

@@ -1,0 +1,160 @@
+/* pages/my/information/information.wxss */
+
+page {
+  padding-bottom: 50rpx;
+  background: #f8f8f8; 
+}
+
+.header {
+  padding: 0 25rpx;
+  padding-top: 40rpx;
+  padding-bottom: 50rpx;
+  width: 100%;
+  background: #fff;
+  position: relative;
+}
+
+.user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.userBox {
+  display: flex;
+  align-items: center;
+}
+
+.edit {
+  display: flex;
+  width: 70rpx;
+  height: 70rpx;
+  padding: 18rpx;
+  box-sizing: border-box;
+}
+
+.edit image {
+  width: 100%;
+  height: 100%;
+  transform: rotate(180deg);
+}
+
+.logo {
+  width: 160rpx;
+  height: 160rpx;
+  left: 330rpx;
+  border-radius: 50%;
+  background: #000;
+  will-change: transform;
+  position: relative;
+}
+
+.logo image {
+  width: 100%;
+  height: 100%;
+}
+
+.logo image {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  will-change: transform;
+}
+
+.userInfo {
+  padding-left: 32rpx;
+}
+
+.userHead {
+  display: flex;
+  align-items: center;
+  font-size: 34rpx;
+  color: rgb(0, 0, 0);
+}
+
+.userHead image {
+  margin-left: 16rpx;
+  width: 84rpx;
+  height: 31rpx;
+}
+
+.introduction {
+  margin-top: 12rpx;
+  font-size: 26rpx;
+  color: #fff;
+}
+
+.info {
+  display: flex;
+  margin-top: 62rpx;
+  width: 100%;
+  height: 110rpx;
+}
+
+.info .item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  line-height: 1.5;
+  border-right: 1px solid #fff;
+}
+
+.info .item .count {
+  font-size: 46rpx;
+  color: #fff;
+}
+
+.info .item .title {
+  font-size: 24rpx;
+  color: #fff;
+}
+
+.nav {
+  padding: 0 35rpx;
+  font-size: 34rpx;
+  background: #fff;
+}
+
+.nav .item {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 30rpx 0;
+}
+
+.nav button.item {
+  margin: 0;
+  line-height: inherit;
+  font-size: inherit;
+}
+
+.nav .icon {
+  display: flex;
+  align-items: center;
+  font-size: 40rpx;
+  color: #333;
+}
+
+.nav .wallet {
+  display: inline-flex;
+  align-items: center;
+  color: rgb(44, 43, 43);
+}
+
+.nav .wallet .icon {
+  color: #c21327;
+}
+
+.nav .showInfor {
+  margin-left: auto;
+  color: rgb(126, 126, 126);
+  width: 450rpx;
+}
+
+
+.nav image {
+  margin-left: 20rpx;
+  width: 40rpx;
+  height: 40rpx;
+}

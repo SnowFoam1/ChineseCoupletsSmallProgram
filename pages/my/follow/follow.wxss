@@ -1,0 +1,74 @@
+/* pages/follow/follow.wxss */
+
+.total {
+  margin-top: 2%;
+  display: flex;
+  height: 50px;
+}
+
+.nickname {
+  font-size: 13px;
+}
+
+.middle {
+  margin-left: 5%;
+  width: 60%;
+}
+
+.other {
+  margin-right: 3%;
+  margin-top: 2.5%;
+  width: 14%;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ebebeb;
+  border-radius: 10%;
+}
+.followState {
+  color: grey;
+  font-size: 11px;
+}
+.activeTag{
+  margin-right: 3%;
+  margin-top: 2.5%;
+  width: 14%;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10%;
+  background: white;
+  color: rgb(216, 33, 33);
+  border: 1rpx solid rgb(216, 33, 33);
+}
+.introduction {
+  margin-top: 4%;
+  font-size: 11px;
+  color: grey;
+}
+
+.line {
+  width: 100%;
+  background-color: #ebebeb;
+  height: 1px;
+}
+
+.oldMessage {
+  display: flex;
+  font-size: 12px;
+  color: grey;
+  width: 40%;
+  margin-left: 39%;
+  margin-top: 3%;
+}
+
+.headImage {
+  width: 35px;
+  height: 35px;
+  background-color: white;
+  margin-left: 5%;
+  margin-top: 1.5%;
+  border-radius: 100%;
+}

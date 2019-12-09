@@ -1,0 +1,71 @@
+<!--pages/postdetial/postdetail.wxml-->
+
+<view class="container">
+
+  <view class="post" bindtap="topost">
+    <text class="label" space="emsp">  【{{label}}】</text>
+    <text class="title" space="emsp"> “{{title}}”</text>
+  </view>
+
+  <view class="poster-wrp ">
+    <view class="bg-half"></view>
+    <view class="poster flex-wrp">
+      <view class="avatar flex-item">
+        <image src="/icons/saber.jpg"></image>
+      </view>
+      <view class="poster-info flex-item">
+        <text class="poster-name">{{userNickname}}</text>
+        <text class="poster-des">{{userLabel}}</text>
+      </view>
+      <view class="follow flex-item">
+        <view class="notyet"><text wx:if="{{followFlag==-1}}" bindtap="addFollow">+ 关注</text></view>
+        <view class="notyet"><text wx:if="{{followFlag==2}}" bindtap="goLogin">+ 关注</text></view>
+        <view class="already"><text wx:if="{{followFlag==1}}" bindtap="deleteFollow">已关注</text></view>
+      </view>
+    </view>
+  </view>
+
+  <view class="post-content">{{content}}</view>
+
+  <view class="post-do">
+    <view class="collection">
+      <image wx:if="{{iscollection==true}}" src="/icons/star.png" bindtap="doCollection"></image>
+      <image wx:else src="/icons/star2.png" bindtap="doCollection"></image>
+    </view>
+    <view class="like">
+      <image wx:if="{{islike==true}}" src="/icons/heart1.png" bindtap="doLike"></image>
+      <image wx:else src="/icons/heart2.png" bindtap="doLike"></image>
+      <text>{{like}}</text>
+    </view>
+    <view class="comment">
+      <image src="/icons/comment2.png"></image>
+      <text>{{comment}}</text>
+    </view>
+  </view>
+
+  <scroll-view scroll-y="true" class="commentBox" enable-flex="true" style="bottom:70px">
+    <view wx:if="{{noreply==true}}" class="noreply">期待您的精彩评论哦~~~</view>
+    <block w:else wx:for="{{replys}}" wx:for-index="idx" wx:for-item="reply" data-idx="{{idx}}"  >
+      <view class="doreply">
+        <view class="eachReply" bindtap="doreply" data-id="{{reply.postId}}" bindlongpress="delete" data-replyid="{{reply.replyId}}" data-userid="{{reply.userAccount}}">
+          <text class="replylevel" space="nbsp">{{idx+1}} 楼</text>
+          <text class="replyuser" space="nbsp">  {{reply.userNickname}}：</text>
+          <text class="replycontent" space="nbsp"> {{reply.replyContent}}</text>
+        </view>
+        <!-- <view class="delete" bindtap="delete">删除</view> -->
+      </view>
+    </block>
+
+
+  </scroll-view>
+
+  <view class="inputBox" style="bottom:{{bottom}}px">
+    <view class="input">
+      <textarea class="inputcomment" fixed="true" adjust-position="{{false}}" focus="{{focus}}" value="{{comcontent}}" name="comcontent" bindfocus="foucus" bindblur="blur" maxlength="-1" placeholder="说点什么吧......" cursor-spacing='150' auto-height="ture"></textarea>
+    </view>
+    <view class="like" bindtap="send">
+      <image src="/icons/send.png"></image>
+    </view>
+  </view>
+
+</view>

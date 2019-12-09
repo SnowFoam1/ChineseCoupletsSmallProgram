@@ -1,0 +1,104 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/search/index",
+   
+    "pages/detail/index",
+    
+    
+    "pages/test/index",
+    "pages/CoupletsClassify/index",
+    "pages/postsDisplay/postdetial/postdetail",
+    "pages/MoreClass/index",
+    "pages/my/othersSpace/othersPostsDetials/othersPostsDetials",
+    "pages/regist/index",
+    "pages/findpassword/index",
+    "pages/logs/logs",
+    "pages/login/index",
+
+    "pages/postsDisplay/postsDisplay",
+    
+
+    "pages/write/write",
+
+    
+    "pages/knowledge/knowledge",
+    "pages/knowledge/yinglianjianhua/contents/contents",
+    "pages/knowledge/yinglianjianhua/content4/content4",
+    "pages/knowledge/yinglianjianhua/content3/content3",
+    "pages/knowledge/yinglianjianhua/content2/content2",
+    "pages/knowledge/yinglianjianhua/content1/content1",
+    "pages/knowledge/yinglianjianhua/content/content",
+    "pages/knowledge/shenglvqimeng/contents/contents",
+    "pages/knowledge/shenglvqimeng/content6/content6",
+    "pages/knowledge/shenglvqimeng/content5/content5",
+    "pages/knowledge/shenglvqimeng/content4/content4",
+    "pages/knowledge/shenglvqimeng/content3/content3",
+    "pages/knowledge/shenglvqimeng/content2/content2",
+    "pages/knowledge/shenglvqimeng/content1/content1",
+    "pages/knowledge/shenglvqimeng/content/content",
+
+    "pages/my/my",
+    "pages/my/information/information",
+    "pages/my/information/introduction/introduction",
+    "pages/my/information/nickname/nickname",
+    "pages/my/information/name/name",
+    "pages/my/information/age/age",
+    "pages/my/information/location/location",
+    "pages/my/information/email/email",
+    "pages/my/information/birthday/birthday",
+    "pages/my/mySpace/mySpace",
+    "pages/my/set/set",
+    "pages/my/collect/collect",
+    "pages/my/follow/follow",
+    "pages/my/purchaseHistory/purchaseHistory",
+    "pages/my/myFans/myFans",
+    "pages/my/othersSpace/othersSpace"
+  ],
+  
+
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/home/index",
+      "text": "首页",
+      "iconPath": "images/homeN.png",
+      "selectedIconPath": "images/homeY.png"
+    },
+    {
+      "pagePath": "pages/postsDisplay/postsDisplay",
+      "text": "动态",
+      "iconPath": "images/postN.png",
+      "selectedIconPath": "images/postY.png"
+    },
+    {
+      "pagePath": "pages/write/write",
+      "text": "创作",
+      "iconPath": "images/writeN.png",
+      "selectedIconPath": "images/wrtieY.png"
+    },
+    {
+      "pagePath": "pages/knowledge/knowledge",
+      "text": "学习",
+      "iconPath": "images/studyN.png",
+      "selectedIconPath": "images/studyY.png"
+    },
+    {
+      "pagePath": "pages/my/my",
+      "text": "我的",
+      "iconPath": "images/personN.png",
+      "selectedIconPath": "images/personY.png"
+    }
+    
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+
+  "sitemapLocation": "sitemap.json"
+  
+  
+}

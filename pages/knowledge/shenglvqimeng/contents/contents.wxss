@@ -1,0 +1,44 @@
+/* pages/knowledge/contents/contents.wxss */
+page {
+  padding-bottom: 50rpx;
+  background: #f8f8f8;
+}
+
+.nav {
+  padding: 0 35rpx;
+  font-size: 34rpx;
+  background: #fff;
+}
+
+.nav .item {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 30rpx 0;
+}
+
+.nav button.item {
+  margin: 0;
+  line-height: inherit;
+  font-size: inherit;
+}
+
+.nav .icon {
+  display: flex;
+  align-items: center;
+  font-size: 40rpx;
+  color: #333;
+}
+
+.nav .wallet {
+  display: inline-flex;
+  align-items: center;
+  color: rgb(44, 43, 43);
+}
+
+
+.nav image {
+  margin-left: 20rpx;
+  width: 40rpx;
+  height: 40rpx;
+}

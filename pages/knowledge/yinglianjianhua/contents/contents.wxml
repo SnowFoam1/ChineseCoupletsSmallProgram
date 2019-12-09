@@ -1,0 +1,28 @@
+<!--pages/knowledge/contents/contents.wxml-->
+<view class="nav">
+  <view bindtap="openPage" class="item" data-url="/pages/knowledge/yinglianjianhua/content/content" hoverClass="none">
+    <view class='wallet'>
+      <text space="emsp">  一、作为国粹的对联</text>
+    </view>
+  </view>
+  <view bindtap="openPage" class="item" data-url="/pages/knowledge/yinglianjianhua/content1/content1"  hoverClass="none">
+    <view class='wallet'>
+       <text space="emsp">  二、对联的起源</text>
+    </view>
+  </view>
+  <view bindtap="openPage" class="item" data-url="/pages/knowledge/yinglianjianhua/content2/content2"  hoverClass="none">
+    <view class='wallet'>
+       <text space="emsp">  三、对联的内容</text>
+    </view>
+  </view>
+  <view bindtap="openPage" class="item" data-url="/pages/knowledge/yinglianjianhua/content3/content3" hoverClass="none">
+    <view class='wallet'>
+       <text space="emsp">  四、对联的前身</text>
+    </view>
+  </view>
+  <view bindtap="openPage" class="item" data-url="/pages/knowledge/yinglianjianhua/content4/content4" hoverClass="none">
+    <view class='wallet'>
+       <text space="emsp">  五、对联的发展</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,118 @@
+<!--pages/my/my.wxml-->
+<form reportSubmit bindsubmit="submitFormId" wx:if="{{flag}}">
+  <view class="header">
+    <view bindtap="openPage" class="item" data-url="/pages/my/information/information" formType="submit" hoverClass="none">
+      <view class="user" hoverClass="none">
+        <view class="userBox">
+          <view catchtap="previewImage" class="logo">
+            <image src="/icons/saber.jpg"></image>
+          </view>
+          <view class="userInfo">
+            <view class="userName">
+              <text>{{userNickname}}</text>
+            </view>
+            <view class="introduction">
+              积分：
+              <text>{{userScore}}</text>
+            </view>
+            <view class="introduction">
+              <text>{{userLabel}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <image src='https://edu.qinhui88.com/assets/wx/image/wave.gif' mode='scaleToFill' class='gif-wave'></image>
+  </view>
+
+  <!-- 功能列表 -->
+  <view class="nav" wx:if="{{flag}}">
+    <view bindtap="openPage" class="item" data-url="/pages/my/mySpace/mySpace" formType="submit" hoverClass="none">
+      <view class='wallet'>
+        <image src="/icons/mySpace.png">
+        </image>
+        <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>
+        <text>个人空间</text>
+      </view>
+    </view>
+    <view bindtap="openPage" class="item" data-url="/pages/my/collect/collect" formType="submit" hoverClass="none">
+      <view class='wallet'>
+        <image src="/icons/star2.png">
+        </image>
+        <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>
+        <text>我的收藏</text>
+      </view>
+    </view>
+    <view bindtap="openPage" class="item" data-url="/pages/my/follow/follow" formType="submit" hoverClass="none">
+      <view class='wallet'>
+        <image src="/icons/myFollow.png">
+        </image>
+        <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>
+        <text>我的关注</text>
+      </view>
+    </view>
+    <view bindtap="openPage" class="item" data-url="/pages/my/myFans/myFans" formType="submit" hoverClass="none">
+      <view class='wallet'>
+        <image src="/icons/myFans.png">
+        </image>
+        <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>
+        <text>我的粉丝</text>
+      </view>
+    </view>
+    <view bindtap="openPage" class="item" data-url="/pages/my/purchaseHistory/purchaseHistory" formType="submit" hoverClass="none">
+      <view class='wallet'>
+        <image src="/icons/message.png">
+        </image>
+        <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>
+        <text>我的消息</text>
+      </view>
+    </view>
+    <view bindtap="openPage" class="item" data-url="/pages/my/set/set" formType="submit" hoverClass="none">
+      <view class='wallet'>
+        <image src="/icons/settings.png">
+        </image>
+        <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>
+        <text>设置中心</text>
+      </view>
+    </view>
+    <view bindtap="changePassword" class="item" data-url="/pages/my/set/set" formType="submit" hoverClass="none">
+      <view class='wallet'>
+        <image src="/icons/changePassword.png">
+        </image>
+        <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>
+        <text>修改密码</text>
+      </view>
+    </view>
+  </view>
+</form>
+
+<!--未登录时显示登录界面-->
+<!--view bindtap="toLogin" wx:if="{{!flag}}">去登录</view-->
+<view class="login" wx:if="{{!flag}}">
+  <view class="photo">
+    <image src="/images/hnu.png"></image>
+  </view>
+  <button bindtap="toLogin" class="toLogin" type="primary">登录/注册</button>
+
+
+  <view class="nav">
+    <!--view bindtap="openPage" class="item" data-url="/pages/my/mySpace/mySpace" formType="submit" hoverClass="none">
+      <view class='wallet'>
+        <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>
+        <text></text>
+      </view>
+    </view-->
+    <view class="item" hoverClass="none">
+      <view class='wallet'>
+        <text>楹联协会官网</text>
+      </view>
+      <icon type="info" size="20px" color="rgb(44, 43, 43)"></icon>
+    </view>
+    <view class="item2" hoverClass="none">
+      <view class='wallet'>
+        <text>意见反馈</text>
+      </view>
+      <icon type="info" size="20px" color="rgb(44, 43, 43)"></icon>
+    </view>
+  </view>
+</view>

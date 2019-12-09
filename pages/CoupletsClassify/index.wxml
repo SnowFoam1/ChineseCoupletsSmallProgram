@@ -1,0 +1,12 @@
+<!--pages/moreinfo/index.wxml-->
+<view class="page">
+  <image class="back" src="/images/background.jpg"></image>
+  <scroll-view scroll-y="true" style="height: 100%; width: 100%; display: flex; flex-direction: column;">
+    <block wx:for="{{couplets}}" >
+      <view bindtap="moreInfo" class="couplets">
+        <view>上联：{{item.coupletsexistedUpcouplets}}</view>
+        <view>下联：{{item.coupletsexistedDowncouplets}}</view>
+      </view>
+    </block>
+  </scroll-view>
+</view>

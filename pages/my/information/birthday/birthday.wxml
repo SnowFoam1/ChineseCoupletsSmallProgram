@@ -1,0 +1,11 @@
+<!--pages/information/birthday/birthday.wxml-->
+<form bindsubmit="formSubmit">
+  <view class="changeName">
+    <picker mode="date" value="{{date}}" start="1949-10-01" end="2020-12-23" bindchange="bindDateChange" name="userBirthday">
+      <view class="picker">
+        <text class="show">当前为:\t{{userBirthday}}</text>
+      </view>
+    </picker>
+  </view>
+  <button class="butt" form-type="submit">提交</button>
+</form>

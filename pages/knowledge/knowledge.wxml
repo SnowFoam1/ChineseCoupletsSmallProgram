@@ -1,0 +1,94 @@
+<!--pages/knowledge/knowledge.wxml-->
+<form reportSubmit bindsubmit="submitFormId">
+  <view class="header">
+    <view bindtap="openPage" class="item" data-url="/pages/knowledge/yinglianjianhua/contents/contents" formType="submit" hoverClass="none">
+      <view class="book" hoverClass="none">
+        <view class="book-box">
+          <view class="logo">
+            <image src='/icons/duilianhua.jpg' style="width:160rpx;height:200rpx;"></image>
+          </view>
+          <view class="book-info">
+            <view class="book-name">
+              <text>对联简话</text>
+            </view>
+            <view class="introduction">
+              <text space="emsp">作者: 吴恭亨</text>
+            </view>
+            <view class="introduction">
+              <text>关于对联的概念、起源、内容、前身和发展</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="header">
+    <view bindtap="openPage" class="item" data-url="/pages/knowledge/shenglvqimeng/contents/contents" formType="submit" hoverClass="none">
+      <view class="book" hoverClass="none">
+        <view class="book-box">
+          <view class="logo">
+            <image src='/icons/shenglv.jpg' style="width:160rpx;height:200rpx;"></image>
+          </view>
+          <view class="book-info">
+            <view class="book-name">
+              <text>声律启蒙</text>
+            </view>
+            <view class="introduction">
+              <text space="emsp">作者: 车万育</text>
+            </view>
+            <view class="introduction">
+              <text>是训练儿童应对，掌握声韵格律的启蒙读物。按韵分编，包罗大多种类的虚实应对。</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="header">
+    <view bindtap="openPage" class="item" data-url="/pages/knowledge/yinglianjianhua/contents/contents" formType="submit" hoverClass="none">
+      <view class="book" hoverClass="none">
+        <view class="book-box">
+          <view class="logo">
+            <image src='/icons/duilianhua.jpg' style="width:160rpx;height:200rpx;"></image>
+          </view>
+          <view class="book-info">
+            <view class="book-name">
+              <text>对联简话</text>
+            </view>
+            <view class="introduction">
+              <text space="emsp">作者: 吴恭亨</text>
+            </view>
+            <view class="introduction">
+              <text>关于对联的概念、起源、内容、前身和发展</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="header">
+    <view bindtap="openPage" class="item" data-url="/pages/knowledge/shenglvqimeng/contents/contents" formType="submit" hoverClass="none">
+      <view class="book" hoverClass="none">
+        <view class="book-box">
+          <view class="logo">
+            <image src='/icons/shenglv.jpg' style="width:160rpx;height:200rpx;"></image>
+          </view>
+          <view class="book-info">
+            <view class="book-name">
+              <text>声律启蒙</text>
+            </view>
+            <view class="introduction">
+              <text space="emsp">作者: 车万育</text>
+            </view>
+            <view class="introduction">
+              <text>是训练儿童应对，掌握声韵格律的启蒙读物。按韵分编，包罗大多种类的虚实应对。</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</form>

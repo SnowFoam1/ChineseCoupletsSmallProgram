@@ -1,0 +1,93 @@
+<!--pages/my/information/information.wxml-->
+<form reportSubmit bindsubmit="submitFormId">
+  <view class="header">
+    <view class="user" hoverClass="none">
+      <view class="userBox">
+        <view class="userInfo">
+          <view class="userHead"> 
+            <text>头像</text>
+          </view>
+        </view>
+        <view catchtap="changeImage" class="logo">
+          <image src="/icons/saber.jpg"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能列表 -->
+  <view class="nav">
+    <view bindtap="openPage" class="item" data-url="/pages/my/information/nickname/nickname" formType="submit" hoverClass="none">
+      <view class='wallet'>
+        <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>
+        <text>昵称</text>
+      </view>
+      <view class="showInfor">
+        <text>{{userNickname}}</text>
+      </view>
+    </view>
+    <view bindtap="openPage" class="item" data-url="/pages/my/information/name/name" formType="submit" hoverClass="none">
+      <view class='wallet'>
+        <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>
+        <text>姓名</text>
+      </view>
+      <view class="showInfor">
+        <text>{{userName}}</text>
+      </view>
+    </view>
+    <view bindtap="openPage" class="item" data-url="/pages/my/information/introduction/introduction" formType="submit" hoverClass="none">
+      <view class='wallet'>
+        <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>
+        <text>个性签名</text>
+      </view>
+      <view class="showInfor">
+        <text>{{userLabel}}</text>
+      </view>
+    </view>
+    <view bindtap="openPage" class="item" hoverClass="none">
+      <view class='wallet'>
+        <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>
+        <text>手机号码</text>
+      </view>
+      <view class="showInfor">
+        <text>{{userAccount}}</text>
+      </view>
+    </view>
+    <view bindtap="openPage" class="item" data-url="/pages/my/information/age/age" formType="submit" hoverClass="none">
+      <view class='wallet'>
+        <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>
+        <text>年龄</text>
+      </view>
+      <view class="showInfor">
+        <text>{{userAge}}</text>
+      </view>
+    </view>
+    <view bindtap="openPage" class="item" data-url="/pages/my/information/birthday/birthday" formType="submit" hoverClass="none">
+      <view class='wallet'>
+        <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>
+        <text>生日</text>
+      </view>
+      <view class="showInfor">
+        <text>{{userBirthday}}</text>
+      </view>
+    </view>
+    <view bindtap="openPage" class="item" data-url="/pages/my/information/location/location" formType="submit" hoverClass="none">
+      <view class='wallet'>
+        <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>
+        <text>所在地</text>
+      </view>
+      <view class="showInfor">
+        <text>{{userLocation}}</text>
+      </view>
+    </view>
+    <view bindtap="openPage" class="item" data-url="/pages/my/information/email/email" formType="submit" hoverClass="none">
+      <view class='wallet'>
+        <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>
+        <text>邮箱</text>
+      </view>
+      <view class="showInfor">
+        <text>{{userEmail}}</text>
+      </view>
+    </view>
+  </view>
+</form>

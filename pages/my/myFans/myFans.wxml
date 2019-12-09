@@ -1,0 +1,12 @@
+<!--pages/myFans/myFans.wxml-->
+<view class='message' wx:for="{{items}}" wx:for-index="index" wx:for-item="items">
+  <view class='total'>
+      <image bindtap="bindPersonalTap" data-id="{{items.userAccount}}" class='headImage' src='{{items.userPortrait}}'></image>
+      <view class='middle' bindtap="bindPersonalTap" data-id="{{items.userAccount}}">
+        <view class='nickname'>{{items.userNickname}}</view>
+        <view class='introduction'>{{items.userLabel}}</view>
+      </view>
+      <view class="other {{followFlag[index]==0?'activeTag':''}} followState" bindtap="changeFollowState" data-key="{{followFlag[index]}}" data-index="{{index}}">{{followState[followFlag[index]]}}</view>
+    </view>
+  <view class='line'></view>
+</view>

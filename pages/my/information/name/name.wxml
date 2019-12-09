@@ -1,0 +1,9 @@
+<!--pages/information/name/name.wxml-->
+<form bindsubmit="formSubmit">
+  <view class="changeName">
+    <view class="name">
+      <input class="input" name="userName" placeholder="请输入姓名" placeholder-style="font-size:16px" auto-focus="true"></input>
+    </view>
+  </view>
+  <button class="butt" form-type="submit">提交</button>
+</form>

@@ -1,0 +1,25 @@
+<view class="content">
+  <view class="logo">
+    <image mode="aspectFit" src="/images/csee.png"></image>
+  </view>
+  <form bindsubmit="FormSubmit">
+    <view class="input-area">
+      <input name="username" maxlength='40' type="text" placeholder="手机号" />
+      <input name="password" maxlength='20' type="password" placeholder="密码" />
+    </view>
+    <view class="btn-area">
+      <button  disabled="{{disabled}}" type="primary" formType="submit" loading="{{btnLoading}}" class="butt"> {{LoginBtnTxt}} </button>
+      <view class="txt-area">
+        <navigator redirect url='../findpassword/index?type=1'>
+          <text class="forgot-password">忘记密码？</text>
+        </navigator>
+        <navigator redirect url="../regist/index">
+          <text class="register">注册账号</text>
+        </navigator>
+      </view>
+    </view>
+  </form>
+
+  <!--<progress class="myprogress" percent="{{percent }}" color="{{color}}" active/>-->
+
+</view>

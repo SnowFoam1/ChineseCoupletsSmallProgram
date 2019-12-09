@@ -1,0 +1,18 @@
+<view class="classify">
+ 
+  <!--分类导航栏-->
+  <scroll-view class='left-navbar' scroll-y="true" >
+    <view wx:for="{{classArray}}" class="{{currentTab == index+1 ? 'active' : '' }}" wx:key="unique" bindtap="{{ currentTab != index+1 ? 'navbarTap':'active' }}" id="{{index+1}}" data-classId="{{item.classId}}">{{item.className}}
+    </view>
+  </scroll-view>
+ <!--右侧楹联列表-->
+  <scroll-view id="right" scroll-y="true" scroll-top="{{scrollTop}}">
+    <view class="couplets_list" wx:for="{{coupletsArray}}" wx:key="unique" >
+      <view class="couplets_type" bindtap="GetDetail" data-coupletId="{{item.coupletsexistedId}}">
+        <!--view>{{item.coupletsexistedId}}</view-->
+        <view >{{item.coupletsexistedUpcouplets}}</view>
+        <view >{{item.coupletsexistedDowncouplets}}</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

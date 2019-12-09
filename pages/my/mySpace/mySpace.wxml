@@ -1,0 +1,85 @@
+<view class="topTab flexWrp flexTab ">
+  <view class="toptab flexItem {{currentNavtab==idx ? 'active' : ''}}" wx:for="{{navTab}}" wx:for-index="idx" wx:for-item="itemName" data-idx="{{idx}}" bindtap="switchTab">
+    {{itemName}}
+  </view>
+</view>
+
+<scroll-view scroll-y="true" class="container">
+  <view class="ctnt0" hidden="{{currentNavtab==0 ? '' : true}}">
+    <view class="touchItem {{item.isTouchMove ? 'touch-move-active' : ''}}" scroll-y="{{item.isTouchMove ? '' : true}}" wx:for="{{items}}" wx:for-idx="idx" wx:for-item="item" bindtouchstart="touchStart" bindtouchmove="touchMove" data-index="{{index}}">
+      <view class="feedItem" data-index="{{index}}">
+        <view class="feedSource">
+          <a class="">
+            <view class="avatar">
+              <image src="{{userPortrait}}"></image>
+            </view>
+            <text>{{userNickname}}</text>
+          </a>
+        </view>
+        <view class="feedContent">
+          <view class="question" bindtap="bindQueTap">
+            <a class="label">
+              <text>【{{labels[item.lableContent-1]}}】</text>
+            </a>
+          </view>
+          <view class="question" qid="{{questionId}}" bindtap="bindQueTap">
+            <a class="questionLink">
+              <text>{{item.postTitle}}</text>
+            </a>
+          </view>
+          <view class="answerBody">
+            <view bindtap="bindItemTap">
+              <text class="answerTxt" aid="{{answerId}}">{{item.postContent}}</text>
+            </view>
+            <view class="answerActions" bindtap="bindItemTap">
+              <view class="dot">
+                <a>{{item.postPsum}} 点赞 </a>
+              </view>
+              <view class="dot">
+                <a>{{item.postRsum}} 评论 </a>
+              </view>
+              <view>
+                <a>{{item.postViewnum}} 浏览 </a>
+              </view>
+              <view class="postTime">
+                <a>{{item.postTime}}</a>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="delete" bindtap="delItem" data-index="{{index}}">删除</view>
+    </view>
+  </view>
+
+  <view class="ctnt1" hidden="{{currentNavtab==1 ? '' : true}}">
+    <view wx:for="{{replys}}" wx:for-idx="idx" wx:for-item="reply" data-index="{{index}}">
+      <view class="feedItem" data-index="{{index}}">
+        <view class="feedSource">
+          <a class="">
+            <view class="avatar">
+              <image src="{{reply.userPortrait}}"></image>
+            </view>
+            <text>{{reply.userNickname}} 于 {{reply.replyTime}} 回复了你的帖子：</text>
+          </a>
+        </view>
+        <view class="feedContent">
+          <view class="question" qid="{{questionId}}" bindtap="bindQueTap">
+            <a class="questionLink">
+              <text>{{reply.postTitle}}</text>
+            </a>
+          </view>
+          <view class="answerBody">
+            <view bindtap="bindItemTap">
+              <text class="answerTxt" aid="{{answerId}}">"{{reply.replyContent}}"</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- <view class="delete" bindtap="delItem" data-index="{{index}}">删除</view> -->
+    </view>
+  </view>
+  <view class="ctnt2 placehold" hidden="{{currentNavtab==2 ? '' : true}}">
+    <text>点赞</text>
+  </view>
+</scroll-view>
