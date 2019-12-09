@@ -2,6 +2,6 @@
 
 <input value='{{commentsContent}}' type='text' maxlength='100' class='commentsInput' placeholder='请输入评论内容（100字以内）' placeholder-class='phcolor' bindinput='inputCommentsContentListening' bindfocus="inputCommentsFocus" bindblur="inputCommentsBlur"></input>
 
-<text class='commentsBtn' bindtap='clickComments'>评论</text>
+<text class='commentsBtn' bindtap='clickComments'>jjjjjjjjjjjjj评论</text>
 
 </view>
