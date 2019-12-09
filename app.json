@@ -44,8 +44,7 @@
     "pages/my/follow/follow",
     "pages/my/purchaseHistory/purchaseHistory",
     "pages/my/myFans/myFans",
-    "pages/my/othersSpace/othersSpace",
-    "pages/test"
+    "pages/my/othersSpace/othersSpace"
   ],
   "tabBar": {
     "list": [

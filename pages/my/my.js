@@ -80,6 +80,7 @@ Page({
   },
 
   signin: function () {
+    var that = this;
     this.setData({
       signFlag: 1
     })
@@ -100,6 +101,7 @@ Page({
         wx.showToast({
           title: '积分 up 5 ~~~',
         })
+        that.onLoad();
       }
     })
   },
