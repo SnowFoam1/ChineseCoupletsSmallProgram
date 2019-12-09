@@ -251,13 +251,14 @@ Page({
   },
 
   send: function (event) {
+    console.log(event);
     var that = this;
     var comment = this.data.comment;
     that.setData({
       focus: false,
     })
     console.log(that.data.focus);
-    console.log(that.data.comcontent);
+    console.log(that.data.comcontent+"1111111111");
     wx: wx.request({
       url: 'http://106.54.206.129:8080/post/reply',
       data: {
@@ -331,14 +332,25 @@ Page({
 
   //失去聚焦
   blur: function (e) {
-    var that = this;
+    console.log("shijiao");
+    /*var that = this;
     that.setData({
       bottom: 0,
-      comcontent: e.detail.value
+     // comcontent: e.detail.value
+    })*/
+    this.setData({
+      bottom:0,
     })
     console.log(this.data.comcontent)
   },
 
+  input:function(e){
+    console.log(e);
+    this.setData({
+      comcontent: e.detail.value
+    })
+    console.log(this.data.comcontent)
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
