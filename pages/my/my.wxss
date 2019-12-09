@@ -33,6 +33,7 @@ page {
 .userBox {
   display: flex;
   align-items: center;
+  width: 73%;
 }
 
 .edit {
@@ -93,6 +94,30 @@ page {
   margin-top: 12rpx;
   font-size: 27rpx;
   color: #fff;
+}
+
+.sign {
+  flex: 2;
+  padding: 15px 0;
+  font-size: 20rpx;
+  margin-left: 5px;
+}
+
+.sign .notyet text {
+  display: inline-block;
+  padding: 15rpx 20rpx;
+  color: #fafafa;
+  border: solid 2px #f9f9f9;
+  border-radius: 6rpx;
+}
+
+.sign .already text {
+  display: inline-block;
+  padding: 15rpx 20rpx;
+  background-color: #c93c3c;
+  color:  #fafafa;
+  border: solid 2px  #f9f9f9;
+  border-radius: 6rpx;
 }
 
 .info {

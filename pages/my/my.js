@@ -17,7 +17,8 @@ Page({
     disabled: false,
     phone: '',
     pass: '',
-    flag:false
+    flag: false,
+    signFlag: 0,
   },
 
   /**
@@ -75,6 +76,31 @@ Page({
     this.setData({
       userNickname: userNickname,
       userLabel: userLabel,
+    })
+  },
+
+  signin: function () {
+    this.setData({
+      signFlag: 1
+    })
+    console.log(this.data.userAccount);
+    wx.request({
+      url: 'http://106.54.206.129:8080/score/addScore',
+      data: {
+        account: this.data.userAccount,
+        score: 5,
+        source: 5
+      },
+      method: 'GET',
+      header: {
+        'content-type': 'application/json' //默认值
+      },
+      success: function (res) {
+        console.log(res);
+        wx.showToast({
+          title: '积分 up 5 ~~~',
+        })
+      }
     })
   },
 

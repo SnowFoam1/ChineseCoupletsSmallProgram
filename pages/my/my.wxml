@@ -1,9 +1,9 @@
 <!--pages/my/my.wxml-->
 <form reportSubmit bindsubmit="submitFormId" wx:if="{{flag}}">
   <view class="header">
-    <view bindtap="openPage" class="item" data-url="/pages/my/information/information" formType="submit" hoverClass="none">
+    <view class="item" formType="submit" hoverClass="none">
       <view class="user" hoverClass="none">
-        <view class="userBox">
+        <view class="userBox" bindtap="openPage" data-url="/pages/my/information/information">
           <view catchtap="previewImage" class="logo">
             <image src="/icons/saber.jpg"></image>
           </view>
@@ -20,6 +20,16 @@
             </view>
           </view>
         </view>
+
+        <view class="sign" bindtap="signin">
+          <view class="notyet">
+            <text wx:if="{{signFlag==0}}">+ 签到</text>
+          </view>
+          <view class="already">
+            <text wx:if="{{signFlag==1}}">已签到</text>
+          </view>
+        </view>
+
       </view>
     </view>
     <image src='https://edu.qinhui88.com/assets/wx/image/wave.gif' mode='scaleToFill' class='gif-wave'></image>
