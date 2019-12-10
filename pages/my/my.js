@@ -60,6 +60,24 @@ Page({
           })
         }
       })
+
+      wx.request({
+        url: 'http://106.54.206.129:8080/sign/judgeSign?',
+        data: {
+          account: app.globalData.userAccountId
+        },
+        method: 'GET',
+        header: {
+          'content-type': 'application/json' //默认值
+        },
+        success: function (res) {
+          console.log(res)
+          that.setData({
+            signFlag: 1
+          })
+        }
+      })
+
     }
     
   },
