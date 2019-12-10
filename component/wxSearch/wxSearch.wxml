@@ -7,20 +7,20 @@
   <view class="result_search" hidden="{{searchIsHidden}}" bindtap='bindSearchHidden'>
     <view class='list_search'>
       <view class='li_list_search' wx:for="{{searchList}}" wx:key="{{index}}" wx:if="{{index<3 || searchAllShow}}" catchtap="bindGoSchool" data-item="{{item}}">
-        <!--view class="wait"-->
-          <image class="icon-waiting" src="/assets/images/icon-waiting.png" ></image>
-        <!--/view-->
+        <view class="icon-waiting">
+          <image src="/assets/images/icon-waiting.png"></image>
+        </view>
         <text class="pl30 colGray">{{item}}</text>
-        <view  catchtap="bindDelLog" data-item="{{item}}">
-          <image  class='icon-cancel' src="/assets/images/icon-cancel.png"></image>
+        <view class='icon-cancel rightFlex' catchtap="bindDelLog" data-item="{{item}}">
+          <image src="/assets/images/icon-cancel.png"></image>
         </view>
       </view>
     </view>
     <view class="li_list_search" catchtap="bindSearchAllShow" wx:if="{{searchList.length>3 && !searchAllShow}}">
       <view class="icon-waiting"></view>
       <text class="pl30 colGray">全部搜索记录</text>
-      <view >
-        <image class='icon-down rightFlex'src="/assets/images/icon-down.png"></image>
+      <view class='icon-down rightFlex'>
+        <image src="/assets/images/icon-down.png"></image>
       </view>
     </view>
     <view class='li_list_search' catchtap="bindClearSearch" wx:if="{{searchList.length>0 && searchAllShow}}">

@@ -1,19 +1,13 @@
-import { getStorage, setStorage, setData } from '../../utils/util.js';
-//import * as test from '../../utils/util.js'
-//var test = require("../../utils/util.js")
-/* component/wxSearch.js*/
+import { getStorage, setStorage, setData } from '../../utils/util';
+// component/wxSearch.js
 module.exports = {
   init(that) {
-    console.log(that);
-    console.log(getStorage);
     this._setData(that, {
       'searchList': getStorage('searchList') || []
     })
-    console.log(that);
   },
 
   bindShowLog(e, that) {
-    console.log(e);
     this.showlog(that)
   },
 
@@ -24,9 +18,10 @@ module.exports = {
   },
 
   bindInputSchool(e, that) {
+    //console.log(e);
     var val = e.detail.value;
-    console.log(val);
     this.matchStroage(that, val)
+    //console.log(val);
   },
 
   bindSearchAllShow(e, that) {
@@ -38,9 +33,11 @@ module.exports = {
   bindGoSearch(e, that) {
     let searchList_stroage = getStorage('searchList') || [];
     const inputVal = that.data.tabData.inputVal;
+
     searchList_stroage.push(inputVal)
 
     setStorage('searchList', searchList_stroage)
+
     this._setData(that, {
       inputVal: ''
     })
@@ -66,8 +63,7 @@ module.exports = {
     let searchList = []
     if (typeof (searchList_stroage) != undefined && searchList_stroage.length > 0) 
     {
-      for (var i = 0, len = searchList_stroage.length; i < len; i++) 
-      {
+      for (var i = 0, len = searchList_stroage.length; i < len; i++) {
         searchList.push(searchList_stroage[i])
       }
     } 
@@ -82,14 +78,15 @@ module.exports = {
     })
   },
 
-  matchStroage(that, val) {
+  matchStroage(that, val) {//判断当前搜索在不再缓存
     let searchList_stroage = getStorage('searchList') || [];
+    console.log(searchList_stroage)
     let searchList = []
     if (typeof (val) != undefined && val.length > 0 && typeof (searchList_stroage) != undefined && searchList_stroage.length > 0) 
     {
       for (var i = 0, len = searchList_stroage.length; i < len; i++) 
       {
-        if (searchList_stroage[i].indexOf(val) != -1) 
+        if (searchList_stroage[i].indexOf(val) != -1) //
         {
           searchList.push(searchList_stroage[i])
         }
@@ -97,8 +94,9 @@ module.exports = {
     } 
     else 
     {
-      searchList = searchList_stroage
+      searchList = searchList_stroage  
     }
+    console.log(searchList);
     this._setData(that, {
       inputVal: val,
       searchList
@@ -107,8 +105,7 @@ module.exports = {
 
   _setData(that, param) {
     let tabData = that.data.tabData;
-    for (var key in param) 
-    {
+    for (var key in param) {
       tabData[key] = param[key];
     }
     that.setData({

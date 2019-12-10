@@ -26,26 +26,20 @@
   height:89rpx;
   padding:0 40rpx;
   display:flex;
-  flex-direction: column;
   align-content:center;
-  /*justify-content:space-between; */
-  line-height:89rpx;
+  /* justify-content:space-between; */
+   line-height:89rpx;
   border-bottom:solid 2rpx #f0f0f0;
 }
 .li_list_search text{
   font-size:30rpx;
 }
-
 .icon-waiting{
-  padding-top: 30rpx;
-  width:29rpx;
-  height:29rpx;
+  width:29rpx;height:29rpx;
 }
-
 .icon-cancel{
   padding-right:3rpx;
-  width:22rpx;
-  height:22rpx;
+  width:22rpx;height:22rpx;
 }
 .icon-down{
   width: 30rpx;
