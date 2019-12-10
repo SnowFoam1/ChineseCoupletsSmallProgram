@@ -2,12 +2,12 @@
 
 <scroll-view scroll-y="true" class="container" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
   <block wx:for="{{items}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}" >
-    <view class="feedItem" bindtap="bindItemTap" data-id="{{item.postId}}" data-account="{{item.userAccount}}" data-title="{{item.postTitle}}" data-content="{{item.postContent}}" data-label="{{labels[item.lableContent-1]}}"
+    <view class="feedItem" bindtap="bindItemTap" data-id="{{item.postId}}" data-account="{{item.userAccount}}" data-title="{{item.postTitle}}" data-content="{{item.postContent}}" data-label="{{labels[item.labelContent-1]}}"
     data-nickname="{{item.userNickname}}" data-userlabel="{{item.userLabel}}" data-like="{{item.postPsum}}" data-comment="{{item.postRsum}}">
       <view class="feedSource">
         <a class="">
           <view class="avatar">
-            <image src="{{userPortrait}}"></image>
+            <image src="{{item.userPortrait}}"></image>
           </view>
           <text>{{item.userNickname}}</text>
         </a>
@@ -15,7 +15,7 @@
       <view class="feedContent">
         <view class="question">
           <a class="label">
-            <text>【{{labels[item.lableContent-1]}}】</text>
+            <text>【{{labels[item.labelContent-1]}}】</text>
           </a>
         </view>
         <view class="question" qid="{{questionId}}">

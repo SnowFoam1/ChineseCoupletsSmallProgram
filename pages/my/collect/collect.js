@@ -32,9 +32,9 @@ Page({
     userAccount = options.userAccount;
     var that = this
     wx.request({
-      url: 'http://106.54.206.129:8080/collection/getCollectionPostsByUserId',
+      url: 'http://106.54.206.129:8080/collection/getCollectionList',
       data: {
-        id: userAccount
+        account: userAccount
       },
       header: {
         "Content-Type": "applciation/json"
@@ -44,6 +44,9 @@ Page({
         console.log(res);
         var result = res.data;
         for (var i = 0; i < result.length; i++) {
+          if (result[i].userPortrait == "") {
+            result[i].userPortrait = '/icons/saber.jpg'
+          }
           result[i].postTime = utils.formatTime(result[i].postTime, 'Y-M-D h:m')
         }
         console.log(result)
@@ -61,8 +64,8 @@ Page({
     var title = e.currentTarget.dataset.title;
     var content = e.currentTarget.dataset.content;
     var label = e.currentTarget.dataset.label;
-    var userlabel = e.currentTarget.dataset.userLabel;
-    var nickname = e.currentTarget.dataset.userNickname;
+    var userlabel = e.currentTarget.dataset.userlabel;
+    var nickname = e.currentTarget.dataset.nickname;
     var like = e.currentTarget.dataset.like;
     var comment = e.currentTarget.dataset.comment;
 
