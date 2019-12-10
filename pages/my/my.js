@@ -24,19 +24,17 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  change:function(a)
-  {
+  change: function(a) {
     this.setData({
-      flag:a,
-      userAccount:app.globalData.userAccountId
+      flag: a,
+      userAccount: app.globalData.userAccountId
     })
   },
-  onLoad: function () {
+  onLoad: function() {
     //console.log(app.globalData.isLogin)
     //this.data.test = app.globalData.isLogin
-    if(app.globalData.isLogin == true)
-    {
-      
+    if (app.globalData.isLogin == true) {
+
       this.change(app.globalData.isLogin);
       console.log(app.globalData.isLogin);
       var that = this;
@@ -51,7 +49,7 @@ Page({
         header: {
           'content-type': 'application/json' //默认值
         },
-        success: function (res) {
+        success: function(res) {
           console.log(res)
           that.setData({
             userScore: res.data.userScore,
@@ -62,7 +60,7 @@ Page({
       })
 
       wx.request({
-        url: 'http://106.54.206.129:8080/sign/judgeSign?',
+        url: 'http://106.54.206.129:8080/sign/judgeSign',
         data: {
           account: app.globalData.userAccountId
         },
@@ -70,25 +68,27 @@ Page({
         header: {
           'content-type': 'application/json' //默认值
         },
-        success: function (res) {
+        success: function(res) {
           console.log(res)
-          that.setData({
-            signFlag: 1
-          })
+          if (res.data == '今日已签到') {
+            that.setData({
+              signFlag: 1
+            })
+          }
         }
       })
 
     }
-    
+
   },
 
-  onShow: function () {
+  onShow: function() {
     //console.log(app.globalData.isLogin)
     /*this.setData({
       isLogin:app.globalData.isLogin
     })*/
     var pages = getCurrentPages();
-    var currPage = pages[pages.length - 1];   //当前页面
+    var currPage = pages[pages.length - 1]; //当前页面
     let userNickname = currPage.data.userNickname;
     let userLabel = currPage.data.userLabel;
     this.setData({
@@ -97,31 +97,33 @@ Page({
     })
   },
 
-  signin: function () {
+  signin: function() {
     var that = this;
-    this.setData({
-      signFlag: 1
-    })
     console.log(this.data.userAccount);
-    wx.request({
-      url: 'http://106.54.206.129:8080/score/addScore',
-      data: {
-        account: this.data.userAccount,
-        score: 5,
-        source: 5
-      },
-      method: 'GET',
-      header: {
-        'content-type': 'application/json' //默认值
-      },
-      success: function (res) {
-        console.log(res);
-        wx.showToast({
-          title: '积分 up 5 ~~~',
-        })
-        that.onLoad();
-      }
-    })
+    if (this.data.signFlag == 0) {
+      wx.request({
+        url: 'http://106.54.206.129:8080/score/addScore',
+        data: {
+          account: this.data.userAccount,
+          score: 5,
+          source: 5
+        },
+        method: 'GET',
+        header: {
+          'content-type': 'application/json' //默认值
+        },
+        success: function(res) {
+          console.log(res);
+          wx.showToast({
+            title: '积分 up 5 ~~~',
+          })
+          that.setData({
+            signFlag: 1
+          })
+          that.onLoad();
+        }
+      })
+    }
   },
 
   openPage: function(a) {
@@ -130,29 +132,27 @@ Page({
       url: e + '?userAccount=' + this.data.userAccount
     });
   },
-  changePassword:function()
-  {
+  changePassword: function() {
     wx.navigateTo({
-      url: '/pages/findpassword/index?type='+2,
+      url: '/pages/findpassword/index?type=' + 2,
     })
   },
-  toLogin:function()
-  {
+  toLogin: function() {
     wx.redirectTo({
       url: '/pages/login/index',
     })
   },
-  previewImage: function(){
+  previewImage: function() {
     var that = this;
     wx.showActionSheet({
       itemList: ['更换头像'],
-      success: function (res) {
+      success: function(res) {
         console.log(res);
         if (res.tapIndex === 0) {
           wx.chooseImage({
             count: 1,
-            sizeType:['original'],
-            sourceType: ['album','camera'],
+            sizeType: ['original'],
+            sourceType: ['album', 'camera'],
             success: function(res) {
               var tempFilePath = res.tempFilePaths[0];
               console.log(tempFilePath);

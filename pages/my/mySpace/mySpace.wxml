@@ -83,7 +83,7 @@
 
   <view class="ctnt2 placehold" hidden="{{currentNavtab==2 ? '' : true}}">
     <block wx:for="{{likes}}" wx:for-index="idx" wx:for-item="like" data-idx="{{idx}}">
-      <view class="feedItem" bindtap="bindlikeTap" data-id="{{likes.postId}}" data-account="{{like.userAccount}}" data-title="{{like.postTitle}}" data-content="{{like.postContent}}" data-label="{{labels[like.labelContent-1]}}" data-nickname="{{like.userNickname}}"
+      <view class="feedItem" bindtap="bindlikeTap" data-id="{{like.postId}}" data-account="{{like.userAccount}}" data-title="{{like.postTitle}}" data-content="{{like.postContent}}" data-label="{{labels[like.labelContent-1]}}" data-nickname="{{like.userNickname}}"
         data-userlabel="{{like.userLabel}}" data-like="{{like.postPsum}}" data-comment="{{like.postRsum}}">
         <view class="feedSource">
           <a class="">
