@@ -6,7 +6,8 @@
 
 <scroll-view scroll-y="true" class="container">
   <view class="ctnt0" hidden="{{currentNavtab==0 ? '' : true}}">
-    <view class="touchItem {{item.isTouchMove ? 'touch-move-active' : ''}}" scroll-y="{{item.isTouchMove ? '' : true}}" wx:for="{{items}}" wx:for-idx="idx" wx:for-item="item" bindtouchstart="touchStart" bindtouchmove="touchMove" data-index="{{index}}">
+    <view class="touchItem {{item.isTouchMove ? 'touch-move-active' : ''}}" scroll-y="{{item.isTouchMove ? '' : true}}" wx:for="{{items}}" wx:for-idx="idx" wx:for-item="item" bindtouchstart="touchStart" bindtouchmove="touchMove" data-index="{{index}}" bindtap="bindItemTap" data-id="{{item.postId}}" data-account="{{item.userAccount}}" data-title="{{item.postTitle}}" data-content="{{item.postContent}}" data-label="{{labels[item.lableContent-1]}}" data-nickname="{{item.userNickname}}"
+        data-userlabel="{{item.userLabel}}" data-like="{{item.postPsum}}" data-comment="{{item.postRsum}}">
       <view class="feedItem" data-index="{{index}}">
         <view class="feedSource">
           <a class="">
@@ -28,10 +29,10 @@
             </a>
           </view>
           <view class="answerBody">
-            <view bindtap="bindItemTap">
+            <view>
               <text class="answerTxt" aid="{{answerId}}">{{item.postContent}}</text>
             </view>
-            <view class="answerActions" bindtap="bindItemTap">
+            <view class="answerActions" >
               <view class="dot">
                 <a>{{item.postPsum}} 点赞 </a>
               </view>
@@ -70,7 +71,7 @@
             </a>
           </view>
           <view class="answerBody">
-            <view bindtap="bindItemTap">
+            <view >
               <text class="answerTxt" aid="{{answerId}}">"{{reply.replyContent}}"</text>
             </view>
           </view>
@@ -79,7 +80,51 @@
       <!-- <view class="delete" bindtap="delItem" data-index="{{index}}">删除</view> -->
     </view>
   </view>
+
   <view class="ctnt2 placehold" hidden="{{currentNavtab==2 ? '' : true}}">
-    <text>点赞</text>
+    <block wx:for="{{likes}}" wx:for-index="idx" wx:for-item="like" data-idx="{{idx}}">
+      <view class="feedItem" bindtap="bindlikeTap" data-id="{{likes.postId}}" data-account="{{like.userAccount}}" data-title="{{like.postTitle}}" data-content="{{like.postContent}}" data-label="{{labels[like.labelContent-1]}}" data-nickname="{{like.userNickname}}"
+        data-userlabel="{{like.userLabel}}" data-like="{{like.postPsum}}" data-comment="{{like.postRsum}}">
+        <view class="feedSource">
+          <a class="">
+            <view class="avatar">
+              <image src="{{like.userPortrait}}"></image>
+            </view>
+            <text>{{like.userNickname}}</text>
+          </a>
+        </view>
+        <view class="feedContent">
+          <view class="question">
+            <a class="label">
+              <text>【{{labels[like.labelContent-1]}}】</text>
+            </a>
+          </view>
+          <view class="question" qid="{{questionId}}">
+            <a class="questionLink">
+              <text>{{like.postTitle}}</text>
+            </a>
+          </view>
+          <view class="answerBody">
+            <view>
+              <text class="answerTxt" aid="{{answerId}}">{{like.postContent}}</text>
+            </view>
+            <view class="answerActions">
+              <view class="like dot">
+                <a>{{like.postPsum}} 点赞 </a>
+              </view>
+              <view class="comments dot">
+                <a>{{like.postRsum}} 评论 </a>
+              </view>
+              <view class="comments">
+                <a>{{like.postViewnum}} 浏览 </a>
+              </view>
+              <view class="postTime">
+                <a>{{like.postTime}}</a>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
   </view>
 </scroll-view>

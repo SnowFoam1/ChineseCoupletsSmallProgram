@@ -11,7 +11,7 @@ Page({
   data: {
     navTab: ["动态", "回复", "点赞"],
     currentNavtab: "0",
-    replys:[],
+    replys: [],
     labels: [
       "楹联鉴赏",
       "发布楹联",
@@ -20,9 +20,13 @@ Page({
     imgUrls: [],
     items: [],
     feed: [],
-    feedLength: 0
+    likes: [],
+    feedLength: 0,
+    userLabel: '',
+    userNickname: '',
+    
   },
-  switchTab: function (e) {
+  switchTab: function(e) {
     this.setData({
       currentNavtab: e.currentTarget.dataset.idx
     });
@@ -30,7 +34,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     console.log("onload");
     userAccount = App.globalData.userAccountId;
     var that = this
@@ -43,7 +47,8 @@ Page({
         "Content-Type": "applciation/json"
       },
       method: 'GET',
-      success: function (res) {
+      success: function(res) {
+        console.log(res);
         var result = res.data;
         for (var i = 0; i < result.length; i++) {
           result[i].postTime = utils.formatTime(result[i].postTime, 'Y-M-D h:m')
@@ -63,7 +68,7 @@ Page({
         "Content-Type": "applciation/json"
       },
       method: 'GET',
-      success: function (res) {
+      success: function(res) {
         var result = res.data;
         console.log(res)
         if (result.userPortrait == "") {
@@ -71,7 +76,8 @@ Page({
         }
         that.setData({
           userNickname: result.userNickname,
-          userPortrait: result.userPortrait
+          userPortrait: result.userPortrait,
+          userLabel: result.userLabel,
         })
       }
     })
@@ -84,23 +90,45 @@ Page({
         "Content-Type": "applciation/json"
       },
       method: 'GET',
-      success: function (res) {
+      success: function(res) {
         var result = res.data;
         console.log(res)
-        for(var i=0; i<result.length; i++){
+        for (var i = 0; i < result.length; i++) {
           if (result[i].userPortrait == "") {
             result[i].userPortrait = '/icons/saber.jpg'
           }
           result[i].replyTime = utils.formatTime(result[i].replyTime, 'Y-M-D h:m')
         }
         that.setData({
-          replys : result
+          replys: result
         })
       }
     })
+    wx.request({
+      url: 'http://106.54.206.129:8080/post/getUserLikeList',
+      data: {
+        id: userAccount
+      },
+      header: {
+        "Content-Type": "applciation/json"
+      },
+      method: 'GET',
+      success: function (res) {
+        console.log(res);
+        var result = res.data;
+        for (var i = 0; i < result.length; i++) {
+          result[i].postTime = utils.formatTime(result[i].postTime, 'Y-M-D h:m')
+        }
+        console.log(result)
+        that.setData({
+          likes: result
+        })
+      }
+    })
+
   },
   //手指触摸动作开始 记录起点X坐标
-  touchStart: function (e) {
+  touchStart: function(e) {
     //开始触摸时 重置所有删除
     let data = App.touch._touchstart(e, this.data.items)
     this.setData({
@@ -108,7 +136,7 @@ Page({
     })
   },
   //滑动事件处理
-  touchMove: function (e) {
+  touchMove: function(e) {
     let data = App.touch._touchmove(e, this.data.items)
     this.setData({
       items: data
@@ -130,12 +158,12 @@ Page({
   //     })
   //   }
   // },
-  delItem: function (e) {
+  delItem: function(e) {
     var that = this
     wx.showModal({
       title: '提示',
       content: '确认要删除此条动态吗？',
-      success: function (res) {
+      success: function(res) {
         var postId = that.data.items[e.currentTarget.dataset.index].postId;
         if (res.confirm) {
           console.log('用户点击确定')
@@ -148,7 +176,7 @@ Page({
               "Content-Type": "applciation/json"
             },
             method: 'GET',
-            success: function (res) {
+            success: function(res) {
               that.setData({
                 items: that.data.items
               })
@@ -161,38 +189,76 @@ Page({
       }
     })
   },
+
+  bindItemTap: function(e) {
+    var postId = e.currentTarget.dataset.id;
+    var account = e.currentTarget.dataset.account;
+    var title = e.currentTarget.dataset.title;
+    var content = e.currentTarget.dataset.content;
+    var label = e.currentTarget.dataset.label;
+    var userlabel = this.data.userLabel;
+    var nickname = this.data.userNickname;
+    var like = e.currentTarget.dataset.like;
+    var comment = e.currentTarget.dataset.comment;
+
+    console.log(e.currentTarget.dataset.id);
+    console.log(e.currentTarget.dataset.label);
+    wx.navigateTo({
+      url: '/pages/postsDisplay/postdetial/postdetail?account=' + account + '&postId=' + postId + '&title=' + title + '&content=' + content + '&label=' + label + '&nickname=' + nickname + '&userlabel=' + userlabel + '&like=' + like + '&comment=' + comment,
+    })
+
+  },
+
+  bindlikeTap: function (e) {
+    var postId = e.currentTarget.dataset.id;
+    var account = e.currentTarget.dataset.account;
+    var title = e.currentTarget.dataset.title;
+    var content = e.currentTarget.dataset.content;
+    var label = e.currentTarget.dataset.label;
+    var userlabel = e.currentTarget.dataset.userLabel;
+    var nickname = e.currentTarget.dataset.userNickname;
+    var like = e.currentTarget.dataset.like;
+    var comment = e.currentTarget.dataset.comment;
+
+    console.log(e.currentTarget.dataset.id);
+    console.log(e.currentTarget.dataset.label);
+    wx.navigateTo({
+      url: '/pages/postsDisplay/postdetial/postdetail?account=' + account + '&postId=' + postId + '&title=' + title + '&content=' + content + '&label=' + label + '&nickname=' + nickname + '&userlabel=' + userlabel + '&like=' + like + '&comment=' + comment,
+    })
+
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
     wx.wx.showToast({
       title: 'loading....',
       icon: 'loading'
@@ -202,14 +268,14 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })
