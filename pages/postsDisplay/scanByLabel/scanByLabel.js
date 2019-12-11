@@ -23,7 +23,7 @@ Page({
     })
     console.log(this.data.label);
     wx.request({
-      url: 'http://106.54.206.129:8080/search/searchPost',
+      url: 'http://106.54.206.129:8080/search/searchLabel',
       data: {
         searchContent: this.data.label
       },
