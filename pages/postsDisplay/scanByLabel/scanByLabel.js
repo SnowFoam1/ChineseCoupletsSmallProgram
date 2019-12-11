@@ -22,28 +22,6 @@ Page({
       label: options.label
     })
     console.log(this.data.label);
-    wx.request({
-      url: 'http://106.54.206.129:8080/search/searchLabel',
-      data: {
-        searchContent: this.data.label
-      },
-      method: 'GET',
-      header: {
-        'content-type': 'application/json' //默认值
-      },
-      success: function(res) {
-        var result = res.data;
-        console.log(result);
-        for (var i = 0; i < result.length; i++) {
-          result[i].postTime = utils.formatTime(result[i].postTime, 'Y-M-D h:m');
-        }
-        console.log(result);
-        that.setData({
-          items: result,
-        })
-
-      }
-    })
   },
 
   //具体信息页面跳转
@@ -71,6 +49,29 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
+    var that = this;
+    wx.request({
+      url: 'http://106.54.206.129:8080/search/searchLabel',
+      data: {
+        searchContent: this.data.label
+      },
+      method: 'GET',
+      header: {
+        'content-type': 'application/json' //默认值
+      },
+      success: function (res) {
+        var result = res.data;
+        console.log(result);
+        for (var i = 0; i < result.length; i++) {
+          result[i].postTime = utils.formatTime(result[i].postTime, 'Y-M-D h:m');
+        }
+        console.log(result);
+        that.setData({
+          items: result,
+        })
+
+      }
+    })
 
   },
 
@@ -78,7 +79,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    this.onReady();
   },
 
   /**
