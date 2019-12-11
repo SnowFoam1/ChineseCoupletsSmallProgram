@@ -1,0 +1,50 @@
+<!--pages/postsDisplay/scanByLabel/scanByLabel.wxml-->
+<view class="container">
+  <view class="search flexWrp">
+    <text class="thelabel">【{{label}}】</text>
+  </view>
+  <block  wx:for="{{items}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+    <view class="feedItem" bindtap="bindItemTap" data-id="{{item.postId}}" data-account="{{item.userAccount}}" data-title="{{item.postTitle}}" data-content="{{item.postContent}}" data-nickname="{{item.userNickname}}
+      data-userlabel="{{item.userLabel}}" data-like="{{item.postPsum}}" data-comment="{{item.postRsum}}">
+      <view class="feedSource">
+        <a class="">
+          <view class="avatar">
+            <image src="{{item.userPortrait}}"></image>
+          </view>
+          <text>{{item.userNickname}}</text>
+        </a>
+      </view>
+      <view class="feedContent">
+        <view class="question">
+          <a class="label">
+            <text>【{{label}}】</text>
+          </a>
+        </view>
+        <view class="question" qid="{{questionId}}">
+          <a class="questionLink">
+            <text>{{item.postTitle}}</text>
+          </a>
+        </view>
+        <view class="answerBody">
+          <view>
+            <text class="answerTxt" aid="{{answerId}}">{{item.postContent}}</text>
+          </view>
+          <view class="answerActions">
+            <view class="like dot">
+              <a>{{item.postPsum}} 点赞 </a>
+            </view>
+            <view class="comments dot">
+              <a>{{item.postRsum}} 评论 </a>
+            </view>
+            <view class="comments">
+              <a>{{item.postViewnum}} 浏览 </a>
+            </view>
+            <view class="postTime">
+              <a>{{item.postTime}}</a>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

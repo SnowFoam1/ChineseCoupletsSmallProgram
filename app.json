@@ -13,6 +13,7 @@
     "pages/logs/logs",
     "pages/login/index",
     "pages/postsDisplay/postsDisplay",
+    "pages/postsDisplay/scanByLabel/scanByLabel",
     "pages/write/write",
     "pages/knowledge/knowledge",
     "pages/knowledge/yinglianjianhua/contents/contents",

@@ -100,14 +100,16 @@
   border: solid 2px #d64d4d;
   border-radius: 6rpx;
 }
+
 .poster .follow .already text {
   display: inline-block;
   padding: 15rpx 20rpx;
-  background-color: #EBEBEB;
+  background-color: #ebebeb;
   color: gray;
-  border: solid 2px #EBEBEB;
+  border: solid 2px #ebebeb;
   border-radius: 6rpx;
 }
+
 .post-content {
   margin-top: 7px;
   padding: 32rpx 20rpx;
@@ -169,7 +171,7 @@ image {
   overflow: hidden;
 }
 
-.commentBox{
+.commentBox {
   width: 85%;
   margin-top: 15px;
   margin-bottom: 70px;
@@ -180,42 +182,42 @@ image {
   border-radius: 7px;
 }
 
-.commentBox .doreply{
+.commentBox .doreply {
   display: flex;
   flex-direction: row;
 }
 
-.commentBox .doreply .delete{
+.commentBox .doreply .delete {
   font-size: 10px;
   padding-top: 6.5px;
   color: rgb(189, 189, 189);
 }
 
-.commentBox .noreply{
+.commentBox .noreply {
   color: rgb(212, 64, 64);
   padding-left: 15px;
   font-size: 14px;
 }
 
-.commentBox .eachReply{
+.commentBox .eachReply {
   width: 90%;
 }
 
-.commentBox .eachReply .replylevel{
+.commentBox .eachReply .replylevel {
   font-size: 12px;
-  line-height:24px;
+  line-height: 24px;
   color: rgb(196, 47, 47);
 }
 
-.commentBox .eachReply .replyuser{
+.commentBox .eachReply .replyuser {
   font-size: 15px;
-  line-height:24px;
+  line-height: 24px;
   color: rgb(66, 65, 65);
 }
 
-.commentBox .eachReply .replycontent{
+.commentBox .eachReply .replycontent {
   font-size: 15px;
-  line-height:24px;
+  line-height: 24px;
   color: rgb(92, 92, 92);
 }
 
@@ -240,7 +242,7 @@ image {
   height: 40px;
   margin-left: 2rpx;
   overflow: hidden;
-  background-color:  rgb(252, 252, 252);
+  background-color: rgb(252, 252, 252);
   border-radius: 8px;
 }
 
@@ -249,18 +251,18 @@ image {
   padding-left: 10rpx;
   font-size: 17px;
   max-height: 40px;
-  background-color:  rgb(252, 252, 252);
+  background-color: rgb(252, 252, 252);
   border-radius: 8px;
   color: rgb(63, 62, 62);
-  initial-letter-align: true
+  initial-letter-align: true;
 }
 
-.inputBox .like{
+.inputBox .like {
   width: 60px;
   height: 40px;
 }
 
-.inputBox image{
+.inputBox image {
   width: 30px;
   height: 26px;
   padding-top: 7px;

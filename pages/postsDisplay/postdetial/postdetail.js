@@ -455,4 +455,12 @@ Page({
       }
     })
   },
+
+  toScanByLabel:function()
+  {
+    wx.navigateTo({
+      url: '/pages/postsDisplay/scanByLabel/scanByLabel?label='+this.data.label
+    })
+  }
+
 })

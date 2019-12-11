@@ -2,7 +2,7 @@
 
 <view class="container">
 
-  <view class="post" bindtap="topost">
+  <view class="post" bindtap="toScanByLabel">
     <text class="label" space="emsp">  【{{label}}】</text>
     <text class="title" space="emsp"> “{{title}}”</text>
   </view>
