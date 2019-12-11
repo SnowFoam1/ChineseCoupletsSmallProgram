@@ -1,6 +1,8 @@
 // pages/my/my.js
 var e = require("../../../utils/util.js"),
   time = require('../../../utils/util.js');
+var uploadFile = require('../../../utils/updateFile.js')
+var app = getApp()
 Page({
   data: {
     userAccount: "",
@@ -11,14 +13,16 @@ Page({
     userBirthday: "",
     userEmail: "fjfj",
     userLocation: "",
+    userPortrait: '',
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
     console.log(options);
+    console.log(app)
     var that = this;
-    var userAccount = options.userAccount;
+    var userAccount = app.globalData.userAccountId;
     that.setData({
       userAccount: userAccount,
     });
@@ -45,6 +49,7 @@ Page({
           userBirthday: userBirthday,
           userLocation: res.data.userLocation,
           userEmail: res.data.userEmail,
+          userPortrait: res.data.userPortrait,
         })
         //console.log(that.data.userBirthday)
       }
@@ -63,6 +68,7 @@ Page({
     let userBirthday = currPage.data.userBirthday;
     let userLocation = currPage.data.userLocation;
     let userEmail = currPage.data.userEmail;
+    let userPortrait = currPage.data.userPortrait;
     this.setData({
       userNickname: userNickname,
       userName: userName,
@@ -71,6 +77,7 @@ Page({
       userBirthday: userBirthday,
       userLocation: userLocation,
       userEmail: userEmail,
+      userPortrait: userPortrait,
     })
   },
 
@@ -85,7 +92,8 @@ Page({
     var prevPage = pages[pages.length - 2]; //上一个页面
     prevPage.setData({
       userNickname: that.data.userNickname,
-      userLabel: that.data.userLabel
+      userLabel: that.data.userLabel,
+      userPortrait: that.data.userPortrait
     });
     // wx.navigateBack({
     //   delta: 1
@@ -106,6 +114,36 @@ Page({
       wx.stopPullDownRefresh()
     }, 1000);
   },
-
-
+  previewImage: function () {
+    var that = this;
+    wx.showActionSheet({
+      itemList: ['更换头像'],
+      success: function (res) {
+        console.log(res);
+        if (res.tapIndex === 0) {
+          wx.chooseImage({
+            success: function (res) {
+              var tempFilePath = res.tempFilePaths;
+              console.log(tempFilePath);
+              console.log(that.data.userAccount)
+              uploadFile.uploadFile('', tempFilePath[0], 'file', { 'userId': that.data.userAccount }, function (res) {
+                console.log(res);
+                if (true == res) {
+                  that.onLoad();
+                  // console.log(that.data.userAccount)
+                } else {
+                  // 显示消息提示框
+                  wx.showToast({
+                    title: '上传失败',
+                    icon: 'error',
+                    duration: 2000
+                  })
+                }
+              });
+            },
+          })
+        }
+      }
+    })
+  }
 })

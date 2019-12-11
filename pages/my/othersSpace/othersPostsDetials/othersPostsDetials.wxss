@@ -1,1 +1,206 @@
 /* pages/my/othersSpace/othersPostsDetials/othersPostsDetials.wxss */
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /*padding: 200rpx 0;*/
+  box-sizing: border-box;
+  background: #F0F4F3;
+}
+.flexWrp{
+  display: flex;
+}
+.flexTab{
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: stretch;
+}
+.flexItem{
+  flex-grow: 1;
+  text-align: center;
+}
+.container{
+  padding: 0;
+  font-size: 14rpx;
+  color: #000;
+}
+.container .feedItem{
+  width: 690rpx;
+  padding: 30rpx 30rpx 20rpx;
+  margin: 7rpx 0 6rpx 0;
+  background: #ffffff;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 2px 5px #eeeeee;
+}
+.container .feedItem .feedSource{
+  width: 690rpx;
+  left: 0;
+  height: 50rpx;
+}
+.container .feedItem .feedSource .avatar{
+  position: relative;
+  display: inline-block;
+}
+.container .feedItem .feedSource a{
+  display: inline-block;
+  height: 40rpx;
+}
+.container .feedItem .feedSource .avatar image{
+  /*position: absolute;*/
+  display: inline-block;
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50rpx;
+  top: 10rpx;
+  vertical-align: middle;
+}
+.container .feedItem .feedSource text{
+  /*position: absolute;*/
+  display: inline-block;
+  height: 40rpx;
+  line-height: 40rpx;
+  vertical-align: middle;
+  margin: 0 0 0 15rpx;
+  color: #a0acac;
+  font-size: 26rpx;
+}
+.container .feedItem .feedSource .itemMore{
+  display: inline-block;
+  width: 40rpx;
+  height: 45rpx;
+}
+.container .feedItem .feedContent{
+  padding: 10rpx 0 0 0;
+}
+.container .feedItem .feedContent .question text{
+  font-size: 28rpx;
+  font-weight: 600px;
+  line-height: 40rpx;
+}
+.container .feedItem .feedContent .answerBody{
+  padding: 10rpx 0 0 0;
+  /*height: 10rpx;*/
+  font-size: 24rpx;
+  line-height: 28rpx;
+  color: #5b5b5b;
+}
+.container .feedItem .feedContent .answerActions{
+  width: 690rpx;
+  padding: 10rpx 0  0;
+  color: #a0acac;
+}
+.container .feedItem .feedContent .answerActions view{
+  display: inline-block;
+  vertical-align: text-bottom;
+  padding: 0 10rpx 0 0;
+  font-size: 24rpx;
+}
+.container .feedItem .feedContent .answerActions .dot ::after{
+  content: "•";
+}
+
+.header {
+  padding: 0 25rpx;
+  padding-top: 40rpx;
+  padding-bottom: 50rpx;
+  width: 100%;
+  background: linear-gradient(#c21327, #e42e42);
+  position:relative;
+}
+
+.user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .gif-wave{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  mix-blend-mode: screen;  
+  height: 100rpx;   
+}
+.user_box {
+  display: flex;
+  align-items: center;
+}
+
+.edit {
+  display: flex;
+  width: 70rpx;
+  height: 70rpx;
+  padding: 18rpx;
+  box-sizing: border-box;
+}
+
+.edit image {
+  width: 100%;
+  height: 100%;
+  transform: rotate(180deg);
+}
+
+.logo {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  background: #fff;
+  will-change: transform;
+  position:relative;
+}
+
+.logo image {
+  width: 100%;
+  height: 100%;
+}
+
+.logo image {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  will-change: transform;
+}
+
+.user_info {
+  padding-left: 32rpx;
+}
+
+.user_name {
+  display: flex;
+  align-items: center;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #fff;
+}
+
+.user_name image {
+  margin-left: 16rpx;
+  width: 84rpx;
+  height: 31rpx;
+}
+
+.vip_expires {
+  margin-top: 12rpx;
+  font-size: 27rpx;
+  color: #fff;
+}
+.introduction
+{
+  margin-top: 12rpx;
+  font-size: 27rpx;
+  color: #fff;
+}
+.container .feedItem .feedContent .question .label text{
+  font-size: 24rpx;
+  font-weight: 600px;
+  line-height: 40rpx;
+  color: rgb(212, 19, 19);
+}
+.container .feedItem .feedContent .answerActions .postTime {
+  margin-right:  -1%;
+  float: right;
+}
