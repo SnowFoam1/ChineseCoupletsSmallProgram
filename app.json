@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/search/index",
-    "pages/home/index",
     
+    "pages/home/index",
+    "pages/search/index",
     "pages/detail/index",
     "pages/test/index",
     "pages/CoupletsClassify/index",
