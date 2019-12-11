@@ -1,19 +1,10 @@
-<!--pages/postsDisplay/postsDisplay.wxml-->
+<!--pages/postsDisplay/scanByLabel/scanByLabel.wxml-->
 <view class="container">
   <view class="search flexWrp">
-    <view class="search-left flexItem">
-      <image src="../../icons/search.png"></image>
-      <input fixed="true" placeholder="搜索动态" placeholder-class="search-placeholder" />
-    </view>
-    <view class="search-right flexItem" bindtap="upper">
-      <!-- <image src="../../images/lighting.png"></image> -->
-    </view>
+    <text class="thelabel">【{{label}}】</text>
   </view>
-</view>
-<scroll-view scroll-y="true" class="container" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" enable-flex="true">
-  <block wx:for="{{items}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
-    <view class="feedItem" bindtap="bindItemTap" data-id="{{item.postId}}" data-account="{{item.userAccount}}" data-title="{{item.postTitle}}" data-content="{{item.postContent}}" data-label="{{labels[item.labelContent-1]}}" data-nickname="{{item.userNickname}}"
-      data-userlabel="{{item.userLabel}}" data-like="{{item.postPsum}}" data-comment="{{item.postRsum}}" data-userPortrait="{{item.userPortrait}}">
+  <block  wx:for="{{items}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+    <view class="feedItem" bindtap="bindItemTap" data-id="{{item.postId}}" data-account="{{item.userAccount}}" data-title="{{item.postTitle}}" data-content="{{item.postContent}}" data-nickname="{{item.userNickname}}" data-userlabel="{{item.userLabel}}" data-like="{{item.postPsum}}" data-comment="{{item.postRsum}}" data-userportrait="{{item.userPortrait}}">
       <view class="feedSource">
         <a class="">
           <view class="avatar">
@@ -25,7 +16,7 @@
       <view class="feedContent">
         <view class="question">
           <a class="label">
-            <text>【{{labels[item.labelContent-1]}}】</text>
+            <text>【{{label}}】</text>
           </a>
         </view>
         <view class="question" qid="{{questionId}}">
@@ -55,4 +46,4 @@
       </view>
     </view>
   </block>
-</scroll-view>
+</view>

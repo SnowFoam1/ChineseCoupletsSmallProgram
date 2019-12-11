@@ -2,7 +2,7 @@
 
 <view class="container">
 
-  <view class="post" bindtap="topost">
+  <view class="post" bindtap="toScanByLabel">
     <text class="label" space="emsp">  【{{label}}】</text>
     <text class="title" space="emsp"> “{{title}}”</text>
   </view>
@@ -10,16 +10,15 @@
   <view class="poster-wrp ">
     <view class="bg-half"></view>
     <view class="poster flex-wrp">
-      <view class="avatar flex-item">
-        <image src="/icons/saber.jpg"></image>
+      <view class="avatar flex-item" bindtap="toSpace">
+        <image src="{{userPortrait}}"></image>
       </view>
-      <view class="poster-info flex-item">
+      <view class="poster-info flex-item" bindtap="toSpace">
         <text class="poster-name">{{userNickname}}</text>
         <text class="poster-des">{{userLabel}}</text>
       </view>
       <view class="follow flex-item">
         <view class="notyet"><text wx:if="{{followFlag==-1}}" bindtap="addFollow">+ 关注</text></view>
-        <view class="notyet"><text wx:if="{{followFlag==2}}" bindtap="goLogin">+ 关注</text></view>
         <view class="already"><text wx:if="{{followFlag==1}}" bindtap="deleteFollow">已关注</text></view>
       </view>
     </view>

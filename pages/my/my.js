@@ -1,6 +1,6 @@
 // pages/my/my.js
 var e = require('../../utils/util.js')
-var updateFlie = require('../../utils/updateFile.js')
+var updateFile = require('../../utils/updateFile.js')
 var app = getApp()
 
 Page({
@@ -19,6 +19,7 @@ Page({
     pass: '',
     flag: false,
     signFlag: 0,
+    userPortrait: '',
   },
 
   /**
@@ -55,6 +56,7 @@ Page({
             userScore: res.data.userScore,
             userNickname: res.data.userNickname,
             userLabel: res.data.userLabel,
+            userPortrait: res.data.userPortrait,
           })
         }
       })
@@ -77,9 +79,7 @@ Page({
           }
         }
       })
-
     }
-
   },
 
   onShow: function() {
@@ -91,9 +91,11 @@ Page({
     var currPage = pages[pages.length - 1]; //当前页面
     let userNickname = currPage.data.userNickname;
     let userLabel = currPage.data.userLabel;
+    let userPortrait = currPage.data.userPortrait
     this.setData({
       userNickname: userNickname,
       userLabel: userLabel,
+      userPortrait: userPortrait,
     })
   },
 
@@ -102,7 +104,7 @@ Page({
     console.log(this.data.userAccount);
     if (this.data.signFlag == 0) {
       wx.request({
-        url: 'http://106.54.206.129:8080/score/addScore',
+        url: 'http://106.54.206.129:8080/score/addSignScore',
         data: {
           account: this.data.userAccount,
           score: 5,
@@ -142,20 +144,36 @@ Page({
       url: '/pages/login/index',
     })
   },
-  previewImage: function() {
+  previewImage: function () {
     var that = this;
     wx.showActionSheet({
       itemList: ['更换头像'],
-      success: function(res) {
+      success: function (res) {
         console.log(res);
         if (res.tapIndex === 0) {
           wx.chooseImage({
-            count: 1,
-            sizeType: ['original'],
-            sourceType: ['album', 'camera'],
-            success: function(res) {
-              var tempFilePath = res.tempFilePaths[0];
+            success: function (res) {
+              var tempFilePath = res.tempFilePaths;
               console.log(tempFilePath);
+              console.log(that.data.userAccount)
+              updateFile.uploadFile('', tempFilePath[0], 'file', { 'userId': that.data.userAccount }, function (res) {
+                console.log(res);
+                if (true == res) {
+                  // that.setData({
+                  //   userPortrait: 'http://106.54.206.129:8080/pictures/'+that.data.userAccount+'.jpg'
+                  // })
+                  that.onLoad();
+                  // console.log(that.data.userAccount)
+                } else {
+                  // 显示消息提示框
+                  wx.showToast({
+                    title: '上传失败',
+                    icon: 'error',
+                    duration: 2000
+                  })
+                }
+                that.onLoad();
+              });
             },
           })
         }

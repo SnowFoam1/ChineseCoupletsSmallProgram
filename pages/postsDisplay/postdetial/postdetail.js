@@ -27,6 +27,7 @@ Page({
     noreply: false,
     judgeFollow: '',
     followFlag: '',
+    userPortrait:'',
   },
 
   /**
@@ -44,7 +45,8 @@ Page({
       postId: options.postId,
       like: options.like,
       comment: options.comment,
-      userId: app.globalData.userAccountId
+      userId: app.globalData.userAccountId,
+      userPortrait: options.userPortrait
     })
     // console.log(that.data.userId)
     // console.log(app.globalData.userAccountId)
@@ -439,20 +441,23 @@ Page({
       followFlag: -1
     })
   },
-  goLogin: function (e) {
-    var that = this
-    wx.showModal({
-      title: '提示',
-      content: '请登录',
-      success: function (res) {
-        if (res.confirm) {
-          wx.navigateTo({
-            url: '/pages/login/index?page=postdetial',
-          })
-        } else if (res.cancel) {
-          console.log("cancal login")
-        }
-      }
+
+  toScanByLabel:function()
+  {
+    wx.navigateTo({
+      url: '/pages/postsDisplay/scanByLabel/scanByLabel?label='+this.data.label
     })
   },
+  toSpace: function () {
+    if (this.data.judgeFollow == 0) {
+      wx.switchTab({
+        url: '/pages/my/my',
+      })
+    } else {
+      var thisUserAccount = this.data.userAccount
+      wx.navigateTo({
+        url: '/pages/my/othersSpace/othersSpace?thisUserAccount=' + thisUserAccount,
+      })
+    }
+  }
 })

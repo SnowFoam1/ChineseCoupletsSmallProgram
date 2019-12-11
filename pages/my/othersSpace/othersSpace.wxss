@@ -107,7 +107,7 @@
   padding-bottom: 50rpx;
   width: 100%;
   background: linear-gradient(#c21327, #e42e42);
-  position:relative;
+  position: relative;
 }
 
 .user {
@@ -115,14 +115,15 @@
   justify-content: space-between;
   align-items: center;
 }
-.header .gif-wave{
+
+.header .gif-wave {
   position: absolute;
   width: 100%;
   bottom: 0;
   left: 0;
   z-index: 99;
-  mix-blend-mode: screen;  
-  height: 100rpx;   
+  mix-blend-mode: screen;
+  height: 100rpx;
 }
 .user_box {
   display: flex;

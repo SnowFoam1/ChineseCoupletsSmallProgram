@@ -2,6 +2,7 @@
 
 var userAccount = '2';
 var utils = require('../../../utils/util.js');
+var app = getApp();
 
 Page({
   /**
@@ -29,7 +30,7 @@ Page({
    */
   onLoad: function (options) {
     console.log("onload")
-    userAccount = options.userAccount;
+    userAccount = app.globalData.userAccountId;
     var that = this
     wx.request({
       url: 'http://106.54.206.129:8080/collection/getCollectionList',
@@ -86,8 +87,8 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
+  onShow: function (options) {
+    this.onLoad(options)
   },
 
   /**

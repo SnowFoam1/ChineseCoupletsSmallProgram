@@ -33,7 +33,7 @@ page {
 .userBox {
   display: flex;
   align-items: center;
-  width: 73%;
+  width: 75%;
 }
 
 .edit {
@@ -51,17 +51,12 @@ page {
 }
 
 .logo {
-  width: 150rpx;
-  height: 150rpx;
+  width: 120rpx;
+  height: 120rpx;
   border-radius: 50%;
   background: #fff;
   will-change: transform;
   position: relative;
-}
-
-.logo image {
-  width: 100%;
-  height: 100%;
 }
 
 .logo image {
@@ -100,12 +95,12 @@ page {
   flex: 2;
   padding: 15px 0;
   font-size: 20rpx;
-  margin-left: 5px;
+  margin-left: 3%;
 }
 
 .sign .notyet text {
   display: inline-block;
-  padding: 15rpx 20rpx;
+  padding: 15rpx 15rpx;
   color: #fafafa;
   border: solid 2px #f9f9f9;
   border-radius: 6rpx;
@@ -113,7 +108,7 @@ page {
 
 .sign .already text {
   display: inline-block;
-  padding: 15rpx 20rpx;
+  padding: 15rpx 15rpx;
   background-color: #c93c3c;
   color:  #fafafa;
   border: solid 2px  #f9f9f9;
