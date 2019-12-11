@@ -8,8 +8,8 @@
             <text>头像</text>
           </view>
         </view>
-        <view catchtap="changeImage" class="logo">
-          <image src="/icons/saber.jpg"></image>
+        <view catchtap="previewImage" class="logo">
+          <image src="{{userPortrait}}"></image>
         </view>
       </view>
     </view>

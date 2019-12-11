@@ -15,14 +15,26 @@ Page({
     postsNumber: 0,
     finalGroup: false
   },
-
+  goLogin: function (e) {
+    var that = this
+    wx.showModal({
+      title: '提示',
+      content: '请登录',
+      success: function (res) {
+        if (res.confirm) {
+          wx.navigateTo({
+            url: '/pages/login/index?page=postdetial',
+          })
+        } else if (res.cancel) {
+          console.log("cancal login")
+        }
+      }
+    })
+  },
   //具体信息页面跳转
   bindItemTap: function(e) {
     if (app.globalData.isLogin == false) {
-      wx.showModal({
-        title: '提示',
-        content: '您尚未登录，请先前往个人中心登录',
-      })
+      this.goLogin();
     } else {
       var postId = e.currentTarget.dataset.id;
       var account = e.currentTarget.dataset.account;
@@ -33,11 +45,11 @@ Page({
       var nickname = e.currentTarget.dataset.nickname;
       var like = e.currentTarget.dataset.like;
       var comment = e.currentTarget.dataset.comment;
+      var userPortrait = e.currentTarget.dataset.userportrait;
 
-      console.log(e.currentTarget.dataset.id);
-      console.log(e.currentTarget.dataset.userlabel);
+      console.log(e.currentTarget.dataset);
       wx.navigateTo({
-        url: '/pages/postsDisplay/postdetial/postdetail?account=' + account + '&postId=' + postId + '&title=' + title + '&content=' + content + '&label=' + label + '&nickname=' + nickname + '&userlabel=' + userlabel + '&like=' + like + '&comment=' + comment,
+        url: '/pages/postsDisplay/postdetial/postdetail?account=' + account + '&postId=' + postId + '&title=' + title + '&content=' + content + '&label=' + label + '&nickname=' + nickname + '&userlabel=' + userlabel + '&like=' + like + '&comment=' + comment + '&userPortrait=' + userPortrait,
       })
     }
   },

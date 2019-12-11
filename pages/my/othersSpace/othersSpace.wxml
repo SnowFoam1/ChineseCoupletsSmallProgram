@@ -25,7 +25,7 @@
       </view>
     </view>
   </view>
-  <image src='https://edu.qinhui88.com/assets/wx/image/wave.gif' mode='scaleToFill' class='gif-wave'></image>
+  <image src='http://106.54.206.129:8080/pictures/wave.gif' mode='scaleToFill' class='gif-wave'></image>
 </view>
 <!-- 动态 -->
 <scroll-view scroll-y="true" class="container" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">

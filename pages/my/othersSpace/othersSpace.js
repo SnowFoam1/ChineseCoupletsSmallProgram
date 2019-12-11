@@ -78,7 +78,7 @@ Page({
           userScore : result.userScore
         })
         wx.setNavigationBarTitle({
-          title: result.userNickname + '的空间',
+          title: result.userNickname,
         })
       }
     })
