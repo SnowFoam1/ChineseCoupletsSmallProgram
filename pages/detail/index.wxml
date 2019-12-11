@@ -29,6 +29,7 @@
         楹联鉴赏
       </view>
     </view>
+    
     <view class='swiper'>
       <view class='itembox {{currentData == 0 ? "showItem" : ""}}'>
         <!--view wx:for='{{detail.yiwen}}' wx:key='{{index}}'>{{item}}</view>

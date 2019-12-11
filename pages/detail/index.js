@@ -72,6 +72,7 @@ Page({
       })
     }
   },
+  
   checkIntro:function(m_detail)
   {
     console.log(m_detail);

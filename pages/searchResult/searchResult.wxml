@@ -1,0 +1,38 @@
+<view class="head_search">
+    <input class="text_search colorGray" type='text' confirm-type="search" placeholder="{{searchWord}}" placeholder-class="colorGray" bindfocus="bindShowLog" bindinput="bindInputSearchWord" value="{{inputVal}}"></input>
+    <icon class="icon_search" type='search' size="15" bindtap="bindGoSearch"></icon>
+</view>
+
+
+<view class='topTabSwiper'>
+  <view class='tab  {{currentData == 0 ? "tabBorer" : ""}}' data-current="0" bindtap='checkCurrent'>
+    楹联
+  </view>
+  <view class='tab  {{currentData == 1 ? "tabBorer" : ""}}' data-current="1" bindtap='checkCurrent'>
+    用户
+  </view>
+  <view class='tab  {{currentData == 2 ? "tabBorer" : ""}}' data-current="2" bindtap='checkCurrent'>
+    帖子
+  </view>
+</view>
+
+<scroll-view class='swiper' enable-back-to-top='true' >
+  <block wx:for="{{coupletList}}" wx:if='{{currentData == 0}}'>
+    <view bindtap="moreDetail" class="couplets" data-coupletId="{{item.coupletsexistedId}}">
+        <view>上联：{{item.coupletsexistedUpcouplets}}</view>
+        <view>下联：{{item.coupletsexistedDowncouplets}}</view>
+    </view>
+  </block>
+
+
+  <view wx:for='{{userList}}' wx:if='{{currentData == 1}}'>
+    
+    <view >暂无作者简介</view>
+  </view>
+
+  <view wx:for='{{postList}}' wx:if='{{currentData == 2}}'>
+   
+    <view>暂无赏析</view>
+
+  </view>
+</scroll-view>
