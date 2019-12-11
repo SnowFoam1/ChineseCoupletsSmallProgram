@@ -102,7 +102,7 @@ Page({
     console.log(this.data.userAccount);
     if (this.data.signFlag == 0) {
       wx.request({
-        url: 'http://106.54.206.129:8080/score/addScore',
+        url: 'http://106.54.206.129:8080/score/addSignScore',
         data: {
           account: this.data.userAccount,
           score: 5,
