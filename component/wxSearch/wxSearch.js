@@ -58,7 +58,8 @@ module.exports = {
     })
   },
 
-  showlog(that) {
+  showlog(that) 
+  {
     let searchList_stroage = getStorage('searchList') || [];
     let searchList = []
     if (typeof (searchList_stroage) != undefined && searchList_stroage.length > 0) 
@@ -121,16 +122,9 @@ module.exports = {
   },
 
   goSchool(val) {
-    wx.showModal({
-      title: '调往搜索页面',
-      content: `你的传值是${val}，带上它去新页面`,
-    })
     console.log(val)
     wx.navigateTo({
       url: '/pages/searchResult/searchResult?word='+val,
     })
-    // wx.redirectTo({
-    //   url: `/pages/schools/schools?item=${val}`
-    // })
   }
 }
