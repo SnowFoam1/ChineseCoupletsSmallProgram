@@ -1,7 +1,7 @@
 // pages/my/othersSpace/othersPostsDetials/othersPostsDetials.js
 var userAccount = '1';
 var utils = require('../../../../utils/util.js');
-
+var app = getApp();
 Page({
 
   /**
@@ -65,11 +65,14 @@ Page({
       success: function (res) {
         var result = res.data;
         console.log(res)
-        if (result.userPortrait == "") {
+        if (result.userPortrait == "" || result.userPortrait == null) {
           result.userPortrait = '/icons/saber.jpg'
         }
-        if (result.userLabel == "") {
+        if (result.userLabel == "" || result.userLabel == null) {
           result.userLabel = "这个人没有签名哦~"
+        }
+        if (result.userScore == null) {
+          result.userScore = 0;
         }
         that.setData({
           userNickname: result.userNickname,
@@ -83,7 +86,28 @@ Page({
       }
     })
   },
+  bindItemTap: function (e) {
+    if (app.globalData.isLogin == false) {
+      this.goLogin();
+    } else {
+      var postId = e.currentTarget.dataset.id;
+      var account = this.data.userAccount;
+      var title = e.currentTarget.dataset.title;
+      var content = e.currentTarget.dataset.content;
+      var label = e.currentTarget.dataset.label;
+      var userlabel = this.data.userLabel;
+      var nickname = this.data.userNickname;
+      var like = e.currentTarget.dataset.like;
+      var comment = e.currentTarget.dataset.comment;
+      var userPortrait = this.data.userPortrait;
 
+      console.log(e.currentTarget.dataset);
+      console.log(postId)
+      wx.navigateTo({
+        url: '/pages/postsDisplay/postdetial/postdetail?account=' + account + '&postid=' + postId + '&title=' + title + '&content=' + content + '&label=' + label + '&nickname=' + nickname + '&userlabel=' + userlabel + '&like=' + like + '&comment=' + comment + '&userportrait=' + userPortrait,
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

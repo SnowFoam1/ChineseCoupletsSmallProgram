@@ -35,6 +35,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    console.log(options)
     that.setData({
       userAccount: options.account,
       userLabel: options.userlabel,
@@ -42,12 +43,23 @@ Page({
       label: options.label,
       title: options.title,
       content: options.content,
-      postId: options.postId,
+      postId: options.postid,
       like: options.like,
       comment: options.comment,
       userId: app.globalData.userAccountId,
-      userPortrait: options.userPortrait
+      userPortrait: options.userportrait
     })
+    if (options.userlabel == "" || options.userlabel == null){
+      if(that.data.userAccount!=app.globalData.userAccountId){
+        that.setData({
+          userLabel: "这个人没有昵称哦~"
+        })
+      }else{
+        that.setData({
+          userLabel: "你还没有昵称哦~"
+        })
+      }
+    }
     // console.log(that.data.userId)
     // console.log(app.globalData.userAccountId)
     that.judgeFollowFunction()
@@ -67,11 +79,11 @@ Page({
         'content-type': 'application/json' //默认值
       },
       success: function (res) {
-        console.log(res);
+        // console.log(res);
         that.setData({
           julike: res.data
         })
-        console.log(that.data.julike);
+        // console.log(that.data.julike);
         if (that.data.julike == '未点赞') {
           that.setData({
             islike: false

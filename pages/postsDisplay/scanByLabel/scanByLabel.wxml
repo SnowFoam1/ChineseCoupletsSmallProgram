@@ -4,7 +4,7 @@
     <text class="thelabel">【{{label}}】</text>
   </view>
   <block  wx:for="{{items}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
-    <view class="feedItem" bindtap="bindItemTap" data-id="{{item.postId}}" data-account="{{item.userAccount}}" data-title="{{item.postTitle}}" data-content="{{item.postContent}}" data-nickname="{{item.userNickname}}
+    <view class="feedItem" bindtap="bindItemTap" data-id="{{item.postId}}" data-account="{{item.userAccount}}" data-title="{{item.postTitle}}" data-content="{{item.postContent}}" data-nickname="{{item.userNickname}}"
       data-userlabel="{{item.userLabel}}" data-like="{{item.postPsum}}" data-comment="{{item.postRsum}}">
       <view class="feedSource">
         <a class="">

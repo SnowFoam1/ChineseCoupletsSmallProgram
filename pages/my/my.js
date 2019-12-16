@@ -51,12 +51,22 @@ Page({
           'content-type': 'application/json' //默认值
         },
         success: function(res) {
+          var result = res.data;
           console.log(res)
+          if (result.userPortrait == "" || result.userPortrait == null) {
+            result.userPortrait = '/icons/saber.jpg'
+          }
+          if (result.userLabel == "" || result.userLabel == null) {
+            result.userLabel = "这个人没有签名哦~"
+          }
+          if (result.userScore == "" || result.userScore == null) {
+            result.userScore = 0;
+          }
           that.setData({
-            userScore: res.data.userScore,
-            userNickname: res.data.userNickname,
-            userLabel: res.data.userLabel,
-            userPortrait: res.data.userPortrait,
+            userNickname: result.userNickname,
+            userPortrait: result.userPortrait,
+            userLabel: result.userLabel,
+            userScore: result.userScore,
           })
         }
       })

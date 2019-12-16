@@ -5,7 +5,7 @@
       <view class="user_box">
         <view class="logo">
           <image src="{{userPortrait}}"></image>
-          <view class="cu-tag badge {{male==1?'icon-male bg-blue':'icon-female bg-pink'}}"></view>
+          <!-- <view class="cu-tag badge {{male==1?'icon-male bg-blue':'icon-female bg-pink'}}"></view> -->
         </view>
         <view class="user_info">
           <view class="user_name">
@@ -27,9 +27,9 @@
   <image src='http://106.54.206.129:8080/pictures/wave.gif' mode='scaleToFill' class='gif-wave'></image>
 </view>
 <!-- 动态 -->
-<scroll-view scroll-y="true" class="container" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+<scroll-view scroll-y="true" class="container" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" enable-flex="true">
   <block wx:for="{{items}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
-    <view class="feedItem">
+    <view class="feedItem" bindtap="bindItemTap" data-id="{{item.postId}}" data-title="{{item.postTitle}}" data-content="{{item.postContent}}" data-label="{{labels[item.lableContent-1]}}" data-like="{{item.postPsum}}" data-comment="{{item.postRsum}}" data-userPortrait="{{userPortrait}}">
       <view class="feedSource">
         <a class="">
           <view class="avatar">
@@ -71,4 +71,8 @@
       </view>
     </view>
   </block>
+  <view wx:if="{{items.length == 0}}" class="nothing">
+    <image class="nothingImage" src="/icons/blank.png"></image>
+    <view class="nothingText">什么都没有哦~</view>
+  </view>
 </scroll-view>

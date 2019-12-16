@@ -82,3 +82,19 @@
   background-color: #ebebeb;
   height: 1px;
 }
+.container .nothing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 80px 0px;
+}
+.nothingImage {
+  width: 100px;
+  height: 100px;
+}
+.nothingText {
+  padding: 14px;
+  font-size: 14px;
+  color: #818A8E;
+}
