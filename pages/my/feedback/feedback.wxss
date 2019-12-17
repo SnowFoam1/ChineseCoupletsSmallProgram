@@ -1,0 +1,27 @@
+/* pages/my/feedback/feedback.wxss */
+
+.input {
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  border: 1px solid rgb(241, 240, 240);
+  border-radius: 10rpx;
+  width: 99%;
+  font-size: 19px;
+}
+
+.changeLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 25rpx;
+  padding-top: 90rpx;
+  padding-bottom: 50rpx;
+}
+
+.butt{
+  background-color:  rgb(201, 49, 49); 
+  width: 500rpx;
+  color: #fff
+}

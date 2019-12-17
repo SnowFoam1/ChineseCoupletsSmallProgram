@@ -17,6 +17,19 @@ Page({
 
   },
 
+  changePassword: function () {
+    wx.navigateTo({
+      url: '/pages/findpassword/index?type=' + 2,
+    })
+  },
+
+  openPage: function (a) {
+    var e = a.currentTarget.dataset.url;
+    wx.navigateTo({
+      url: e + '?userAccount=' + this.data.userAccount
+    });
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

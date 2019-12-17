@@ -1,4 +1,5 @@
 // pages/postdetial/postdetail.js
+var utils = require('../../../utils/util.js');
 var app = getApp();
 Page({
 
@@ -228,9 +229,10 @@ Page({
       },
       success: function (res) {
         console.log(res)
-        that.setData({
-          replys: res.data
-        })
+        var replys = res.data;
+        for (var i = 0; i < replys.length; i++) {
+          replys[i].replyTime = utils.formatTime(replys[i].replyTime, 'Y-M-D h:m')
+        }
         if (res.data.length == 0) {
           that.setData({
             noreply: true
@@ -241,6 +243,9 @@ Page({
             noreply: false
           })
         }
+        that.setData({
+          replys: replys
+        })
       }
     })
   },
@@ -285,20 +290,18 @@ Page({
     })
   },
 
-  delete: function (e) {
+  delete:function(e){
     var that = this;
     var replyId = e.currentTarget.dataset.replyid;
     var comment = this.data.comment;
-    console.log(replyId + "111111")
-    if (this.data.userId == this.data.userAccount || this.data.userId == e.currentTarget.dataset.userid) {
+    if(this.data.userId == this.data.userAccount || this.data.userId == e.currentTarget.dataset.userid){
       wx.showModal({
         title: '提示',
-        content: '确定要删除此条回复？',
-        success: function (res) {
+        content: '确定要删除这条回复？',
+        success:function(res){
           console.log(res);
-          if (res.confirm) {
-            console.log('点击确定了');
-            wx: wx.request({
+          if(res.confirm){
+            wx.request({
               url: 'http://106.54.206.129:8080/post/cancelReply',
               data: {
                 replyId: replyId
@@ -307,7 +310,7 @@ Page({
               header: {
                 'content-type': 'application/json' //默认值
               },
-              success: function (res) {
+              success:function(res){
                 console.log(res);
                 comment--;
                 that.setData({
@@ -316,8 +319,8 @@ Page({
                 that.onReady()
               }
             })
-          } else if (res.cancel) {
-            console.log('点击取消了');
+          }else if(res.cancel)
+          {
             return false;
           }
         }
