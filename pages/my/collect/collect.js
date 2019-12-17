@@ -69,11 +69,11 @@ Page({
     var nickname = e.currentTarget.dataset.nickname;
     var like = e.currentTarget.dataset.like;
     var comment = e.currentTarget.dataset.comment;
+    var userportrait = e.currentTarget.dataset.userportrait;
 
-    console.log(e.currentTarget.dataset.id);
-    console.log(e.currentTarget.dataset.label);
+    console.log(e.currentTarget.dataset);
     wx.navigateTo({
-      url: '/pages/postsDisplay/postdetial/postdetail?account=' + account + '&postId=' + postId + '&title=' + title + '&content=' + content + '&label=' + label + '&nickname=' + nickname + '&userlabel=' + userlabel + '&like=' + like + '&comment=' + comment,
+      url: '/pages/postsDisplay/postdetial/postdetail?account=' + account + '&postId=' + postId + '&title=' + title + '&content=' + content + '&label=' + label + '&nickname=' + nickname + '&userlabel=' + userlabel + '&like=' + like + '&comment=' + comment + '&userportrait=' + userportrait,
     })
   },
   

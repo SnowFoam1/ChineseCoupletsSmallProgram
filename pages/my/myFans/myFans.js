@@ -21,7 +21,7 @@ Page({
   bindPersonalTap: function (e) {
     var thisUserAccount = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '/pages/othersSpace/othersSpace?thisUserAccount=' + thisUserAccount,
+      url: '/pages/my/othersSpace/othersSpace?thisUserAccount=' + thisUserAccount,
     })
   },
   /**
@@ -63,19 +63,19 @@ Page({
               if (result[i].userPortrait == '' || result[i].userPortrait == null) {
                 result[i].userPortrait = '/icons/saber.jpg';
               }
+              that.setData({
+                followFlag: that.data.followFlag.concat(0),
+                followFlagOrigin: that.data.followFlagOrigin.concat(0),
+              })
+              var stringF = "followFlag[" + i +"]"
+              var stringFO = "followFlagOrigin[" + i + "]"
               for (var j = 0; j < that.data.myFollow.length; j++) {
                 if (that.data.myFollow[j].userAccount == result[i].userAccount) {
                   that.setData({
-                    followFlag: that.data.followFlag.concat(1),
-                    followFlagOrigin: that.data.followFlagOrigin.concat(1),
+                    ['stringF']: 1,
+                    ['stringFO']: 1,
                   })
                   break;
-                }
-                if (j == that.data.myFollow.length - 1) {
-                  that.setData({
-                    followFlag: that.data.followFlag.concat(0),
-                    followFlagOrigin: that.data.followFlagOrigin.concat(0),
-                  })
                 }
               }
             }

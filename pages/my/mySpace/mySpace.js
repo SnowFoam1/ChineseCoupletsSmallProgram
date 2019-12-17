@@ -24,7 +24,7 @@ Page({
     feedLength: 0,
     userLabel: '',
     userNickname: '',
-    
+    userPortrait: '',
   },
   switchTab: function(e) {
     this.setData({
@@ -78,6 +78,7 @@ Page({
           userNickname: result.userNickname,
           userPortrait: result.userPortrait,
           userLabel: result.userLabel,
+          userPortrait: result.userPortrait,
         })
       }
     })
@@ -192,7 +193,6 @@ Page({
       }
     })
   },
-
   bindItemTap: function(e) {
     var postId = e.currentTarget.dataset.id;
     var account = e.currentTarget.dataset.account;
@@ -203,11 +203,11 @@ Page({
     var nickname = this.data.userNickname;
     var like = e.currentTarget.dataset.like;
     var comment = e.currentTarget.dataset.comment;
+    var userportrait = this.data.userPortrait;
 
-    console.log(e.currentTarget.dataset.id);
-    console.log(e.currentTarget.dataset.label);
+    console.log(e.currentTarget.dataset);
     wx.navigateTo({
-      url: '/pages/postsDisplay/postdetial/postdetail?account=' + account + '&postId=' + postId + '&title=' + title + '&content=' + content + '&label=' + label + '&nickname=' + nickname + '&userlabel=' + userlabel + '&like=' + like + '&comment=' + comment,
+      url: '/pages/postsDisplay/postdetial/postdetail?account=' + account + '&postId=' + postId + '&title=' + title + '&content=' + content + '&label=' + label + '&nickname=' + nickname + '&userlabel=' + userlabel + '&like=' + like + '&comment=' + comment + '&userportrait=' + userportrait,
     })
 
   },

@@ -10,3 +10,7 @@
     </view>
   <view class='line'></view>
 </view>
+<view wx:if="{{items.length == 0}}" class="nothing">
+  <image class="nothingImage" src="/icons/blank.png"></image>
+  <view class="nothingText">还没有粉丝哦~</view>
+</view>
