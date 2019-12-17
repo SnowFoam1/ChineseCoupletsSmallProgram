@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userAccount: ""
+    userAccount: "",
   },
 
   /**
@@ -30,13 +30,14 @@ Page({
     }
     else {
       var id = this.data.userAccount;
+      var content = event.detail.value.content
       var that = this;
 
       wx.request({
-        url: 'http://106.54.206.129:8080/user/setLabel',
+        url: 'http://106.54.206.129:8080/user/feedback',
         data: {
-          id: id,
-          label: label
+          account: id,
+          content: content
         },
         method: 'GET',
         header: {
@@ -53,7 +54,7 @@ Page({
         icon: "success"
       })
       wx.navigateBack({
-        url: '/pages/my/information/information'
+        url: '/pages/my/set/set'
       })
     }
 

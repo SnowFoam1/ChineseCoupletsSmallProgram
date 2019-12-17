@@ -1,19 +1,22 @@
 // pages/set/set.js
-var userAccount = "1";
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    userAccount: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    userAccount = options.userAccount;
+    var userAccount = options.userAccount;
+    this.setData({
+      userAccount: userAccount
+    })
 
   },
 
