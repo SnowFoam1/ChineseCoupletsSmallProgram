@@ -44,11 +44,11 @@ Page({
       label: options.label,
       title: options.title,
       content: options.content,
-      postId: options.postid,
+      postId: options.postId,
       like: options.like,
       comment: options.comment,
       userId: app.globalData.userAccountId,
-      userPortrait: options.userportrait
+      userPortrait: options.userPortrait
     })
     if (options.userlabel == "" || options.userlabel == null){
       if(that.data.userAccount!=app.globalData.userAccountId){

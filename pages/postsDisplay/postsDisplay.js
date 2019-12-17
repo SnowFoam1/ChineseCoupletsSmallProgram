@@ -49,7 +49,7 @@ Page({
 
       console.log(e.currentTarget.dataset);
       wx.navigateTo({
-        url: '/pages/postsDisplay/postdetial/postdetail?account=' + account + '&postid=' + postId + '&title=' + title + '&content=' + content + '&label=' + label + '&nickname=' + nickname + '&userlabel=' + userlabel + '&like=' + like + '&comment=' + comment + '&userportrait=' + userPortrait,
+        url: '/pages/postsDisplay/postdetial/postdetail?account=' + account + '&postId=' + postId + '&title=' + title + '&content=' + content + '&label=' + label + '&nickname=' + nickname + '&userlabel=' + userlabel + '&like=' + like + '&comment=' + comment + '&userPortrait=' + userPortrait,
       })
     }
   },
