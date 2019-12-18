@@ -87,6 +87,7 @@ Page({
     })
   },
   bindItemTap: function (e) {
+    console.log("bindItemTap")
     if (app.globalData.isLogin == false) {
       this.goLogin();
     } else {
@@ -100,11 +101,9 @@ Page({
       var like = e.currentTarget.dataset.like;
       var comment = e.currentTarget.dataset.comment;
       var userPortrait = this.data.userPortrait;
-
       console.log(e.currentTarget.dataset);
-      console.log(postId)
       wx.navigateTo({
-        url: '/pages/postsDisplay/postdetial/postdetail?account=' + account + '&postid=' + postId + '&title=' + title + '&content=' + content + '&label=' + label + '&nickname=' + nickname + '&userlabel=' + userlabel + '&like=' + like + '&comment=' + comment + '&userportrait=' + userPortrait,
+        url: '/pages/postsDisplay/postdetial/postdetail?account=' + account + '&postId=' + postId + '&title=' + title + '&content=' + content + '&label=' + label + '&nickname=' + nickname + '&userlabel=' + userlabel + '&like=' + like + '&comment=' + comment + '&userportrait=' + userPortrait,
       })
     }
   },

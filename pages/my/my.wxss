@@ -80,7 +80,7 @@ page {
 
 .userName image {
   margin-left: 16rpx;
-  width: 84rpx;
+  width: 31rpx;
   height: 31rpx;
 }
 

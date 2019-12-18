@@ -8,8 +8,15 @@
 
 .nickname {
   font-size: 13px;
+  display: flex;
+  align-items: center;
 }
 
+.nickname image {
+  margin-left: 16rpx;
+  width: 13px;
+  height: 13px;
+}
 .middle {
   margin-left: 5%;
   width: 60%;

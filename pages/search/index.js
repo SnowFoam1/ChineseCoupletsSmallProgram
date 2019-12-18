@@ -31,9 +31,9 @@ Page({
     wxSearch.bindSearchAllShow(e, this)
   },
 
-  bindInputSchool: function (e) {
+  bindInputSearchWord: function (e) {
     console.log(e);
-    wxSearch.bindInputSchool(e, this)
+    wxSearch.bindInputSearchWord(e, this)
   },
 
   bindGoSearch: function (e) {

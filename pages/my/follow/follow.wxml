@@ -4,7 +4,9 @@
   <view class='total'>
     <image bindtap="bindPersonalTap" data-id="{{items.userAccount}}" class='headImage' src='{{items.userPortrait}}'></image>
     <view class='middle' bindtap="bindPersonalTap" data-id="{{items.userAccount}}">
-      <view class='nickname'>{{items.userNickname}}</view>
+      <view class='nickname'>{{items.userNickname}}
+        <image wx:if="{{items.userVip=='是'}}" src="http://106.54.206.129:8080/pictures/会员权益.png"></image>
+      </view>
       <view class='introduction'>{{items.userLabel}}</view>
     </view>
     <view class="other {{followFlag[index]==0?'activeTag':''}} followState" bindtap="changeFollowState" data-key="{{followFlag[index]}}" data-index="{{index}}">{{followState[followFlag[index]]}}</view>

@@ -27,13 +27,13 @@ Page({
     noreply: false,
     judgeFollow: '',
     followFlag: '',
-    userPortrait:'',
+    userPortrait: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     var that = this;
     console.log(options)
     that.setData({
@@ -43,18 +43,18 @@ Page({
       label: options.label,
       title: options.title,
       content: options.content,
-      postId: options.postid,
+      postId: options.postId,
       like: options.like,
       comment: options.comment,
       userId: app.globalData.userAccountId,
       userPortrait: options.userportrait
     })
-    if (options.userlabel == "" || options.userlabel == null){
-      if(that.data.userAccount!=app.globalData.userAccountId){
+    if (options.userlabel == "" || options.userlabel == null) {
+      if (that.data.userAccount != app.globalData.userAccountId) {
         that.setData({
           userLabel: "这个人没有昵称哦~"
         })
-      }else{
+      } else {
         that.setData({
           userLabel: "你还没有昵称哦~"
         })
@@ -64,8 +64,7 @@ Page({
     // console.log(app.globalData.userAccountId)
     that.judgeFollowFunction()
   },
-
-  onShow: function () {
+  onShow: function() {
     var that = this;
 
     wx.request({
@@ -78,7 +77,7 @@ Page({
       header: {
         'content-type': 'application/json' //默认值
       },
-      success: function (res) {
+      success: function(res) {
         // console.log(res);
         that.setData({
           julike: res.data
@@ -88,8 +87,7 @@ Page({
           that.setData({
             islike: false
           })
-        }
-        else if (that.data.julike == '已点赞') {
+        } else if (that.data.julike == '已点赞') {
           that.setData({
             islike: true
           })
@@ -107,7 +105,7 @@ Page({
       header: {
         'content-type': 'application/json' //默认值
       },
-      success: function (res) {
+      success: function(res) {
         console.log(res);
         that.setData({
           jucollection: res.data
@@ -117,8 +115,7 @@ Page({
           that.setData({
             iscollection: false
           })
-        }
-        else if (that.data.jucollection == '已收藏') {
+        } else if (that.data.jucollection == '已收藏') {
           that.setData({
             iscollection: true
           })
@@ -127,7 +124,7 @@ Page({
     })
   },
 
-  doCollection: function () {
+  doCollection: function() {
     var that = this;
     if (this.data.jucollection == '未收藏') {
       that.setData({
@@ -144,12 +141,11 @@ Page({
         header: {
           'content-type': 'application/json' //默认值
         },
-        success: function (res) {
+        success: function(res) {
           console.log(res)
         }
       })
-    }
-    else if (this.data.jucollection == '已收藏') {
+    } else if (this.data.jucollection == '已收藏') {
       that.setData({
         iscollection: false,
         jucollection: '未收藏'
@@ -164,7 +160,7 @@ Page({
         header: {
           'content-type': 'application/json' //默认值
         },
-        success: function (res) {
+        success: function(res) {
           console.log(res)
         }
       })
@@ -173,7 +169,7 @@ Page({
     console.log(this.data.iscollection);
   },
 
-  doLike: function () {
+  doLike: function() {
     var that = this;
     var likeNum = this.data.like;
     if (this.data.julike == '未点赞') {
@@ -193,12 +189,11 @@ Page({
         header: {
           'content-type': 'application/json' //默认值
         },
-        success: function (res) {
+        success: function(res) {
 
         }
       })
-    }
-    else if (this.data.julike == '已点赞') {
+    } else if (this.data.julike == '已点赞') {
       likeNum--;
       that.setData({
         islike: false,
@@ -215,7 +210,7 @@ Page({
         header: {
           'content-type': 'application/json' //默认值
         },
-        success: function (res) {
+        success: function(res) {
 
         }
       })
@@ -227,7 +222,7 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
     var that = this;
     wx.request({
       url: 'http://106.54.206.129:8080/post/getPostReplyByPostId',
@@ -238,7 +233,7 @@ Page({
       header: {
         'content-type': 'application/json' //默认值
       },
-      success: function (res) {
+      success: function(res) {
         console.log(res)
         that.setData({
           replys: res.data
@@ -247,8 +242,7 @@ Page({
           that.setData({
             noreply: true
           })
-        }
-        else {
+        } else {
           that.setData({
             noreply: false
           })
@@ -257,14 +251,14 @@ Page({
     })
   },
 
-  doreply: function (e) {
+  doreply: function(e) {
     var that = this;
     that.setData({
       focus: true
     })
   },
 
-  send: function (event) {
+  send: function(event) {
     console.log(event);
     var that = this;
     var comment = this.data.comment;
@@ -272,7 +266,7 @@ Page({
       focus: false,
     })
     console.log(that.data.focus);
-    console.log(that.data.comcontent+"1111111111");
+    console.log(that.data.comcontent + "1111111111");
     wx: wx.request({
       url: 'http://106.54.206.129:8080/post/reply',
       data: {
@@ -284,7 +278,7 @@ Page({
       header: {
         'content-type': 'application/json' //默认值
       },
-      success: function (res) {
+      success: function(res) {
         console.log(res);
         comment++;
         that.setData({
@@ -297,7 +291,7 @@ Page({
     })
   },
 
-  delete: function (e) {
+  delete: function(e) {
     var that = this;
     var replyId = e.currentTarget.dataset.replyid;
     var comment = this.data.comment;
@@ -306,7 +300,7 @@ Page({
       wx.showModal({
         title: '提示',
         content: '确定要删除此条回复？',
-        success: function (res) {
+        success: function(res) {
           console.log(res);
           if (res.confirm) {
             console.log('点击确定了');
@@ -319,7 +313,7 @@ Page({
               header: {
                 'content-type': 'application/json' //默认值
               },
-              success: function (res) {
+              success: function(res) {
                 console.log(res);
                 comment--;
                 that.setData({
@@ -337,7 +331,7 @@ Page({
     }
   },
 
-  foucus: function (e) {
+  foucus: function(e) {
     var that = this;
     that.setData({
       bottom: e.detail.height
@@ -345,7 +339,7 @@ Page({
   },
 
   //失去聚焦
-  blur: function (e) {
+  blur: function(e) {
     console.log("shijiao");
     /*var that = this;
     that.setData({
@@ -353,12 +347,12 @@ Page({
      // comcontent: e.detail.value
     })*/
     this.setData({
-      bottom:0,
+      bottom: 0,
     })
     console.log(this.data.comcontent)
   },
 
-  input:function(e){
+  input: function(e) {
     console.log(e);
     this.setData({
       comcontent: e.detail.value
@@ -368,14 +362,14 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
     var that = this
     if (that.data.followFlag == -1 && that.data.judgeFollow == 1) {
       wx.request({
@@ -399,24 +393,42 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
-
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function(options) {
+    console.log(options)
+    // url: decodeURIComponent(decodeURIComponent(''))
+    wx.showShareMenu({
+      withShareTicket: true,
+    })
+    // 官方取消回调函数
+    // success: function () {
+    //   wx.showToast({
+    //     title: '转发成功',
+    //     duration: 2000,
+    //     icon: 'success'
+    //   })
+    // },
+    // fail: function (res) {
+    //   wx.showToast({
+    //     title: '转发失败',
+    //     duration: 2000,
+    //     image: '/icons/fail.png',
+    //   })
+    // }
   },
-  judgeFollowFunction: function () {
+  judgeFollowFunction: function() {
     var that = this;
     wx.request({
       url: 'http://106.54.206.129:8080/judgeFollow?id=' + that.data.userId + '&followId=' + that.data.userAccount,
@@ -424,7 +436,7 @@ Page({
       header: {
         'content-type': 'application/json' //默认值
       },
-      success: function (res) {
+      success: function(res) {
         // console.log(that.data.userId)
         // console.log(that.data.userAccount)
         // console.log(res)
@@ -443,33 +455,42 @@ Page({
       }
     })
   },
-  addFollow: function (e) {
+  addFollow: function(e) {
     this.setData({
       followFlag: 1
     })
   },
-  deleteFollow: function (e) {
+  deleteFollow: function(e) {
     this.setData({
       followFlag: -1
     })
   },
 
-  toScanByLabel:function()
-  {
+  toScanByLabel: function() {
     wx.navigateTo({
-      url: '/pages/postsDisplay/scanByLabel/scanByLabel?label='+this.data.label
+      url: '/pages/postsDisplay/scanByLabel/scanByLabel?label=' + this.data.label
     })
   },
-  toSpace: function () {
-    if (this.data.judgeFollow == 0) {
-      wx.switchTab({
-        url: '/pages/my/my',
+  toSpace: function() {
+    var page = getCurrentPages()
+    if (page.length >= 5) {
+      // var prevPage = page[page.length - 2];
+      wx.navigateBack({
+
       })
     } else {
-      var thisUserAccount = this.data.userAccount
-      wx.navigateTo({
-        url: '/pages/my/othersSpace/othersSpace?thisUserAccount=' + thisUserAccount,
-      })
+      if (this.data.judgeFollow == 0) {
+        wx.switchTab({
+          url: '/pages/my/my',
+        })
+        // console.log(page)
+      } else {
+        var thisUserAccount = this.data.userAccount
+        wx.navigateTo({
+          url: '/pages/my/othersSpace/othersSpace?thisUserAccount=' + thisUserAccount,
+        })
+        // console.log(page)
+      }
     }
   }
 })

@@ -17,7 +17,7 @@ module.exports = {
     })
   },
 
-  bindInputSchool(e, that) {
+  bindInputSearchWord(e, that) {
     //console.log(e);
     var val = e.detail.value;
     this.matchStroage(that, val)
@@ -58,7 +58,8 @@ module.exports = {
     })
   },
 
-  showlog(that) {
+  showlog(that) 
+  {
     let searchList_stroage = getStorage('searchList') || [];
     let searchList = []
     if (typeof (searchList_stroage) != undefined && searchList_stroage.length > 0) 
@@ -78,7 +79,7 @@ module.exports = {
     })
   },
 
-  matchStroage(that, val) {//判断当前搜索在不再缓存
+  matchStroage(that, val) {//匹配历史搜索
     let searchList_stroage = getStorage('searchList') || [];
     console.log(searchList_stroage)
     let searchList = []
@@ -121,13 +122,9 @@ module.exports = {
   },
 
   goSchool(val) {
-    wx.showModal({
-      title: '调往搜索页面',
-      content: `你的传值是${val}，带上它去新页面`,
-    })
     console.log(val)
-    // wx.redirectTo({
-    //   url: `/pages/schools/schools?item=${val}`
-    // })
+    wx.navigateTo({
+      url: '/pages/searchResult/searchResult?word='+val,
+    })
   }
 }

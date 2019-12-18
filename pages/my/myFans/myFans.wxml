@@ -1,13 +1,15 @@
 <!--pages/myFans/myFans.wxml-->
 <view class='message' wx:for="{{items}}" wx:for-index="index" wx:for-item="items">
   <view class='total'>
-      <image bindtap="bindPersonalTap" data-id="{{items.userAccount}}" class='headImage' src='{{items.userPortrait}}'></image>
-      <view class='middle' bindtap="bindPersonalTap" data-id="{{items.userAccount}}">
-        <view class='nickname'>{{items.userNickname}}</view>
-        <view class='introduction'>{{items.userLabel}}</view>
+    <image bindtap="bindPersonalTap" data-id="{{items.userAccount}}" class='headImage' src='{{items.userPortrait}}'></image>
+    <view class='middle' bindtap="bindPersonalTap" data-id="{{items.userAccount}}">
+      <view class='nickname'>{{items.userNickname}}
+        <image wx:if="{{items.userVip=='是'}}" src="http://106.54.206.129:8080/pictures/会员权益.png"></image>
       </view>
-      <view class="other {{followFlag[index]==0?'activeTag':''}} followState" bindtap="changeFollowState" data-key="{{followFlag[index]}}" data-index="{{index}}">{{followState[followFlag[index]]}}</view>
+      <view class='introduction'>{{items.userLabel}}</view>
     </view>
+    <view class="other {{followFlag[index]==0?'activeTag':''}} followState" bindtap="changeFollowState" data-key="{{followFlag[index]}}" data-index="{{index}}">{{followState[followFlag[index]]}}</view>
+  </view>
   <view class='line'></view>
 </view>
 <view wx:if="{{items.length == 0}}" class="nothing">

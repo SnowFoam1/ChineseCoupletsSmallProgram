@@ -50,10 +50,8 @@
           </a>
         </view>
         <view class="answerBody">
-          <view bindtap="bindItemTap">
-            <text class="answerTxt" aid="{{answerId}}">{{item.postContent}}</text>
-          </view>
-          <view class="answerActions" bindtap="bindItemTap">
+          <text class="answerTxt" aid="{{answerId}}">{{item.postContent}}</text>
+          <view class="answerActions">
             <view class="like dot">
               <a>{{item.postPsum}} 点赞 </a>
             </view>

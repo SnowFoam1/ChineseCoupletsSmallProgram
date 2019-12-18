@@ -28,22 +28,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log("onload");
     userAccount = options.userAccount;
-    var that = this;
+    var that = this
     wx.request({
       url: 'http://106.54.206.129:8080/user/getMyFollowingsById',
-      data: {
-        id: userAccount
+      data:{
+        id:userAccount
       },
-      header: {
-        "Content-Type": "applciation/json"
+      header:{
+        "Content-Type":"application/json"
       },
-      method: 'GET',
-      success: function (res) {
+      method:'GET',
+      success: function(res){
         var resultRes = res.data;
         that.setData({
-          myFollow: resultRes,
+          myFollow : resultRes
         })
         wx.request({
           url: 'http://106.54.206.129:8080/user/getMyFansById',
@@ -51,45 +50,44 @@ Page({
             id: userAccount
           },
           header: {
-            "Content-Type": "applciation/json"
+            "Content-Type": "application/json"
           },
-          method: 'GET',
-          success: function (res) {
+          method:'GET',
+          success:function(res){
             var result = res.data;
-            for (var i = 0; i < result.length; i++) {
-              if (result[i].userLabel == '' || result[i].userLabel == null) {
-                result[i].userLabel = '这个人没有签名哦~';
+            for(var i=0;i<result.length;i++){
+              if (result[i].userLabel == "" || result[i].userLabel == null){
+                result[i].userLabel = "这个人没有签名";
               }
-              if (result[i].userPortrait == '' || result[i].userPortrait == null) {
-                result[i].userPortrait = '/icons/saber.jpg';
+              if (result[i].userPortrait == "" || result[i].userPortrait == null){
+                result[i].userPortrait = "/icons/saber.jpg";
               }
               that.setData({
-                followFlag: that.data.followFlag.concat(0),
-                followFlagOrigin: that.data.followFlagOrigin.concat(0),
+                followFlag : that.data.followFlag.concat(0),
+                followFlagOrigin : that.data.followFlagOrigin.concat(0)
               })
-              var stringF = "followFlag[" + i +"]"
-              var stringFO = "followFlagOrigin[" + i + "]"
-              for (var j = 0; j < that.data.myFollow.length; j++) {
-                if (that.data.myFollow[j].userAccount == result[i].userAccount) {
+              var followStateF = 'followFlag[' + i +']';
+              var followStateFO = 'followFlagOrigin[' + i + ']';
+              for(var j=0; j<that.data.myFollow.length;j++){
+                if(that.data.myFollow[j].userAccount == result[i].userAccount){
                   that.setData({
-                    ['stringF']: 1,
-                    ['stringFO']: 1,
+                    [followStateF] : 1,
+                    [followStateFO] : 1
                   })
                   break;
                 }
               }
             }
             that.setData({
-              items: result,
+              items : result
             })
           }
         })
-      },
-      fail: function (res) {
-        console.log("fail");
       }
-    });
+    })
   },
+
+
   changeFollowState: function (e) {
     // console.log(e.currentTarget.dataset)
     var string = 'followFlag[' + e.currentTarget.dataset.index + ']'
