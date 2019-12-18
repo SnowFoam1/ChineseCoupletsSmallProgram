@@ -28,7 +28,7 @@
     </view>
   </view>
 
-  <view class="post-content">{{content}}</view>
+  <view class="post-content"><text space="emsp">{{content}}</text></view>
 
   <view class="post-do">
     <view class="collection">
