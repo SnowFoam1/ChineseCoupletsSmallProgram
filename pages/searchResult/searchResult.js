@@ -1,7 +1,8 @@
 // pages/test/index.js
 import * as wxSearch from '../../component/wxSearch/wxSearch';
 import { getStorage, setStorage } from '../../utils/util';
-var app = getApp()
+var app = getApp();
+var utils = require('../../utils/util.js');
 Page({
 
   /**
@@ -92,11 +93,18 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: function (res) {
-        //console.log(res);
+        console.log(res.data)
+        var result = res.data;
+        console.log(result);
+        for (var i = 0; i < result.length; i++) {
+          result[i].postTime = utils.formatTime(result[i].postTime, 'Y-M-D h:m')
+          if (result[i].userPortrait == "" || result[i].userPortrait == null) {
+            result[i].userPortrait = '/icons/saber.jpg'
+          }
+        }
         that.setData({
-          postList: res.data
+          postList: result,
         })
-        console.log(that.data.postList);
       },
       fail: function (res) {
       },
