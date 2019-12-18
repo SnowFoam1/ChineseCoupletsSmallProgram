@@ -5,8 +5,8 @@
   </view>
 
   <view class="result_search" hidden="{{searchIsHidden}}" bindtap='bindSearchHidden'>
-    <view class='list_search'>
-      <view class='li_list_search' wx:for="{{searchList}}" wx:key="{{index}}" wx:if="{{index<3 || searchAllShow}}" catchtap="bindGoSchool" data-item="{{item}}">
+    <view class='list_search' wx:if="{{searchAllShow}}">
+      <view class='li_list_search' wx:for="{{searchList}}" wx:key="{{index}}" wx:if="{{index < 3 || !showlist}}" catchtap="bindGoSchool" data-item="{{item}}">
         <view class="icon-waiting">
           <image src="/assets/images/icon-waiting.png"></image>
         </view>
@@ -16,7 +16,7 @@
         </view>
       </view>
     </view>
-    <view class="li_list_search" catchtap="bindSearchAllShow" wx:if="{{searchList.length>3 && !searchAllShow}}">
+    <view class="li_list_search" catchtap="bindSearchAllShow" wx:if="{{searchList.length > 3 && showlist}}">
       <view class="icon-waiting"></view>
       <text class="pl30 colGray">全部搜索记录</text>
       <view class='icon-down rightFlex'>

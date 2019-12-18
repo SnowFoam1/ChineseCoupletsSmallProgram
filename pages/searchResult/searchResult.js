@@ -288,6 +288,28 @@ Page({
     this.goSchool(val)
   },
 
+  bindItemTap: function (e) {
+    if (app.globalData.isLogin == false) {
+      this.goLogin();
+    } else {
+      var postId = e.currentTarget.dataset.id;
+      var account = e.currentTarget.dataset.account;
+      var title = e.currentTarget.dataset.title;
+      var content = e.currentTarget.dataset.content;
+      var label = e.currentTarget.dataset.label;
+      var userlabel = e.currentTarget.dataset.userlabel;
+      var nickname = e.currentTarget.dataset.nickname;
+      var like = e.currentTarget.dataset.like;
+      var comment = e.currentTarget.dataset.comment;
+      var userPortrait = e.currentTarget.dataset.userportrait;
+
+      console.log(e.currentTarget.dataset);
+      wx.navigateTo({
+        url: '/pages/postsDisplay/postdetial/postdetail?account=' + account + '&postId=' + postId + '&title=' + title + '&content=' + content + '&label=' + label + '&nickname=' + nickname + '&userlabel=' + userlabel + '&like=' + like + '&comment=' + comment + '&userPortrait=' + userPortrait,
+      })
+    }
+  },
+
   goSchool(val) {
     /*wx.showModal({
       title: '调往搜索页面',

@@ -15,15 +15,7 @@
   background-color: rgba(0, 6, 11, 0.6);
   z-index:99998;
 }
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-}
+
 .downIcon{
   transform:rotate(90deg);
 }

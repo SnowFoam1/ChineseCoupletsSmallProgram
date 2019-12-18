@@ -124,7 +124,9 @@ Page({
                 //   beforePage.onLoad()
                 // }
               })
-            }else{
+            }
+            else
+            {
               wx.showToast({
                 title: "登录成功",
                 icon: '',
@@ -141,7 +143,7 @@ Page({
           {
             var text = '账号不存在，请注册'
             wx.showToast({
-              title: toastText,
+              title: text,
               icon: 'none',
               duration: 2000
             });

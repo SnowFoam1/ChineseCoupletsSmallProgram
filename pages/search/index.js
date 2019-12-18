@@ -15,9 +15,10 @@ Page({
       activeIndex: 0,
       sliderOffset: 0,
       sliderLeft: 0,
-      searchIsHidden: true,
+      searchIsHidden: false,
       searchAllShow: false,
-      inputVal: ''
+      inputVal: '',
+      showlist:false
     }
   },
   onLoad: function (options) {

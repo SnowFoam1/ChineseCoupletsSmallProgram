@@ -21,10 +21,10 @@
   z-index: -1;
 }
 
-.couplets
+/*.couplets
 {
-display: flex;
-flex-direction: column;
-align-items: left;
-border: 1px solid #cccccc;
-}
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+/*border: 1px solid #d11a1a;
+}*/
