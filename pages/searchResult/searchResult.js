@@ -19,7 +19,7 @@ Page({
 
     searchList: getStorage('searchList'),
     tabs: ['院校优先', '专业优先', '更多筛选'],
-    hotsSearch: ['数学与应用数学', '信息与计算科学', '网络工程', '应用化学', '应用化学', '计算机科学与技术', '数学与应用数学', '信息与计算科学', '网络工程'],
+    hotsSearch: '',
     activeIndex: 0,
     sliderOffset: 0,
     sliderLeft: 0,
