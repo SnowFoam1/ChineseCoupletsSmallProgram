@@ -8,25 +8,25 @@ Page({
   /**
    * 页面的初始数据
    */
-
+  
   data: {
     //searchWord:'',
-    currentData: 0,
-    coupletList: '',
-    userList: '',
-    postList: '',
-    top: 0,
+    currentData:0,
+    coupletList:'',
+    userList:'',
+    postList:'',
+    top:0,
 
     searchList: getStorage('searchList'),
     tabs: ['院校优先', '专业优先', '更多筛选'],
-    hotsSearch: ['数学与应用数学', '信息与计算科学', '网络工程', '应用化学', '应用化学', '计算机科学与技术', '数学与应用数学', '信息与计算科学', '网络工程'],
+    hotsSearch: '',
     activeIndex: 0,
     sliderOffset: 0,
     sliderLeft: 0,
     searchIsHidden: true,
     searchAllShow: false,//全部搜索记录
     inputVal: '',
-    searchResult_Couplet: '',
+    searchResult_Couplet:'',
     searchResult_User: '',
     searchResult_Post: '',
   },
@@ -40,30 +40,31 @@ Page({
     //wxSearch.init(this);
     console.log(options);
     this.setData({
-      inputVal: options.word
+      inputVal:options.word
     });
-    var that = this;
+    var that = this ;
     this.setData({
-      searchResult_Couplet: '加载中......'
+      searchResult_Couplet:'加载中......'
     });
 
     wx.request({//搜索楹联
       url: 'http://106.54.206.129:8080/search/searchCouplets',
       data: {
-        searchContent: that.data.inputVal
+        searchContent:that.data.inputVal
       },
       header: {},
       method: 'GET',
       dataType: 'json',
       responseType: 'text',
       success: function (res) {
-        if (res.data == '') {
+        if(res.data == '')
+        {
           that.setData({
             searchResult_Couplet: '抱歉，暂无相关楹联'
           })
         }
         that.setData({
-          coupletList: res.data
+          coupletList:res.data
         })
         console.log(that.data.coupletList);
       },
@@ -93,19 +94,32 @@ Page({
       complete: function (res) { },
     });*/
 
-
+    
 
   },
 
   bindPersonalTap: function (e) {
     var thisUserAccount = e.currentTarget.dataset.id
-    wx.navigateTo({
-      url: '/pages/my/othersSpace/othersSpace?thisUserAccount=' + thisUserAccount,
-    })
+    if(app.globalData.isLogin == false)
+    {
+        wx.showModal({
+          title: '提示',
+          showCancel:false,
+          content: '请登录后查看用户信息',
+        })
+    }
+    else
+    {
+      wx.navigateTo({
+        url: '/pages/my/othersSpace/othersSpace?thisUserAccount=' + thisUserAccount,
+      })
+    }
+    
   },
-
-  scrollTopFun(e) {
-    let that = this;
+  
+  scrollTopFun(e)
+  {
+    let that = this ;
     that.top = e.detail.scrollTop;
     that.$apply();
   },
@@ -118,21 +132,24 @@ Page({
 
   onReady: function () {
 
-
+   
 
   },
 
   checkCurrent(e) {
-    if (this.data.currentData == e.target.dataset.current) {
-      return
+    if (this.data.currentData == e.target.dataset.current) 
+    {
+      return 
     }
-    else {
+    else 
+    {
       this.setData({
         currentData: e.target.dataset.current
       });
 
       var that = this;
-      if (this.data.currentData == '1') {
+      if (this.data.currentData == '1')
+      {
         this.setData({
           searchResult_User: '加载中......'
         });
@@ -162,7 +179,8 @@ Page({
           complete: function (res) { },
         });
       }
-      else if (this.data.currentData == '2') {
+      else if (this.data.currentData == '2')
+      {
         this.setData({
           searchResult_Post: '加载中......'
         });
@@ -212,7 +230,8 @@ Page({
         url: "/pages/detail/index?coupletId=" + coupletId,
       })
     }
-    else {
+    else 
+    {
       wx.showModal({
         title: '提示',
         content: '请前往个人中心登录后查看楹联详细信息',
@@ -329,7 +348,8 @@ Page({
         }
       }
     }
-    else {
+    else 
+    {
       searchList = searchList_stroage
     }
     console.log(searchList);
@@ -345,9 +365,18 @@ Page({
   },
 
   bindItemTap: function (e) {
-    if (app.globalData.isLogin == false) {
-      this.goLogin();
-    } else {
+    console.log("ssssss")
+    if (app.globalData.isLogin == false) 
+    {
+      //this.goLogin();
+      wx.showModal({
+        title: '提示',
+        showCancel:false,
+        content: '请登录后查看帖子详情',
+      })
+    } 
+    else 
+    {
       var postId = e.currentTarget.dataset.id;
       var account = e.currentTarget.dataset.account;
       var title = e.currentTarget.dataset.title;
@@ -358,7 +387,6 @@ Page({
       var like = e.currentTarget.dataset.like;
       var comment = e.currentTarget.dataset.comment;
       var userPortrait = e.currentTarget.dataset.userportrait;
-
       console.log(e.currentTarget.dataset);
       wx.navigateTo({
         url: '/pages/postsDisplay/postdetial/postdetail?account=' + account + '&postId=' + postId + '&title=' + title + '&content=' + content + '&label=' + label + '&nickname=' + nickname + '&userlabel=' + userlabel + '&like=' + like + '&comment=' + comment + '&userPortrait=' + userPortrait,
@@ -377,7 +405,7 @@ Page({
     })*/
     //this.onLoad(val);
     wx.redirectTo({
-      url: `/pages/searchResult/searchResult?word=` + val
+      url: `/pages/searchResult/searchResult?word=`+val
     })
   }
 

@@ -62,8 +62,8 @@
   padding-left:25rpx;padding-right:25rpx;
 	height: 46rpx;line-height: 46rpx;
 	border-radius: 10rpx;
-	border: solid 2px #0389fe;
+	border: solid 2px rgb(229, 42,42);
   font-size: 24rpx;
-  color: #0389fe;
+  color: #c52626;
   text-align:center;
 }

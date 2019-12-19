@@ -6,16 +6,18 @@ Page({
     classArray: [
       { classId: 1, className: "春联" },
       { classId: 2, className: "挽联" },
-      { classId: 3, className: "风景" },
-      { classId: 4, className: "名胜" },
-      { classId: 5, className: "人物" },
-      { classId: 6, className: "巧对" },
-      { classId: 7, className: "抒情" },
-      { classId: 8, className: "春联" },
-      { classId: 9, className: "春联" },
-      { classId: 10, className: "春联" },
-      { classId: 11, className: "春联" },
-      { classId: 12, className: "春联" },
+      { classId: 3, className: "山水" },
+      { classId: 4, className: "园林" },
+      { classId: 5, className: "古建" },
+      { classId: 6, className: "宗教" },
+      { classId: 7, className: "居室" },
+      { classId: 8, className: "行业" },
+      { classId: 9, className: "题赠" },
+      { classId: 10, className: "巧对" },
+      { classId: 11, className: "集句" },
+      { classId: 12, className: "文艺" },
+      { classId: 13, className: "救灾" },
+      { classId: 14, className: "族谱" },
     ], //左侧导航栏内容
     class_Id: "",  //后台查询需要的字段
     coupletsArray: [], //右侧内容

@@ -23,23 +23,23 @@ Page({
         }, 
         {
           image: "/images/3.png",
-          title: "风景"
+          title: "山水"
         },
         {
           image: "/images/4.png",
-          title: "名胜"
+          title: "园林"
         },
         {
           image: "/images/renwu.png",
-          title: "人物"
+          title: "古建"
         },
         {
           image: "/images/5.png",
-          title: "巧对"
+          title: "宗教"
         },
         {
           image: "/images/6.png",
-        title: "抒情"
+        title: "居室"
         },
         {
           image: "/images/7.png",

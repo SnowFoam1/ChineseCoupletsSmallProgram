@@ -22,7 +22,7 @@
             <image src="{{item.userPortrait}}"></image>
           </view>
           <text>{{item.userNickname}}</text>
-          <!-- <image wx.if="{{}}" src="http://106.54.206.129:8080/pictures/会员权益.png"></image> -->
+          <image class="head" wx:if="{{item.userVip == '是'}}" src="http://106.54.206.129:8080/pictures/会员权益.png"></image>
         </a>
       </view>
       <view class="feedContent">
