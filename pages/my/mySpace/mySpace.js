@@ -78,6 +78,7 @@ Page({
           userNickname: result.userNickname,
           userPortrait: result.userPortrait,
           userLabel: result.userLabel,
+          userPortrait: result.userPortrait,
         })
       }
     })
@@ -202,11 +203,11 @@ Page({
     var nickname = this.data.userNickname;
     var like = e.currentTarget.dataset.like;
     var comment = e.currentTarget.dataset.comment;
-    var userPortrait = this.data.userPortrait;
+    var userportrait = this.data.userPortrait;
 
-    console.log(e.currentTarget.dataset.id);
+    console.log(e.currentTarget.dataset);
     wx.navigateTo({
-      url: '/pages/postsDisplay/postdetial/postdetail?account=' + account + '&postId=' + postId + '&title=' + title + '&content=' + content + '&label=' + label + '&nickname=' + nickname + '&userlabel=' + userlabel + '&like=' + like + '&comment=' + comment + '&userPortrait=' + userPortrait,
+      url: '/pages/postsDisplay/postdetial/postdetail?account=' + account + '&postId=' + postId + '&title=' + title + '&content=' + content + '&label=' + label + '&nickname=' + nickname + '&userlabel=' + userlabel + '&like=' + like + '&comment=' + comment + '&userportrait=' + userportrait,
     })
 
   },

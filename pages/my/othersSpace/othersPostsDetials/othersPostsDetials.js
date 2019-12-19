@@ -105,6 +105,7 @@ Page({
       console.log(postId)
       wx.navigateTo({
         url: '/pages/postsDisplay/postdetial/postdetail?account=' + account + '&postid=' + postId + '&title=' + title + '&content=' + content + '&label=' + label + '&nickname=' + nickname + '&userlabel=' + userlabel + '&like=' + like + '&comment=' + comment + '&userportrait=' + userPortrait,
+
       })
     }
   },

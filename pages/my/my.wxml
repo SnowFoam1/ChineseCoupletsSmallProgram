@@ -10,6 +10,7 @@
           <view class="userInfo">
             <view class="userName">
               <text>{{userNickname}}</text>
+              <image wx:if="{{userVip=='是'}}" src="http://106.54.206.129:8080/pictures/会员权益.png"></image>
             </view>
             <view class="introduction">
               积分：
@@ -21,7 +22,7 @@
           </view>
         </view>
 
-        <view class="sign" bindtap="signin">
+        <view class="sign" bindtap="siSgnin">
           <view class="notyet">
             <text wx:if="{{signFlag==0}}">+ 签到</text>
           </view>

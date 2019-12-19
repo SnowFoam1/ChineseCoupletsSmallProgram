@@ -46,10 +46,10 @@ Page({
       var like = e.currentTarget.dataset.like;
       var comment = e.currentTarget.dataset.comment;
       var userPortrait = e.currentTarget.dataset.userportrait;
-
+      
       console.log(e.currentTarget.dataset);
       wx.navigateTo({
-        url: '/pages/postsDisplay/postdetial/postdetail?account=' + account + '&postId=' + postId + '&title=' + title + '&content=' + content + '&label=' + label + '&nickname=' + nickname + '&userlabel=' + userlabel + '&like=' + like + '&comment=' + comment + '&userPortrait=' + userPortrait,
+        url: '/pages/postsDisplay/postdetial/postdetail?account=' + account + '&postId=' + postId + '&title=' + title + '&content=' + content + '&label=' + label + '&nickname=' + nickname + '&userlabel=' + userlabel + '&like=' + like + '&comment=' + comment + '&userportrait=' + userPortrait,
       })
     }
   },

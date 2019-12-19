@@ -20,6 +20,7 @@ Page({
     flag: false,
     signFlag: 0,
     userPortrait: '',
+    userVip: '',
   },
 
   /**
@@ -67,6 +68,7 @@ Page({
             userPortrait: result.userPortrait,
             userLabel: result.userLabel,
             userScore: result.userScore,
+            userVip: result.userVip,
           })
         }
       })

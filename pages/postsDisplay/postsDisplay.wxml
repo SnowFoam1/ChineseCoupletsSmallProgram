@@ -22,6 +22,7 @@
             <image src="{{item.userPortrait}}"></image>
           </view>
           <text>{{item.userNickname}}</text>
+          <image class="head" wx:if="{{item.userVip == '是'}}" src="http://106.54.206.129:8080/pictures/会员权益.png"></image>
         </a>
       </view>
       <view class="feedContent">
@@ -31,9 +32,9 @@
           </a>
         </view>
         <view class="question" qid="{{questionId}}">
-          <a class="questionLink">
+          <view class="questionLink">
             <text>{{item.postTitle}}</text>
-          </a>
+          </view>
         </view>
         <view class="answerBody">
           <view>
