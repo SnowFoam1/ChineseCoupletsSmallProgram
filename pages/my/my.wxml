@@ -22,7 +22,7 @@
           </view>
         </view>
 
-        <view class="sign" bindtap="siSgnin">
+        <view class="sign" bindtap="signin">
           <view class="notyet">
             <text wx:if="{{signFlag==0}}">+ 签到</text>
           </view>
