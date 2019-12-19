@@ -5,12 +5,23 @@
       <image src="../../icons/search.png"></image>
       <input fixed="true" placeholder="搜索动态" placeholder-class="search-placeholder" />
     </view>
-    <!--view class="search-right flexItem" bindtap="upper">
-      <!-- <image src="../../images/lighting.png"></image> >
-    </view-->
   </view>
 </view>
 
+<view class="container">
+  <view class="choose flexWrp">
+    <view class='select_box'>
+      <view class='select' catchtap='selectTap'>
+        <text class='select_text'>{{selectItem[index]}}</text>
+        <image class='select_img {{selectShow&&"select_img_rotate"}}' src='/icons/tri.png' background-size="contain"></image>
+      </view>
+      <view class='option_box' style='height:{{selectShow?(selectItem.length>5?325:selectItem.length*50):0}}rpx;'>
+        <text class='option' wx:for='{{selectItem}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
+      </view>
+    </view>
+
+  </view>
+</view>
 
 <scroll-view scroll-y="true" class="container" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" enable-flex="true">
   <block wx:for="{{items}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
@@ -37,8 +48,8 @@
           </view>
         </view>
         <view class="answerBody">
-          <view>
-            <text class="answerTxt" aid="{{answerId}}">{{item.postContent}}</text>
+          <view class="answerTxt">
+            <text aid="{{answerId}}">{{item.postContent}}</text>
           </view>
           <view class="answerActions">
             <view class="like dot">

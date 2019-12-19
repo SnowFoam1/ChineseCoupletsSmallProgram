@@ -24,4 +24,20 @@
       <text>清除痕迹</text>
     </view>
   </view>
+  <view bindtap="openPage" class="item" data-url="/pages/my/help/help" hoverClass="none">
+    <view class='wallet'>
+      <image src="/icons/help.png">
+      </image>
+      <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>
+      <text>帮助中心</text>
+    </view>
+  </view>
+  <view bindtap="openPage" class="item" data-url="/pages/my/about/about" hoverClass="none">
+    <view class='wallet'>
+      <image src="/icons/about.png">
+      </image>
+      <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>
+      <text>关于我们</text>
+    </view>
+  </view>
 </view>

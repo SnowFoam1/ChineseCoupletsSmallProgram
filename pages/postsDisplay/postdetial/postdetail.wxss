@@ -116,9 +116,12 @@
   width: 88%;
   background: rgb(253, 253, 253);
   border-radius: 10px;
-  font-size: 19px;
   color: #454545;
   line-height: 44rpx;
+}
+
+.post-content text {
+  font-size: 16px;
 }
 
 .post-do {
@@ -201,12 +204,11 @@ image {
 
 .commentBox .eachReply {
   width: 93%;
-
   padding-top: 3px;
   padding-bottom: 3px;
 }
 
-.commentBox .eachReply .replyhead{
+.commentBox .eachReply .replyhead {
   margin-left: 8px;
   margin-top: 6px;
   width: 28px;
@@ -233,7 +235,7 @@ image {
   color: rgb(92, 92, 92);
 }
 
-.commentBox .eachReply .replytime{
+.commentBox .eachReply .replytime {
   padding-left: 70%;
   font-size: 10px;
   color: rgb(105, 104, 104);

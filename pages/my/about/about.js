@@ -1,43 +1,18 @@
-// pages/set/set.js
-
+// pages/my/about/about.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    userAccount: ''
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var userAccount = options.userAccount;
-    this.setData({
-      userAccount: userAccount
-    })
 
-  },
-
-  changePassword: function () {
-    wx.navigateTo({
-      url: '/pages/findpassword/index?type=' + 2,
-    })
-  },
-
-  openPage: function (a) {
-    var e = a.currentTarget.dataset.url;
-    wx.navigateTo({
-      url: e + '?userAccount=' + this.data.userAccount
-    });
-  },
-  clearStorage:function()
-  {
-    wx.clearStorageSync();
-    wx.showToast({
-      title: '清除成功！',
-    })
   },
 
   /**

@@ -6,6 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    selectShow: false,
+    selectItem: ['按热度','按时间'],
+    index: 0,
     items: [],
     labels: [
       "楹联鉴赏",
@@ -14,6 +17,18 @@ Page({
     ],
     postsNumber: 0,
     finalGroup: false
+  },
+  selectTap() {
+    this.setData({
+      selectShow : !this.data.selectShow
+    })
+  },
+  optionTap: function(e) {
+    this.setData({
+      index : e.currentTarget.dataset.index,
+      selectShow : !this.data.selectShow
+    })
+    this.onLoad()
   },
   goLogin: function (e) {
     var that = this
@@ -69,30 +84,57 @@ Page({
       postsNumber: 0,
       finalGroup: false
     })
-    wx.request({
-      url: 'http://106.54.206.129:8080/post/getTenPostsWithAuthor',
-      data: {
-        num: that.data.postsNumber
-      },
-      header: {
-        "Content-Type": "applciation/json"
-      },
-      method: 'GET',
-      success: function(res) {
-        console.log(that.data.postsNumber)
-        var result = res.data;
-        console.log(result);
-        for (var i = 0; i < result.length; i++) {
-          result[i].postTime = utils.formatTime(result[i].postTime, 'Y-M-D h:m')
-          if (result[i].userPortrait == "" || result[i].userPortrait == null) {
-            result[i].userPortrait = '/icons/saber.jpg'
+    if(that.data.index == 0){
+      wx.request({
+        url: 'http://106.54.206.129:8080/post/getTenPostsWithAuthor',
+        data: {
+          num: that.data.postsNumber
+        },
+        header: {
+          "Content-Type": "applciation/json"
+        },
+        method: 'GET',
+        success: function (res) {
+          console.log(that.data.postsNumber)
+          var result = res.data;
+          console.log(result);
+          for (var i = 0; i < result.length; i++) {
+            result[i].postTime = utils.formatTime(result[i].postTime, 'Y-M-D h:m')
+            if (result[i].userPortrait == "" || result[i].userPortrait == null) {
+              result[i].userPortrait = '/icons/saber.jpg'
+            }
           }
+          that.setData({
+            items: result,
+          })
         }
-        that.setData({
-          items: result,
-        })
-      }
-    })
+      })
+    }else if(that.data.index == 1){
+      wx.request({
+        url: 'http://106.54.206.129:8080/post/getTenPostsWithAuthorByDate',
+        data: {
+          num: that.data.postsNumber
+        },
+        header: {
+          "Content-Type": "applciation/json"
+        },
+        method: 'GET',
+        success: function (res) {
+          console.log(that.data.postsNumber)
+          var result = res.data;
+          console.log(result);
+          for (var i = 0; i < result.length; i++) {
+            result[i].postTime = utils.formatTime(result[i].postTime, 'Y-M-D h:m')
+            if (result[i].userPortrait == "" || result[i].userPortrait == null) {
+              result[i].userPortrait = '/icons/saber.jpg'
+            }
+          }
+          that.setData({
+            items: result,
+          })
+        }
+      })
+    }
   },
 
   /**
@@ -148,38 +190,73 @@ Page({
     if (that.data.finalGroup == false) {
       var value = that.data.postsNumber + 10;
       // console.log(value);
-      wx.request({
-        url: 'http://106.54.206.129:8080/post/getTenPostsWithAuthor',
-        data: {
-          num: value
-        },
-        header: {
-          "Content-Type": "applciation/json"
-        },
-        method: 'GET',
-        success: function(res) {
-          var result = res.data;
-          if (result.length < 10) {
-            that.setData({
-              finalGroup: true,
-            })
-          } else {
-            that.setData({
-              postsNumber: value
-            })
-          }
-          for (var i = 0; i < result.length; i++) {
-            result[i].postTime = utils.formatTime(result[i].postTime, 'Y-M-D h:m')
-            if (result[i].userPortrait == "" || result[i].userPortrait == null) {
-              result[i].userPortrait = '/icons/saber.jpg'
+      if(that.data.index == 0){
+        wx.request({
+          url: 'http://106.54.206.129:8080/post/getTenPostsWithAuthor',
+          data: {
+            num: value
+          },
+          header: {
+            "Content-Type": "applciation/json"
+          },
+          method: 'GET',
+          success: function (res) {
+            var result = res.data;
+            if (result.length < 10) {
+              that.setData({
+                finalGroup: true,
+              })
+            } else {
+              that.setData({
+                postsNumber: value
+              })
             }
+            for (var i = 0; i < result.length; i++) {
+              result[i].postTime = utils.formatTime(result[i].postTime, 'Y-M-D h:m')
+              if (result[i].userPortrait == "" || result[i].userPortrait == null) {
+                result[i].userPortrait = '/icons/saber.jpg'
+              }
+            }
+            // console.log(result)
+            that.setData({
+              items: that.data.items.concat(result),
+            })
           }
-          // console.log(result)
-          that.setData({
-            items: that.data.items.concat(result),
-          })
-        }
-      })
+        })
+      }else if(that.data.index == 1){
+        wx.request({
+          url: 'http://106.54.206.129:8080/post/getTenPostsWithAuthorByDate',
+          data: {
+            num: value
+          },
+          header: {
+            "Content-Type": "applciation/json"
+          },
+          method: 'GET',
+          success: function (res) {
+            var result = res.data;
+            if (result.length < 10) {
+              that.setData({
+                finalGroup: true,
+              })
+            } else {
+              that.setData({
+                postsNumber: value
+              })
+            }
+            for (var i = 0; i < result.length; i++) {
+              result[i].postTime = utils.formatTime(result[i].postTime, 'Y-M-D h:m')
+              if (result[i].userPortrait == "" || result[i].userPortrait == null) {
+                result[i].userPortrait = '/icons/saber.jpg'
+              }
+            }
+            // console.log(result)
+            that.setData({
+              items: that.data.items.concat(result),
+            })
+          }
+        })
+      }
     }
   },
 

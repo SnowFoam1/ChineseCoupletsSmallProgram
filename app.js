@@ -11,7 +11,7 @@ App({
   },
 
   globalData: {
-    isLogin: false,
+    isLogin: 'true',
     userAccountId:"1"
   },
 

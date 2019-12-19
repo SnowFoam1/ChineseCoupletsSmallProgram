@@ -29,6 +29,11 @@ Page({
     searchResult_Couplet:'',
     searchResult_User: '',
     searchResult_Post: '',
+    labels: [
+      "楹联鉴赏",
+      "发布楹联",
+      "凤求凰",
+    ],
   },
 
   /**
@@ -389,7 +394,7 @@ Page({
       var userPortrait = e.currentTarget.dataset.userportrait;
       console.log(e.currentTarget.dataset);
       wx.navigateTo({
-        url: '/pages/postsDisplay/postdetial/postdetail?account=' + account + '&postId=' + postId + '&title=' + title + '&content=' + content + '&label=' + label + '&nickname=' + nickname + '&userlabel=' + userlabel + '&like=' + like + '&comment=' + comment + '&userPortrait=' + userPortrait,
+        url: '/pages/postsDisplay/postdetial/postdetail?account=' + account + '&postId=' + postId + '&title=' + title + '&content=' + content + '&label=' + label + '&nickname=' + nickname + '&userlabel=' + userlabel + '&like=' + like + '&comment=' + comment + '&userportrait=' + userPortrait,
       })
     }
   },
