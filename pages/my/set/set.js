@@ -32,6 +32,10 @@ Page({
       url: e + '?userAccount=' + this.data.userAccount
     });
   },
+  clearStorage:function()
+  {
+    wx.clearStorageSync();
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

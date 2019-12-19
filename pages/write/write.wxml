@@ -2,7 +2,7 @@
 <form bindsubmit="onSubmit" bindreset="">
   <view class="container">
     <view class="selectLabel" bindtap="popSelect">选择标签
-      <text class="label" space="emsp">        {{label}}</text>
+      <text  class="label" space="emsp">        {{label}}</text>
     </view>
     <view class='title'>
       <input name="title" value="{{title}}" placeholder-class="placeholder" placeholder="在此输入标题" />
@@ -12,7 +12,11 @@
     </view>
   
     <view class='bottom'>
-      <button formType="submit" class='btn success'>发布</button>
+      <button id="发布" formType="submit" class='btn success'>发布</button>
     </view>
+    <!--view class='bottom'>
+      <button formType="submit" class='btn success'>取消</button>
+    </view-->
   </view>
+  <button id="草稿" class="cancel"  formType="submit">保存为草稿</button>
 </form>

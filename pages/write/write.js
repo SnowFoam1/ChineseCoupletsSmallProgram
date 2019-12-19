@@ -11,9 +11,10 @@ Page({
     focus: false,
     height: "",//data里面增加height属性
     userAccount: "",
-    title: "",
-    content: "",
-    ispost: "false"
+    title: "在此输入标题",
+    content: "在等你畅所欲言哦",
+    ispost: "false",
+    
   },
 
   popSelect: function () {
@@ -42,6 +43,21 @@ Page({
   },
 
   onSubmit: function (event) {
+    if(event.detail.target.id == "发布")
+    {
+      this.send(event)
+    }
+    else if (event.detail.target.id == "草稿")
+    {
+      this.cancel(event)
+    }
+  },
+
+
+  send:function(event)
+  {
+    console.log("发布");
+    console.log(event);
     if(app.globalData.isLogin == false)
     {
       wx.showModal({
@@ -83,7 +99,7 @@ Page({
         var label = this.data.label;
         console.log(this.data.userAccount);
         var that = this;
-    
+
         wx.request({
           url: 'http://106.54.206.129:8080/post/releasePost',
           data: {
@@ -101,7 +117,7 @@ Page({
             that.setData({
               content: '',
               title: '',
-              label: '' 
+              label: ''
             })
           }
         })
@@ -116,9 +132,68 @@ Page({
         })
       }
     }
-    
   },
 
+  cancel:function(e)
+  {
+    console.log(e);
+    var that = this;
+    wx.setStorage({
+      key:'label',
+      data:that.data.label,
+    });
+
+    wx.setStorage({
+      key:'title', 
+      data:e.detail.value.title,
+    });
+
+    wx.setStorage({
+      key:'content', 
+      data:e.detail.value.content,
+      success:function()
+      {
+        wx.showToast({
+          title: "保存成功",
+          icon: '',
+          duration: 2000
+        });
+        /*that.setData({
+          isStoreDraft:true
+        })*/
+        //app.globalData.isStoreDraft = true;
+      },
+      fail:function()
+      {
+        wx.showToast({
+          title: "保存失败，请重新尝试",
+          icon: "none",
+          duration: 2000
+        });
+        //console.log("error")
+      }
+    });
+
+  },
+  onLoad:function()
+  {
+
+    console.log("load");
+      var l = wx.getStorageSync('label');
+      var t = wx.getStorageSync('title');
+      var c = wx.getStorageSync('content');
+      console.log(wx.getStorage('label'));
+      console.log(l);
+      console.log(t);
+      console.log(c);
+      this.setData({
+        label: l,
+        title: t,
+        content: c,
+      })
+    //}
+    
+  },
   /**
    * 页面渲染事件
    */
@@ -133,8 +208,36 @@ Page({
         height: res[0].height + "px"
       });
     });
-
+    
+    /*if (app.globalData.isLogin == false) {
+      wx.showModal({
+        title: '提示',
+        content: '您尚未登录，请先前往个人中心登录',
+      })
+    }*/
+    console.log("load");
+    var l = wx.getStorageSync('label');
+    var t = wx.getStorageSync('title');
+    var c = wx.getStorageSync('content');
+    console.log(wx.getStorage('label'));
+    console.log(l);
+    console.log(t);
+    console.log(c);
+    this.setData({
+      label: l,
+      title: t,
+      content: c,
+    })
+  },
+  onHide: function () {
+    this.setData({
+      label: '',
+      title: '',
+      content: '',
+    })
+    console.log("==onHide==");
+  },
+  onUnload: function () {
+    console.log("==onUnload==");
   }
-
-
 });
