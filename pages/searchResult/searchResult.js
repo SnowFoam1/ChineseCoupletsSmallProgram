@@ -100,9 +100,21 @@ Page({
 
   bindPersonalTap: function (e) {
     var thisUserAccount = e.currentTarget.dataset.id
-    wx.navigateTo({
-      url: '/pages/my/othersSpace/othersSpace?thisUserAccount=' + thisUserAccount,
-    })
+    if(app.globalData.isLogin == false)
+    {
+        wx.showModal({
+          title: '提示',
+          showCancel:false,
+          content: '请登录后查看用户信息',
+        })
+    }
+    else
+    {
+      wx.navigateTo({
+        url: '/pages/my/othersSpace/othersSpace?thisUserAccount=' + thisUserAccount,
+      })
+    }
+    
   },
   
   scrollTopFun(e)
@@ -353,9 +365,18 @@ Page({
   },
 
   bindItemTap: function (e) {
-    if (app.globalData.isLogin == false) {
-      this.goLogin();
-    } else {
+    console.log("ssssss")
+    if (app.globalData.isLogin == false) 
+    {
+      //this.goLogin();
+      wx.showModal({
+        title: '提示',
+        showCancel:false,
+        content: '请登录后查看帖子详情',
+      })
+    } 
+    else 
+    {
       var postId = e.currentTarget.dataset.id;
       var account = e.currentTarget.dataset.account;
       var title = e.currentTarget.dataset.title;
@@ -366,7 +387,6 @@ Page({
       var like = e.currentTarget.dataset.like;
       var comment = e.currentTarget.dataset.comment;
       var userPortrait = e.currentTarget.dataset.userportrait;
-
       console.log(e.currentTarget.dataset);
       wx.navigateTo({
         url: '/pages/postsDisplay/postdetial/postdetail?account=' + account + '&postId=' + postId + '&title=' + title + '&content=' + content + '&label=' + label + '&nickname=' + nickname + '&userlabel=' + userlabel + '&like=' + like + '&comment=' + comment + '&userPortrait=' + userPortrait,
