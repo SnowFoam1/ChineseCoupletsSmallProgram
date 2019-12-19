@@ -273,7 +273,7 @@ Page({
   },
     Search:function()
     {
-      wx.navigateTo({
+      wx.redirectTo({
         url: '/pages/search/index',
       })
     },

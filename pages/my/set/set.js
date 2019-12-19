@@ -35,6 +35,9 @@ Page({
   clearStorage:function()
   {
     wx.clearStorageSync();
+    wx.showToast({
+      title: '清除成功！',
+    })
   },
 
   /**
