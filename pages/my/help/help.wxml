@@ -1,0 +1,6 @@
+<!--pages/my/help/help.wxml-->
+<view class="area">
+  <view class="item">
+  如有问题，请联系开发人员QQ：251816407
+  </view>
+</view>

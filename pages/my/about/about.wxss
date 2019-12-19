@@ -1,0 +1,26 @@
+/* pages/my/about/about.wxss */
+
+.content {
+  text-align: center;
+}
+
+.logo {
+  margin-top: 100rpx;
+  margin-bottom: 120rpx;
+}
+
+.logo image {
+  width: 300rpx;
+  height: 300rpx;
+  border-radius: 100%;
+}
+
+.area {
+  background-color: #fff;
+  text-align: center;
+}
+
+.item {
+  font-size: 16px;
+  margin: 20px 0;
+}

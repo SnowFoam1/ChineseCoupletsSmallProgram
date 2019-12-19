@@ -39,12 +39,12 @@
         </a>
       </view>
       <view class="feedContent">
-        <view class="question" bindtap="bindQueTap">
+        <view class="question">
           <a class="label">
             <text>【{{labels[item.lableContent-1]}}】</text>
           </a>
         </view>
-        <view class="question" qid="{{questionId}}" bindtap="bindQueTap">
+        <view class="question" qid="{{questionId}}">
           <a class="questionLink">
             <text>{{item.postTitle}}</text>
           </a>

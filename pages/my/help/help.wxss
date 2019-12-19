@@ -1,0 +1,10 @@
+/* pages/my/help/help.wxss */
+.area {
+  background-color: #fff;
+  text-align: center;
+}
+
+.item {
+  font-size: 16px;
+  margin: 20px 0;
+}
