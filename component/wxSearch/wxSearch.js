@@ -26,7 +26,7 @@ module.exports = {
 
   bindSearchAllShow(e, that) {
     this._setData(that, {
-      searchAllShow: true
+      showlist: false
     })
   },
 
@@ -74,7 +74,8 @@ module.exports = {
     }
     this._setData(that, {
       searchIsHidden: false,
-      searchAllShow: false,
+      searchAllShow: true,
+      showlist: true,
       searchList
     })
   },

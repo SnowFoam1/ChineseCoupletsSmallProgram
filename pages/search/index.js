@@ -10,14 +10,15 @@ Page({
     tabData: {
       
       searchList: getStorage('searchList'),
-      tabs: ['院校优先', '专业优先', '更多筛选'],
+      //tabs: ['院校优先', '专业优先', '更多筛选'],
       hotsSearch: ['数学与应用数学', '信息与计算科学', '网络工程', '应用化学', '应用化学', '计算机科学与技术', '数学与应用数学', '信息与计算科学', '网络工程'], 
       activeIndex: 0,
       sliderOffset: 0,
       sliderLeft: 0,
-      searchIsHidden: true,
+      searchIsHidden: false,
       searchAllShow: false,
-      inputVal: ''
+      inputVal: '',
+      showlist:false
     }
   },
   onLoad: function (options) {
@@ -25,6 +26,31 @@ Page({
     //console.log(this);
     wxSearch.init(this);
     //console.log(this);
+    var that = this;
+    wx.request({
+      url: 'http://106.54.206.129:8080/hotSearch',
+      method: 'GET',
+      data: {
+        
+      },
+      header: {},
+      success: function (res) {
+        console.log(res);
+        that.setData({
+          tabData: {
+            
+            hotsSearch: res.data,
+          }
+        })
+        console.log()
+      },
+      fail: function () {
+        
+      },
+      complete: function () {
+       
+      }
+    });
   },
 
   bindSearchAllShow: function (e) {

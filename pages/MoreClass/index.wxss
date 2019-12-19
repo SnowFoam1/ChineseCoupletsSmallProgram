@@ -34,6 +34,7 @@
   height:150rpx;
   width:100%;
 }
+
 .couplets_list{
   /*display:flex;
   flex-wrap:wrap;
@@ -45,6 +46,7 @@
   margin-bottom :5rpx;
   border-bottom: 1px solid #cccccc;
 }
+
 .couplets_type{
   margin-bottom: 10rpx;
   margin-left: 5rpx;

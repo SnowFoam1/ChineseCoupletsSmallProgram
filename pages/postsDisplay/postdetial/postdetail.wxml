@@ -18,13 +18,17 @@
         <text class="poster-des">{{userLabel}}</text>
       </view>
       <view class="follow flex-item">
-        <view class="notyet"><text wx:if="{{followFlag==-1}}" bindtap="addFollow">+ 关注</text></view>
-        <view class="already"><text wx:if="{{followFlag==1}}" bindtap="deleteFollow">已关注</text></view>
+        <view class="notyet">
+          <text wx:if="{{followFlag==-1}}" bindtap="addFollow">+ 关注</text>
+        </view>
+        <view class="already">
+          <text wx:if="{{followFlag==1}}" bindtap="deleteFollow">已关注</text>
+        </view>
       </view>
     </view>
   </view>
 
-  <view class="post-content">{{content}}</view>
+  <view class="post-content"><text space="emsp">{{content}}</text></view>
 
   <view class="post-do">
     <view class="collection">
@@ -44,14 +48,19 @@
 
   <scroll-view scroll-y="true" class="commentBox" enable-flex="true" style="bottom:70px">
     <view wx:if="{{noreply==true}}" class="noreply">期待您的精彩评论哦~~~</view>
-    <block w:else wx:for="{{replys}}" wx:for-index="idx" wx:for-item="reply" data-idx="{{idx}}"  >
+    <block w:else wx:for="{{replys}}" wx:for-index="idx" wx:for-item="reply" data-idx="{{idx}}">
       <view class="doreply">
         <view class="eachReply" bindtap="doreply" data-id="{{reply.postId}}" bindlongpress="delete" data-replyid="{{reply.replyId}}" data-userid="{{reply.userAccount}}">
-          <text class="replylevel" space="nbsp">{{idx+1}} 楼</text>
-          <text class="replyuser" space="nbsp">  {{reply.userNickname}}：</text>
-          <text class="replycontent" space="nbsp"> {{reply.replyContent}}</text>
+          <view>
+            <text class="replylevel" space="nbsp">{{idx+1}} 楼</text>
+            <image class="replyhead" src="{{reply.userPortrait}}"></image>
+            <text class="replyuser" space="nbsp">   {{reply.userNickname}}: </text>
+          </view>
+          <view>
+            <text class="replycontent" space="nbsp"> {{reply.replyContent}}</text>
+          </view>
+          <view class="replytime">{{reply.replyTime}}</view>
         </view>
-        <!-- <view class="delete" bindtap="delete">删除</view> -->
       </view>
     </block>
 

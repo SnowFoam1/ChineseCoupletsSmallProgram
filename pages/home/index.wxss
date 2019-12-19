@@ -1,6 +1,168 @@
-.page
-{
+
+
+/* pages/postsDisplay/postsDisplay.wxss */
+
+.container {
   height: 100%;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+  background: rgb(243, 245, 244);
+}
+.container .search{
+  width: 735rpx;
+  height: 70rpx;
+  padding: 12.5rpx 0 12.5rpx 15rpx;
+  background: rgb(229, 42, 42);
+  border-radius: 3px;
+}
+.container .search-left{
+  flex: 45;
+  background: rgb(231, 78, 78);
+  text-align: left;
+}
+.container .search-left input{
+  display: inline-block;
+  height: 65rpx;
+  font-size: 29rpx;
+}
+.search-placeholder{
+  color: #fff;
+  line-height: 20rpx;
+  margin-top: 0rpx;
+}
+.container .search .search-left image{
+  display: inline-block;
+  width: 35rpx;
+  height: 35rpx;
+  padding: 15rpx 15rpx 15rpx 20rpx;
+}
+
+ .search-left input{
+  width: 500rpx;
+  margin-top: 3rpx;
+  color: #fff;
+}
+
+.container .search .search-right{
+  flex: 1;
+}
+.flexWrp{
+  display: flex;
+}
+.flexTab{
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: stretch;
+}
+.flexItem{
+  flex-grow: 1;
+  text-align: center;
+  border-radius: 4px;
+}
+.container{
+  width: 100%;
+  padding: 0;
+  font-size: 14rpx;
+  color: rgb(0, 0, 0);
+}
+.container .feedItem{
+  width: 685rpx;
+  padding: 30rpx 30rpx 20rpx;
+  margin: 7rpx 0 6rpx 0;
+  background: #ffffff;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 2px 5px #eeeeee;
+  border-radius: 8px;
+}
+
+.container .feedItem .feedContent .question .label text{
+  font-size: 24rpx;
+  font-weight: 600px;
+  line-height: 40rpx;
+  color: rgb(212, 19, 19);
+}
+.container .feedItem .feedSource{
+  width: 690rpx;
+  left: 0;
+  height: 50rpx;
+}
+.container .feedItem .feedSource .avatar{
+  position: relative;
+  display: inline-block;
+}
+.container .feedItem .feedSource a{
+  display: inline-block;
+  height: 40rpx;
+}
+.container .feedItem .feedSource .avatar image{
+  /*position: absolute;*/
+  display: inline-block;
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50rpx;
+  top: 10rpx;
+  vertical-align: middle;
+}
+.container .feedItem .feedSource text{
+  /*position: absolute;*/
+  display: inline-block;
+  height: 40rpx;
+  line-height: 40rpx;
+  vertical-align: middle;
+  margin: 0 0 0 15rpx;
+  color: #a0acac;
+  font-size: 26rpx;
+}
+.container .feedItem .feedSource .itemMore{
+  display: inline-block;
+  width: 40rpx;
+  height: 45rpx;
+}
+.container .feedItem .feedContent{
+  padding: 10rpx 0 0 0;
+}
+.container .feedItem .feedContent .question text{
+  font-size: 28rpx;
+  font-weight: 600px;
+  line-height: 40rpx;
+}
+.container .feedItem .feedContent .answerBody{
+  padding: 10rpx 0 0 0;
+  /*height: 10rpx;*/
+  font-size: 24rpx;
+  line-height: 28rpx;
+  color: #5b5b5b;
+}
+.container .feedItem .feedContent .answerActions{
+  width: 690rpx;
+  padding: 10rpx 0  0;
+  color: #a0acac;
+}
+.container .feedItem .feedContent .answerActions view{
+  display: inline-block;
+  vertical-align: text-bottom;
+  padding: 0 10rpx 0 0;
+  font-size: 24rpx;
+}
+
+.container .feedItem .feedContent .answerActions .dot ::after{
+  content: "•";
+}
+.container .feedItem .feedContent .question .label text{
+  font-size: 24rpx;
+  font-weight: 600px;
+  line-height: 40rpx;
+  color: rgb(212, 19, 19);
+}
+.container .feedItem .feedContent .answerActions .postTime {
+  margin-right:  -1%;
+  float: right;
 }
 
 .back
@@ -46,26 +208,26 @@
   font-size: 24px;
 }
 
-.search
+/*.search
 {
   width: 75%;
 	display: flex;
   flex-direction: row;
   border: 2px solid #cccccc;
-  height: 55rpx;
+  height: 75rpx;
   margin-left: 45px;
   /*margin-right: 4px;
-  margin-top: 10px;*/
+  margin-top: 10px;
   border-radius: 10px;
 	align-items: center;
 }
 
 .search-icon
 {
-  width: 15px;
+  width: 20px;
   margin-left:55px; 
 
-}
+}*/
 
 .big-logo
 {
@@ -73,6 +235,7 @@
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-between;
+  background-color: rgb(255, 255, 255);
 }
 
 .logoinfo
@@ -87,13 +250,24 @@
 .logotext
 {
 	color: #aaa;
-	font-size: 22rpx;
+	font-size: 38rpx;
 }
 
-.couplets
-{
+.couplets_list{
+  /*display:flex;
+  flex-wrap:wrap;
+  margin-top:30rpx;*/
   display: flex;
-	flex-direction: column;
-	align-items: left;
-  border-block-start-width: 1px solid #cccccc;
+  flex-direction: column;
+  align-items: left;
+  margin-bottom :5rpx;
+  /*border-bottom: 1px solid #cccccc;*/
+  background-color: rgb(255, 255, 255);
+}
+
+.couplets_type{
+  margin-bottom: 10rpx;
+  margin-top: 10rpx;
+  margin-left: 5rpx;
+  font-size: 45rpx;
 }

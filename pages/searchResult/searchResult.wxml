@@ -55,7 +55,7 @@
 </view>
 
 <scroll-view class='swiper' enable-back-to-top='true' hidden="{{!searchIsHidden}}">
-  <view wx:if='{{coupletList.length == 0 && currentData == 0}}'>抱歉，暂无相关楹联</view>
+  <view wx:if='{{coupletList.length == 0 && currentData == 0}}'>{{searchResult_Couplet}}</view>
     <block wx:for="{{coupletList}}" wx:if='{{currentData == 0}}'>
       
       <view bindtap="moreDetail" class="couplets" data-coupletId="{{item.coupletsexistedId}}">
@@ -67,7 +67,7 @@
 
 
   <!--view wx:for='{{userList}}' wx:if='{{currentData == 1}}'-->
-  <view wx:if='{{userList.length == 0 && currentData == 1}}'>抱歉，暂无相关用户</view>
+  <view wx:if='{{userList.length == 0 && currentData == 1}}'>{{searchResult_User}}</view>
   <view class='message' wx:for="{{userList}}" wx:for-index="index" wx:for-item="items" wx:if='{{currentData == 1}}'>
     <view class='total'>
     <image bindtap="bindPersonalTap" data-id="{{items.userAccount}}" class='headImage' src='{{items.userPortrait}}'></image>
@@ -79,7 +79,7 @@
     <view class='line'></view>
   </view>
 
-  <view wx:if='{{currentData == 2 && postList.length == 0 }}'>抱歉，暂无相关帖子</view>
+  <view wx:if='{{currentData == 2 && postList.length == 0 }}'>{{searchResult_Post}}</view>
   <view class = 'container' >
     <block wx:for="{{postList}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
       <view class="feedItem" bindtap="bindItemTap" data-id="{{item.postId}}" data-account="{{item.userAccount}}" data-title="{{item.postTitle}}" data-content="{{item.postContent}}" data-label="{{labels[item.labelContent-1]}}" data-nickname="{{item.userNickname}}"

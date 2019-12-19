@@ -54,6 +54,11 @@ Page({
     }
   },
 
+  Search: function () {
+    wx.navigateTo({
+      url: '/pages/search/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

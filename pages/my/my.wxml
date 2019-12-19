@@ -85,14 +85,14 @@
         <text>设置中心</text>
       </view>
     </view>
-    <view bindtap="changePassword" class="item" data-url="/pages/my/set/set" formType="submit" hoverClass="none">
+    <!-- <view bindtap="changePassword" class="item" data-url="/pages/my/set/set" formType="submit" hoverClass="none">
       <view class='wallet'>
         <image src="/icons/changePassword.png">
         </image>
         <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>
         <text>修改密码</text>
       </view>
-    </view>
+    </view> -->
   </view>
 </form>
 
