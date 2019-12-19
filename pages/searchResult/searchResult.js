@@ -25,8 +25,10 @@ Page({
     sliderLeft: 0,
     searchIsHidden: true,
     searchAllShow: false,//全部搜索记录
-    inputVal: ''
-    
+    inputVal: '',
+    searchResult_Couplet:'',
+    searchResult_User: '',
+    searchResult_Post: '',
   },
 
   /**
@@ -41,6 +43,10 @@ Page({
       inputVal:options.word
     });
     var that = this ;
+    this.setData({
+      searchResult_Couplet:'加载中......'
+    });
+
     wx.request({//搜索楹联
       url: 'http://106.54.206.129:8080/search/searchCouplets',
       data: {
@@ -51,7 +57,12 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: function (res) {
-        //console.log(res);
+        if(res.data == '')
+        {
+          that.setData({
+            searchResult_Couplet: '抱歉，暂无相关楹联'
+          })
+        }
         that.setData({
           coupletList:res.data
         })
@@ -62,7 +73,7 @@ Page({
       complete: function (res) { },
     });
 
-    wx.request({//搜索用户
+    /*wx.request({//搜索用户
       url: 'http://106.54.206.129:8080/search/searchUser',
       data: {
         searchContent: that.data.inputVal
@@ -81,35 +92,9 @@ Page({
       fail: function (res) {
       },
       complete: function (res) { },
-    });
+    });*/
 
-    wx.request({//搜索帖子
-      url: 'http://106.54.206.129:8080/search/searchPost',
-      data: {
-        searchContent: that.data.inputVal
-      },
-      header: {},
-      method: 'GET',
-      dataType: 'json',
-      responseType: 'text',
-      success: function (res) {
-        console.log(res.data)
-        var result = res.data;
-        console.log(result);
-        for (var i = 0; i < result.length; i++) {
-          result[i].postTime = utils.formatTime(result[i].postTime, 'Y-M-D h:m')
-          if (result[i].userPortrait == "" || result[i].userPortrait == null) {
-            result[i].userPortrait = '/icons/saber.jpg'
-          }
-        }
-        that.setData({
-          postList: result,
-        })
-      },
-      fail: function (res) {
-      },
-      complete: function (res) { },
-    });
+    
 
   },
 
@@ -148,7 +133,78 @@ Page({
     {
       this.setData({
         currentData: e.target.dataset.current
-      })
+      });
+
+      var that = this;
+      if (this.data.currentData == '1')
+      {
+        this.setData({
+          searchResult_User: '加载中......'
+        });
+        wx.request({//搜索用户
+          url: 'http://106.54.206.129:8080/search/searchUser',
+          data: {
+            searchContent: that.data.inputVal
+          },
+          header: {},
+          method: 'GET',
+          dataType: 'json',
+          responseType: 'text',
+          success: function (res) {
+            if (res.data == '') {
+              that.setData({
+                searchResult_User: '抱歉，暂无相关用户'
+              })
+            }
+            console.log(res);
+            that.setData({
+              userList: res.data
+            })
+            console.log(that.data.userList);
+          },
+          fail: function (res) {
+          },
+          complete: function (res) { },
+        });
+      }
+      else if (this.data.currentData == '2')
+      {
+        this.setData({
+          searchResult_Post: '加载中......'
+        });
+        wx.request({//搜索帖子
+          url: 'http://106.54.206.129:8080/search/searchPost',
+          data: {
+            searchContent: that.data.inputVal
+          },
+          header: {},
+          method: 'GET',
+          dataType: 'json',
+          responseType: 'text',
+          success: function (res) {
+            if (res.data == '') {
+              that.setData({
+                searchResult_Post: '抱歉，暂无相关帖子'
+              })
+            }
+            console.log(res.data)
+            var result = res.data;
+            console.log(result);
+            for (var i = 0; i < result.length; i++) {
+              result[i].postTime = utils.formatTime(result[i].postTime, 'Y-M-D h:m')
+              if (result[i].userPortrait == "" || result[i].userPortrait == null) {
+                result[i].userPortrait = '/icons/saber.jpg'
+              }
+            }
+            that.setData({
+              postList: result,
+            })
+          },
+          fail: function (res) {
+          },
+          complete: function (res) { },
+        });
+      }
     }
   },
 
