@@ -1,0 +1,7 @@
+<!--pages/my/feedback/feedback.wxml-->
+<form bindsubmit="formSubmit">
+  <view class="changeLabel">
+    <textarea class="input" name="content" placeholder="请输入您的建议，我们将认真考虑" placeholder-style="font-size:19px" auto-focus="true" auto-height="true"></textarea>
+  </view>
+  <button class="butt" form-type="submit">提交</button>
+</form>
