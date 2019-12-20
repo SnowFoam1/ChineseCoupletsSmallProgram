@@ -25,6 +25,7 @@ Page({
     userLabel: '',
     userNickname: '',
     userPortrait: '',
+    scrollFlag: true,
   },
   switchTab: function(e) {
     this.setData({
@@ -136,32 +137,35 @@ Page({
     //开始触摸时 重置所有删除
     let data = App.touch._touchstart(e, this.data.items)
     this.setData({
-      items: data
+      items: data,
+      scrollFlag: false
     })
   },
   //滑动事件处理
   touchMove: function(e) {
     let data = App.touch._touchmove(e, this.data.items)
     this.setData({
-      items: data
+      items: data,
+      scrollFlag: false
     })
   },
-  // touchEnd :function(e){
-  //   var item = this.data.data[e.currentTarget.dataset.index]
-  //   if (item.right >= this.data.delBtnWidth / 2) {
-  //     item.right = this.data.delBtnWidth
-  //     this.setData({
-  //       isScroll: true,
-  //       data: this.data.data,
-  //     })
-  //   } else {
-  //     item.right = 0
-  //     this.setData({
-  //       isScroll: true,
-  //       data: this.data.data,
-  //     })
-  //   }
-  // },
+  touchEnd :function(e){
+    var item = this.data.data[e.currentTarget.dataset.index]
+    if (item.right >= this.data.delBtnWidth / 2) {
+      item.right = this.data.delBtnWidth
+      this.setData({
+        isScroll: true,
+        data: this.data.data,
+      })
+    } else {
+      item.right = 0
+      this.setData({
+        isScroll: true,
+        data: this.data.data,
+      })
+    }
+  },
+
   delItem: function(e) {
     var that = this
     wx.showModal({
@@ -256,14 +260,17 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function() {
-
+    wx.showToast({
+      title: 'loading....',
+      icon: 'loading'
+    })
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-    wx.wx.showToast({
+    wx.showToast({
       title: 'loading....',
       icon: 'loading'
     })
