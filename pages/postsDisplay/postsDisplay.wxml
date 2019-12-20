@@ -15,7 +15,7 @@
         <text class='select_text'>{{selectItem[index]}}</text>
         <image class='select_img {{selectShow&&"select_img_rotate"}}' src='/icons/tri.png' background-size="contain"></image>
       </view>
-      <view class='option_box' style='height:{{selectShow?(selectItem.length>5?325:selectItem.length*50):0}}rpx;'>
+      <view class='option_box' style='height:{{selectShow?(selectItem.length>5?325:selectItem.length*70):0}}rpx;'>
         <text class='option' wx:for='{{selectItem}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
       </view>
     </view>

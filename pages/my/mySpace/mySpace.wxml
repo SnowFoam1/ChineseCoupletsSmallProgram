@@ -4,9 +4,9 @@
   </view>
 </view>
 
-<scroll-view scroll-y="true" class="container">
+<scroll-view scroll-y="true" class="container" scroll-y="{{scrollFlag}}">
   <view class="ctnt0" hidden="{{currentNavtab==0 ? '' : true}}">
-    <view class="touchItem {{item.isTouchMove ? 'touch-move-active' : ''}}" scroll-y="{{item.isTouchMove ? '' : true}}" wx:for="{{items}}" wx:for-idx="idx" wx:for-item="item" bindtouchstart="touchStart" bindtouchmove="touchMove" data-index="{{index}}" bindtap="bindItemTap" data-id="{{item.postId}}" data-account="{{item.userAccount}}" data-title="{{item.postTitle}}" data-content="{{item.postContent}}" data-label="{{labels[item.lableContent-1]}}" data-nickname="{{item.userNickname}}" data-userlabel="{{item.userLabel}}" data-like="{{item.postPsum}}" data-comment="{{item.postRsum}}">
+    <view class="touchItem {{item.isTouchMove ? 'touch-move-active' : ''}}" wx:for="{{items}}" wx:for-idx="idx" wx:for-item="item" bindtouchstart="touchStart" bindtouchmove="touchMove" data-index="{{index}}" bindtap="bindItemTap" data-id="{{item.postId}}" data-account="{{item.userAccount}}" data-title="{{item.postTitle}}" data-content="{{item.postContent}}" data-label="{{labels[item.lableContent-1]}}" data-nickname="{{item.userNickname}}" data-userlabel="{{item.userLabel}}" data-like="{{item.postPsum}}" data-comment="{{item.postRsum}}">
       <view class="feedItem" data-index="{{index}}">
         <view class="feedSource">
           <a class="">

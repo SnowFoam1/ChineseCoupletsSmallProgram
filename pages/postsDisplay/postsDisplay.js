@@ -7,7 +7,7 @@ Page({
    */
   data: {
     selectShow: false,
-    selectItem: ['按热度','按时间'],
+    selectItem: ['按热度', '按时间'],
     index: 0,
     items: [],
     labels: [
@@ -20,22 +20,22 @@ Page({
   },
   selectTap() {
     this.setData({
-      selectShow : !this.data.selectShow
+      selectShow: !this.data.selectShow
     })
   },
   optionTap: function(e) {
     this.setData({
-      index : e.currentTarget.dataset.index,
-      selectShow : !this.data.selectShow
+      index: e.currentTarget.dataset.index,
+      selectShow: !this.data.selectShow
     })
     this.onLoad()
   },
-  goLogin: function (e) {
+  goLogin: function(e) {
     var that = this
     wx.showModal({
       title: '提示',
       content: '请登录',
-      success: function (res) {
+      success: function(res) {
         if (res.confirm) {
           wx.navigateTo({
             url: '/pages/login/index?page=postdetial',
@@ -61,7 +61,7 @@ Page({
       var like = e.currentTarget.dataset.like;
       var comment = e.currentTarget.dataset.comment;
       var userPortrait = e.currentTarget.dataset.userportrait;
-      
+
       console.log(e.currentTarget.dataset);
       wx.navigateTo({
         url: '/pages/postsDisplay/postdetial/postdetail?account=' + account + '&postId=' + postId + '&title=' + title + '&content=' + content + '&label=' + label + '&nickname=' + nickname + '&userlabel=' + userlabel + '&like=' + like + '&comment=' + comment + '&userportrait=' + userPortrait,
@@ -69,7 +69,7 @@ Page({
     }
   },
 
-  Search: function () {
+  Search: function() {
     wx.navigateTo({
       url: '/pages/search/index',
     })
@@ -84,7 +84,7 @@ Page({
       postsNumber: 0,
       finalGroup: false
     })
-    if(that.data.index == 0){
+    if (that.data.index == 0) {
       wx.request({
         url: 'http://106.54.206.129:8080/post/getTenPostsWithAuthor',
         data: {
@@ -94,7 +94,7 @@ Page({
           "Content-Type": "applciation/json"
         },
         method: 'GET',
-        success: function (res) {
+        success: function(res) {
           console.log(that.data.postsNumber)
           var result = res.data;
           console.log(result);
@@ -109,7 +109,7 @@ Page({
           })
         }
       })
-    }else if(that.data.index == 1){
+    } else if (that.data.index == 1) {
       wx.request({
         url: 'http://106.54.206.129:8080/post/getTenPostsWithAuthorByDate',
         data: {
@@ -119,7 +119,7 @@ Page({
           "Content-Type": "applciation/json"
         },
         method: 'GET',
-        success: function (res) {
+        success: function(res) {
           console.log(that.data.postsNumber)
           var result = res.data;
           console.log(result);
@@ -190,7 +190,7 @@ Page({
     if (that.data.finalGroup == false) {
       var value = that.data.postsNumber + 10;
       // console.log(value);
-      if(that.data.index == 0){
+      if (that.data.index == 0) {
         wx.request({
           url: 'http://106.54.206.129:8080/post/getTenPostsWithAuthor',
           data: {
@@ -200,7 +200,7 @@ Page({
             "Content-Type": "applciation/json"
           },
           method: 'GET',
-          success: function (res) {
+          success: function(res) {
             var result = res.data;
             if (result.length < 10) {
               that.setData({
@@ -217,13 +217,15 @@ Page({
                 result[i].userPortrait = '/icons/saber.jpg'
               }
             }
-            // console.log(result)
-            that.setData({
-              items: that.data.items.concat(result),
-            })
+            console.log(result)
+            if (result.length != 0){
+              that.setData({
+                items: that.data.items.concat(result),
+              })
+            }
           }
         })
-      }else if(that.data.index == 1){
+      } else if (that.data.index == 1) {
         wx.request({
           url: 'http://106.54.206.129:8080/post/getTenPostsWithAuthorByDate',
           data: {
@@ -233,7 +235,7 @@ Page({
             "Content-Type": "applciation/json"
           },
           method: 'GET',
-          success: function (res) {
+          success: function(res) {
             var result = res.data;
             if (result.length < 10) {
               that.setData({
@@ -251,9 +253,11 @@ Page({
               }
             }
             // console.log(result)
-            that.setData({
-              items: that.data.items.concat(result),
-            })
+            if (result.length != 0) {
+              that.setData({
+                items: that.data.items.concat(result),
+              })
+            }
           }
         })
       }

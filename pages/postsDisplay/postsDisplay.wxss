@@ -91,7 +91,7 @@
 }
 
 .container .feedItem .feedContent .question .label text {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600px;
   line-height: 24px;
   color: rgb(212, 19, 19);
@@ -175,8 +175,11 @@
 }
 
 .container .feedItem .feedContent .answerBody .answerTxt {
-  font-size: 16px;
   padding: 0 0 10rpx;
+}
+
+.container .feedItem .feedContent .answerBody .answerTxt text{
+  font-size: 16px;
 }
 
 .container .feedItem .feedContent .answerActions {
@@ -243,7 +246,7 @@
 }
 
 .select_box{
-  width:25%;
+  width:40%;
   border-radius: 14rpx;
   position: relative;
 }
@@ -256,11 +259,12 @@
   align-items: center;
   padding: 0 10rpx;
 }
-.select_box .select .select_text{
+.select_box .select .select_text {
   font-size: 16px;
   color: #777777;
   line-height: 28rpx;
   flex: 1;
+  margin-left: 22%;
 }
 .select_box .select .select_img{
   width: 30px;
@@ -285,9 +289,10 @@
 }
 .select_box .option_box .option{
   display: block;
-  line-height: 30rpx; 
+  line-height: 50rpx; 
   font-size: 16px;
   border-top: 1px solid #efefef;
   border-bottom: 1px solid #efefef;
   padding: 10rpx;
+  text-align: center;
 }
