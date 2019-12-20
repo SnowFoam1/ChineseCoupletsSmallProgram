@@ -26,6 +26,8 @@ Page({
     userNickname: '',
     userPortrait: '',
     scrollFlag: true,
+    delBtnWidth: 180,
+    tapFlag: true,
   },
   switchTab: function(e) {
     this.setData({
@@ -115,7 +117,7 @@ Page({
         "Content-Type": "applciation/json"
       },
       method: 'GET',
-      success: function (res) {
+      success: function(res) {
         console.log(res);
         var result = res.data;
         for (var i = 0; i < result.length; i++) {
@@ -138,7 +140,7 @@ Page({
     let data = App.touch._touchstart(e, this.data.items)
     this.setData({
       items: data,
-      scrollFlag: false
+      // scrollFlag: false
     })
   },
   //滑动事件处理
@@ -146,28 +148,15 @@ Page({
     let data = App.touch._touchmove(e, this.data.items)
     this.setData({
       items: data,
-      scrollFlag: false
+      // scrollFlag: false
     })
-  },
-  touchEnd :function(e){
-    var item = this.data.data[e.currentTarget.dataset.index]
-    if (item.right >= this.data.delBtnWidth / 2) {
-      item.right = this.data.delBtnWidth
-      this.setData({
-        isScroll: true,
-        data: this.data.data,
-      })
-    } else {
-      item.right = 0
-      this.setData({
-        isScroll: true,
-        data: this.data.data,
-      })
-    }
   },
 
   delItem: function(e) {
     var that = this
+    that.setData({
+      tapFlag : false
+    })
     wx.showModal({
       title: '提示',
       content: '确认要删除此条动态吗？',
@@ -194,29 +183,33 @@ Page({
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
+        that.setData({
+          tapFlag : true
+        })
       }
     })
   },
   bindItemTap: function(e) {
-    var postId = e.currentTarget.dataset.id;
-    var account = e.currentTarget.dataset.account;
-    var title = e.currentTarget.dataset.title;
-    var content = e.currentTarget.dataset.content;
-    var label = e.currentTarget.dataset.label;
-    var userlabel = this.data.userLabel;
-    var nickname = this.data.userNickname;
-    var like = e.currentTarget.dataset.like;
-    var comment = e.currentTarget.dataset.comment;
-    var userportrait = this.data.userPortrait;
+    if(this.data.tapFlag == true){
+      var postId = e.currentTarget.dataset.id;
+      var account = e.currentTarget.dataset.account;
+      var title = e.currentTarget.dataset.title;
+      var content = e.currentTarget.dataset.content;
+      var label = e.currentTarget.dataset.label;
+      var userlabel = this.data.userLabel;
+      var nickname = this.data.userNickname;
+      var like = e.currentTarget.dataset.like;
+      var comment = e.currentTarget.dataset.comment;
+      var userportrait = this.data.userPortrait;
 
-    console.log(e.currentTarget.dataset);
-    wx.navigateTo({
-      url: '/pages/postsDisplay/postdetial/postdetail?account=' + account + '&postId=' + postId + '&title=' + title + '&content=' + content + '&label=' + label + '&nickname=' + nickname + '&userlabel=' + userlabel + '&like=' + like + '&comment=' + comment + '&userportrait=' + userportrait,
-    })
-
+      console.log(e.currentTarget.dataset);
+      wx.navigateTo({
+        url: '/pages/postsDisplay/postdetial/postdetail?account=' + account + '&postId=' + postId + '&title=' + title + '&content=' + content + '&label=' + label + '&nickname=' + nickname + '&userlabel=' + userlabel + '&like=' + like + '&comment=' + comment + '&userportrait=' + userportrait,
+      })
+    }
   },
 
-  bindlikeTap: function (e) {
+  bindlikeTap: function(e) {
     var postId = e.currentTarget.dataset.id;
     var account = e.currentTarget.dataset.account;
     var title = e.currentTarget.dataset.title;
@@ -260,20 +253,20 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function() {
-    wx.showToast({
-      title: 'loading....',
-      icon: 'loading'
-    })
+    // wx.showToast({
+    //   title: 'loading....',
+    //   icon: 'loading'
+    // })
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-    wx.showToast({
-      title: 'loading....',
-      icon: 'loading'
-    })
+    // wx.showToast({
+    //   title: 'loading....',
+    //   icon: 'loading'
+    // })
   },
 
   /**
