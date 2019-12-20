@@ -6,13 +6,13 @@ var app = getApp()
 Page({
   data: {
     userAccount: "",
-    userName: "",
-    userNickname: "ssss",
-    userLabel: "",
-    userAge: "",
-    userBirthday: "",
-    userEmail: "fjfj",
-    userLocation: "",
+    userName: "默认姓名",
+    userNickname: "默认昵称",
+    userLabel: "请输入个性签名",
+    userAge: "请输入年龄",
+    userBirthday: "请选择生日",
+    userEmail: "请输入",
+    userLocation: "请输入",
     userPortrait: '',
   },
   /**
