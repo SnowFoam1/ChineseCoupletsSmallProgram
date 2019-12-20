@@ -4,7 +4,7 @@ Page({
     currentTab: 1,  //对应样式变化
     scrollTop: 0,  //用作跳转后右侧视图回到顶部
     classArray: [
-      { classId: 1, className: "春联" },
+      /*{ classId: 1, className: "春联" },
       { classId: 2, className: "挽联" },
       { classId: 3, className: "山水" },
       { classId: 4, className: "园林" },
@@ -17,7 +17,7 @@ Page({
       { classId: 11, className: "集句" },
       { classId: 12, className: "文艺" },
       { classId: 13, className: "救灾" },
-      { classId: 14, className: "族谱" },
+      { classId: 14, className: "族谱" },*/
     ], //左侧导航栏内容
     class_Id: "",  //后台查询需要的字段
     coupletsArray: [], //右侧内容
@@ -37,7 +37,7 @@ Page({
         console.log(res);
         
         that.setData({
-          coupletsArray: couplet.concat(result)
+          classArray: res.data
         })
       },
       fail: function (res) { },
