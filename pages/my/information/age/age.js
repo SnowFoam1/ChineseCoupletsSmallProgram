@@ -21,14 +21,13 @@ Page({
   },
 
   formSubmit: function(event) {
-    if (event.detail.value.userAge == "") {
+   if (event.detail.value.userAge == "") {
       wx.showToast({
         title: '请输入年龄',
         duration: 2000,
         image: '/icons/fail.png',
       })
-    } 
-    else {
+    } else {
       this.setData({
         userAge: event.detail.value.userAge
       })
@@ -47,25 +46,35 @@ Page({
           'content-type': 'application/json' //默认值
         },
         success: function(res) {
-          console.log(res)
+          console.log(res);
+          if (res.data == '请输入数字') {
+            wx.showToast({
+              title: '请输入数字',
+              duration: 1000,
+              image: '/icons/fail.png',
+            })
+          } 
+          else if (res.data == '设置年龄成功') {
+            wx.showToast({
+              title: '提交成功',
+              duration: 1000,
+              icon: 'success'
+            })
+            var that = this;
+            var pages = getCurrentPages();
+            var currPage = pages[pages.length - 1]; //当前页面
+            var prevPage = pages[pages.length - 2]; //上一个页面
+            prevPage.setData({
+              userAge: age
+            });
+            wx.navigateBack({
+              url: '/pages/my/information/information'
+            })
+          }
         }
       })
 
-      wx.showToast({
-        title: '提交成功',
-        duration: 1000,
-        icon: 'success'
-      })
-      var that = this;
-      var pages = getCurrentPages();
-      var currPage = pages[pages.length - 1]; //当前页面
-      var prevPage = pages[pages.length - 2]; //上一个页面
-      prevPage.setData({
-        userAge: that.data.userAge
-      });
-      wx.navigateBack({
-        url: '/pages/my/information/information'
-      })
+
     }
   },
 
