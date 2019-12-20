@@ -25,7 +25,7 @@ Page({
 
   onLoad: function (options) {
     wx.request({
-      url: 'http://106.54.206.129:8080/coupletsExisted/getClassificationList',
+      url: 'http://106.54.206.129:8080/coupletsExisted/getClassifictionList',
       data: {
         
       },

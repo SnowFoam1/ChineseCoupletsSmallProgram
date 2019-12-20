@@ -2,7 +2,7 @@
  
   <!--分类导航栏-->
   <scroll-view class='left-navbar' scroll-y="true" >
-    <view wx:for="{{classArray}}" class="{{currentTab == index+1 ? 'active' : '' }}" wx:key="unique" bindtap="{{ currentTab != index+1 ? 'navbarTap':'active' }}" id="{{index+1}}" data-classId="{{item.classId}}">{{item.className}}
+    <view wx:for="{{classArray}}" class="{{currentTab == index+1 ? 'active' : '' }}" wx:key="unique" bindtap="{{ currentTab != index+1 ? 'navbarTap':'active' }}" id="{{index+1}}" data-classId="{{item.classificationClassificationid}}">{{item.classificationClassificationname}}
     </view>
   </scroll-view>
  <!--右侧楹联列表-->
