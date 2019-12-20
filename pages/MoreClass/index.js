@@ -24,12 +24,30 @@ Page({
   },
 
   onLoad: function (options) {
+    wx.request({
+      url: 'http://106.54.206.129:8080/coupletsExisted/getClassificationList',
+      data: {
+        
+      },
+      header: {},
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        console.log(res);
+        
+        that.setData({
+          coupletsArray: couplet.concat(result)
+        })
+      },
+      fail: function (res) { },
+      complete: function (res) { console.log("请求完成") },
+    });
+
     this.setData({
       coupletsArray: [],
       class_Id:options.id
     });
-    console.log(options);
-    //var classId = options.id;
     if(options.id == "8")
     {
       this.setData({
@@ -124,5 +142,30 @@ Page({
         showCancel:false
       })
     }
-  }
+  },
+  /*onUnload:function()
+  {
+    wx.showActionSheet({
+      itemList: ['楹联鉴赏', '发布楹联', '凤求凰'],
+      success: function (res) {
+        console.log(res);
+        if (res.tapIndex === 0) {
+          that.setData({
+            label: '楹联鉴赏'
+          })
+        }
+        else if (res.tapIndex === 1) {
+          that.setData({
+            label: '发布楹联'
+          })
+        }
+        else if (res.tapIndex === 2) {
+          that.setData({
+            label: '凤求凰'
+          })
+        }
+      }
+    });
+    console.log("asdasdadadasd")
+  }*/
 })

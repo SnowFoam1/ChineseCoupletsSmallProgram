@@ -132,6 +132,7 @@ Page({
                 icon: '',
                 duration: 2000
               });
+              
               setTimeout(function () {
                 wx.switchTab({
                   url: '/pages/home/index',
