@@ -33,7 +33,7 @@ Page({
     })
   },
   onLoad: function() {
-    //console.log(app.globalData.isLogin)
+    console.log(this.data.flag);
     //this.data.test = app.globalData.isLogin
     if (app.globalData.isLogin == true) {
 
@@ -151,11 +151,13 @@ Page({
       url: '/pages/findpassword/index?type=' + 2,
     })
   },
+
   toLogin: function() {
     wx.redirectTo({
       url: '/pages/login/index',
     })
   },
+
   previewImage: function () {
     var that = this;
     wx.showActionSheet({

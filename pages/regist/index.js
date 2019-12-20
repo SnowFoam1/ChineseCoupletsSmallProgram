@@ -108,6 +108,9 @@ Page({
 
   Regi:function(param){
     var flag = this.CheckUserName(param.username) && this.CheckPassword(param) && this.CheckSmsCode(param);
+    this.setData({
+      pass:param.password
+    })
     var that = this;
     if(flag)
     {
@@ -224,12 +227,12 @@ Page({
       });
       return false;
     }
-    else if(password.length<6||password.length>20)
+    else if(password.length<6||password.length>18)
     {
       wx.showModal({
         title: '提示',
         showCancel:false,
-        content: '密码长度为6-20位字符'
+        content: '密码长度为6-18位字符'
       });
       return false;
     }
