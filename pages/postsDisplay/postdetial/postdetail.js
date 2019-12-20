@@ -39,16 +39,16 @@ Page({
     console.log(options)
     that.setData({
       userAccount: options.account,
-      userLabel: options.userlabel,
-      userNickname: options.nickname,
-      label: options.label,
-      title: options.title,
-      content: options.content,
+      userLabel: decodeURIComponent(options.userlabel),
+      userNickname: decodeURIComponent(options.nickname),
+      label: decodeURIComponent(options.label),
+      title: decodeURIComponent(options.title),
+      content: decodeURIComponent(options.content),
       postId: options.postId,
       like: options.like,
       comment: options.comment,
       userId: app.globalData.userAccountId,
-      userPortrait: options.userportrait
+      userPortrait: decodeURIComponent(options.userportrait),
     })
     if (options.userlabel == "" || options.userlabel == null) {
       if (that.data.userAccount != app.globalData.userAccountId) {
