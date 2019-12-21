@@ -5,10 +5,10 @@ page {
 }
 
 .header {
-  padding: 0 25rpx;
+  /*padding: 0 25rpx;*/
   padding-top: 30rpx;
   padding-bottom: 30rpx;
-  width: 94%;
+  width: 100%;
   background: #fff;
   position: relative;
   border-radius: 10px;
