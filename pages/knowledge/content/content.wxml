@@ -1,11 +1,11 @@
 <!--pages/knowledge/content/content.wxml-->
 <view class="container">
   <view class="chapter" >
-    <text>作为国粹的对联</text>
+    <text>{{charptername}}</text>
   </view>
 
   <view class="chapter-content">
-    <text space="emsp">
+    <text space="emsp">{{item}}
   对联是国粹。
 
   春联，从它产生之后，就逐渐地不限于春节使用了，而派生出许多支，这个家族越来越大，名称越来越多。因为它的艺术形式是两联相对，所以人们习惯统称之为对联或联语。其实，对联不管有多少类别，但春联是源头。
@@ -25,3 +25,4 @@
   </view>
 
 </view>
+

@@ -1,4 +1,4 @@
-/* pages/knowledge/contents/contents.wxss */
+/* pages/knowledge/charpter/charpter.wxss */
 page {
   padding-bottom: 50rpx;
   background: #f8f8f8;

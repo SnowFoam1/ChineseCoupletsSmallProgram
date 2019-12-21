@@ -5,14 +5,38 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    item: '',
+    charptername: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var bookid = options.bookid;
+    var charpterid = options.charpterid;
+    this.setData({
+      charptername: options.charptername
+    })
+    var that = this;
+    wx.request({
+      url: 'http://106.54.206.129:8080/study/getCharpterContent',
+      data:{
+        bookId: bookid,
+        charpterId: charpterid
+      },
+      method: 'GET',
+      header: {
+        'content-type': 'application/json' //默认值
+      },
+      success:function(res){
+        console.log(res);
+        var result = res.data;
+        that.setData({
+          item: result
+        })
+      }, 
+    })
   },
 
   /**
