@@ -7,7 +7,7 @@ Page({
    */
   data: {
     selectShow: false,
-    selectItem: ['按热度', '按时间'],
+    selectItem: ['按时间', '按热度'],
     index: 0,
     items: [],
     labels: [
@@ -84,7 +84,7 @@ Page({
       postsNumber: 0,
       finalGroup: false
     })
-    if (that.data.index == 0) {
+    if (that.data.index == 1) {
       wx.request({
         url: 'http://106.54.206.129:8080/post/getTenPostsWithAuthor',
         data: {
@@ -109,7 +109,7 @@ Page({
           })
         }
       })
-    } else if (that.data.index == 1) {
+    } else if (that.data.index == 0) {
       wx.request({
         url: 'http://106.54.206.129:8080/post/getTenPostsWithAuthorByDate',
         data: {

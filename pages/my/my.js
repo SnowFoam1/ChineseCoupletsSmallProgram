@@ -33,10 +33,9 @@ Page({
     })
   },
   onLoad: function() {
-    console.log(this.data.flag);
-    //this.data.test = app.globalData.isLogin
-    if (app.globalData.isLogin == true) {
-
+    console.log("5555")
+    if (app.globalData.isLogin == true) 
+    {
       this.change(app.globalData.isLogin);
       console.log(app.globalData.isLogin);
       var that = this;
@@ -92,13 +91,17 @@ Page({
         }
       })
     }
+    else{
+      this.change(app.globalData.isLogin);
+    }
   },
 
   onShow: function() {
-    //console.log(app.globalData.isLogin)
+    console.log(app.globalData.isLogin)
     /*this.setData({
       isLogin:app.globalData.isLogin
     })*/
+    this.onLoad();
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1]; //当前页面
     let userNickname = currPage.data.userNickname;
