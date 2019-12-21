@@ -103,7 +103,7 @@ page {
 
 .cancel
 {
-  width: 35%;
+  width: 50%;
   font-size: 18px;
   font-style:italic;
   color: #666363;
