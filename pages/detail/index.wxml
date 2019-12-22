@@ -40,6 +40,7 @@
         </view>
         <view wx:if='{{!haveIntro}}'>暂无楹联简介</view>
       </view>
+
       <view class='itembox {{currentData == 1 ? "showItem" : ""}}'>
         <text class='text' disabled="true" space="emsp" wx:if='{{detail.coupletsauthorRemarks != null}}'>  {{detail.coupletsauthorRemarks}}</text>
         <view wx:if='{{!haveAuthor}}'>暂无作者简介</view>

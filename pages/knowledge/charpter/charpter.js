@@ -40,12 +40,12 @@ Page({
   openPage: function (a) {
     var e = a.currentTarget.dataset.url;
     var bookid = this.data.bookid;
-    var charpterid = a.currentTarget.dataset.charpterid;
+    var charpterid = a.currentTarget.dataset.charpternumber;
     var charptername = a.currentTarget.dataset.charptername;
     console.log(charpterid+ "111111");
     wx.navigateTo({
       url: e + '?bookid=' + bookid + '&charpterid=' + charpterid + '&charptername=' + charptername
-    });
+    }); 
   },
 
   /**

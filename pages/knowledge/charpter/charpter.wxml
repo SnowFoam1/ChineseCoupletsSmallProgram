@@ -1,7 +1,7 @@
 <!--pages/knowledge/charpter/charpter.wxml-->
 <view class="nav">
   <block wx:for="{{items}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
-    <view bindtap="openPage" class="item" data-url="/pages/knowledge/content/content" data-charpterid="{{item.charpterid}}" data-charptername="{{item.charptername}}" data-bookid="{{item.charpterstudyid}}">
+    <view bindtap="openPage" class="item" data-url="/pages/knowledge/content/content" data-charpternumber="{{item.charpternumber}}" data-charptername="{{item.charptername}}" data-bookid="{{item.charpterstudyid}}">
       <view class='wallet'>
         <text space="emsp">  {{item.charptername}}</text>
       </view>
