@@ -56,14 +56,28 @@
 
 <scroll-view class='swiper' enable-back-to-top='true' hidden="{{!searchIsHidden}}">
   <view wx:if='{{coupletList.length == 0 && currentData == 0}}'>{{searchResult_Couplet}}</view>
-  <block wx:for="{{coupletList}}" wx:if='{{currentData == 0}}'>
+  <!--block wx:for="{{coupletList}}" wx:if='{{currentData == 0}}'>
 
     <view bindtap="moreDetail" class="couplets" data-coupletId="{{item.coupletsexistedId}}">
       <view>上联：{{item.coupletsexistedUpcouplets}}</view>
       <view>下联：{{item.coupletsexistedDowncouplets}}</view>
     </view>
-  </block>
+  </block-->
+  <view >
+    <view wx:for="{{coupletList}}" class="couplets_list" wx:if='{{currentData == 0}}'>
+      <view bindtap="moreDetail" class="couplets_type" data-coupletId="{{item.coupletsexistedId}}">
+        <view class="upcouplets">
+          <view class="type">上联</view>
+          <view class="up">{{item.coupletsexistedUpcouplets}}</view>
+        </view>
 
+        <view class="upcouplets">
+          <view class="type">下联</view>
+          <view class="up">{{item.coupletsexistedDowncouplets}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
 
 
   <!--view wx:for='{{userList}}' wx:if='{{currentData == 1}}'-->

@@ -412,6 +412,43 @@ Page({
     wx.redirectTo({
       url: `/pages/searchResult/searchResult?word=`+val
     })
+  },
+
+  onShow:function()
+  {
+    var that = this;
+    wx.request({//搜索帖子
+      url: 'http://106.54.206.129:8080/search/searchPost',
+      data: {
+        searchContent: that.data.inputVal
+      },
+      header: {},
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        if (res.data == '') {
+          that.setData({
+            searchResult_Post: '抱歉，暂无相关帖子'
+          })
+        }
+        console.log(res.data)
+        var result = res.data;
+        console.log(result);
+        for (var i = 0; i < result.length; i++) {
+          result[i].postTime = utils.formatTime(result[i].postTime, 'Y-M-D h:m')
+          if (result[i].userPortrait == "" || result[i].userPortrait == null) {
+            result[i].userPortrait = '/icons/saber.jpg'
+          }
+        }
+        that.setData({
+          postList: result,
+        })
+      },
+      fail: function (res) {
+      },
+      complete: function (res) { },
+    });
   }
 
 })
