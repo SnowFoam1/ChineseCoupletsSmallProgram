@@ -31,18 +31,15 @@ Page({
       url: 'http://106.54.206.129:8080/hotSearch',
       method: 'GET',
       data: {
-        
       },
       header: {},
       success: function (res) {
         console.log(res);
         that.setData({
           tabData: {
-            
             hotsSearch: res.data,
           }
         })
-        console.log()
       },
       fail: function () {
         
