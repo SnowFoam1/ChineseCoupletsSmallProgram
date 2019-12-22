@@ -1,10 +1,10 @@
 <!--pages/my/information/information.wxml-->
-<form reportSubmit bindsubmit="submitFormId">
+<form reportSubmit bindsubmit="submitFormId" wx:if="{{changeFlag == false}}">
   <view class="header">
     <view class="user" hoverClass="none">
       <view class="userBox">
         <view class="userInfo">
-          <view class="userHead"> 
+          <view class="userHead">
             <text>头像</text>
           </view>
         </view>
@@ -16,7 +16,7 @@
   </view>
 
   <!-- 功能列表 -->
-  <view class="nav">
+  <view class="nav" wx:if="{{changeFlag == false}}">
     <view bindtap="openPage" class="item" data-url="/pages/my/information/nickname/nickname" formType="submit" hoverClass="none">
       <view class='wallet'>
         <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>
@@ -91,3 +91,10 @@
     </view>
   </view>
 </form>
+<view class="background" wx:if="{{changeFlag == true}}">
+  <image-cropper id="imageCropper" limit_move="{{true}}" disable_rotate="{{disable_rotate}}" disable_ratio="{{disable_ratio}}" limit_move="{{false}}" width="{{width}}" height="{{height}}" max_width="{{max_width}}" max_height="{{max_height}}"
+    imgSrc="{{src}}" bindload="cropperload" bindimageload="loadimage" bindtapcut="clickcut"></image-cropper>
+  <view class='bottom'>
+    <button class="button" bindtap="confirmImage">上传头像</button>
+  </view>
+</view>

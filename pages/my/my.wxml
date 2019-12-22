@@ -4,7 +4,7 @@
     <view class="item" formType="submit" hoverClass="none">
       <view class="user" hoverClass="none">
         <view class="userBox" bindtap="openPage" data-url="/pages/my/information/information">
-          <view catchtap="previewImage" class="logo">
+          <view class="logo">
             <image src="{{userPortrait}}"></image>
           </view>
           <view class="userInfo">

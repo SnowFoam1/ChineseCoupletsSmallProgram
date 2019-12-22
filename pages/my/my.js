@@ -158,40 +158,4 @@ Page({
     })
   },
 
-  previewImage: function () {
-    var that = this;
-    wx.showActionSheet({
-      itemList: ['更换头像'],
-      success: function (res) {
-        console.log(res);
-        if (res.tapIndex === 0) {
-          wx.chooseImage({
-            success: function (res) {
-              var tempFilePath = res.tempFilePaths;
-              console.log(tempFilePath);
-              console.log(that.data.userAccount)
-              updateFile.uploadFile('', tempFilePath[0], 'file', { 'userId': that.data.userAccount }, function (res) {
-                console.log(res);
-                if (true == res) {
-                  // that.setData({
-                  //   userPortrait: 'http://106.54.206.129:8080/pictures/'+that.data.userAccount+'.jpg'
-                  // })
-                  that.onLoad();
-                  // console.log(that.data.userAccount)
-                } else {
-                  // 显示消息提示框
-                  wx.showToast({
-                    title: '上传失败',
-                    icon: 'error',
-                    duration: 2000
-                  })
-                }
-                that.onLoad();
-              });
-            },
-          })
-        }
-      }
-    })
-  }
 })
