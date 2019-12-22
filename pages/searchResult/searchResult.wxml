@@ -71,7 +71,7 @@
           <view class="up">{{item.coupletsexistedUpcouplets}}</view>
         </view>
 
-        <view class="upcouplets">
+        <view class="downcouplets">
           <view class="type">下联</view>
           <view class="up">{{item.coupletsexistedDowncouplets}}</view>
         </view>
