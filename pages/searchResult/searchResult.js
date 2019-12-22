@@ -19,7 +19,7 @@ Page({
 
     searchList: getStorage('searchList'),
     tabs: ['院校优先', '专业优先', '更多筛选'],
-    hotsSearch: '',
+    hotsSearch2: '88',
     activeIndex: 0,
     sliderOffset: 0,
     sliderLeft: 0,
@@ -45,19 +45,20 @@ Page({
     //wxSearch.init(this);
     console.log(options);
     var that = this;
+
     wx.request({
       url: 'http://106.54.206.129:8080/hotSearch',
       method: 'GET',
       data: {
-
       },
       header: {},
       success: function (res) {
         console.log(res);
         that.setData({
-            hotsSearch: res.data,
+          
+            hotsSearch2: res.data
+
         })
-        console.log()
       },
       fail: function () {
 
@@ -66,12 +67,10 @@ Page({
 
       }
     });
-    console.log(this.data.hotsSearch);
-
     this.setData({
       inputVal:options.word
     });
-    var that = this ;
+    console.log(this.data.inputVal);
     this.setData({
       searchResult_Couplet:'加载中......'
     });
@@ -420,9 +419,18 @@ Page({
 
   goSchool(val) {
     console.log(val)
-    wx.redirectTo({
-      url: `/pages/searchResult/searchResult?word=`+val
-    })
+    if (val == ''||val == undefined ) {
+      console.log(val)
+      wx.showToast({
+        title: '搜索内容为空',
+        icon: "none",
+      })
+    }
+    else {
+      wx.navigateTo({
+        url: '/pages/searchResult/searchResult?word=' + val,
+      })
+    }
   },
 
   onShow:function()
