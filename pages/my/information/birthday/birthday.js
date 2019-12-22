@@ -6,7 +6,7 @@ Page({
    */
   data: {
     userAge: '',
-    userBirthday: '', //格式化日期
+    userBirthday: '请选择', //格式化日期
   },
 
   /**
@@ -44,6 +44,9 @@ Page({
         title: '请选择生日',
         duration: 2000,
         image: '/icons/fail.png',
+      })
+      that.setData({
+        userBirthday: '请选择您的生日'
       })
     } else {
       wx.request({

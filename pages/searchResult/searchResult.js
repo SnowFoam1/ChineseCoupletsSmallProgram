@@ -423,7 +423,6 @@ Page({
     wx.redirectTo({
       url: `/pages/searchResult/searchResult?word=`+val
     })
-    
   },
 
   onShow:function()

@@ -14,14 +14,23 @@ Page({
     userEmail: "请输入",
     userLocation: "请输入",
     userPortrait: '',
+    changeFlag: false,
+    src: '',
+    width: 250, //宽度
+    height: 250, //高度
+    max_width: 400,
+    max_height: 400,
+    disable_rotate: true, //是否禁用旋转
+    disable_ratio: true, //锁定比例
+    limit_move: true, //是否限制移动
+    finalUrl: '',
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(options);
-    console.log(app)
     var that = this;
+    console.log(that);
     var userAccount = app.globalData.userAccountId;
     that.setData({
       userAccount: userAccount,
@@ -114,36 +123,74 @@ Page({
       wx.stopPullDownRefresh()
     }, 1000);
   },
-  previewImage: function () {
+  previewImage: function(e) {
     var that = this;
     wx.showActionSheet({
       itemList: ['更换头像'],
-      success: function (res) {
+      success: function(res) {
         console.log(res);
         if (res.tapIndex === 0) {
           wx.chooseImage({
-            success: function (res) {
+            success: function(res) {
               var tempFilePath = res.tempFilePaths;
               console.log(tempFilePath);
               console.log(that.data.userAccount)
-              uploadFile.uploadFile('', tempFilePath[0], 'file', { 'userId': that.data.userAccount }, function (res) {
-                console.log(res);
-                if (true == res) {
-                  that.onLoad();
-                  // console.log(that.data.userAccount)
-                } else {
-                  // 显示消息提示框
-                  wx.showToast({
-                    title: '上传失败',
-                    icon: 'error',
-                    duration: 2000
-                  })
-                }
+              //开始裁剪
+              that.setData({
+                src: tempFilePath,
+                changeFlag: true,
               });
+              that.cropper = that.selectComponent("#imageCropper");
+              console.log(that.cropper)
             },
           })
         }
       }
+    })
+  },
+  cropperload(e) {
+    console.log("cropper初始化完成");
+  },
+  loadimage(e) {
+    console.log("图片加载完成", e.detail);
+    wx.hideLoading();
+    //重置图片角度、缩放、位置
+    this.cropper.imgReset();
+  },
+  clickcut(e) {
+    console.log(e.detail);
+    //点击裁剪框阅览图片
+    this.setData({
+      finalUrl: e.detail.url
+    })
+    wx.previewImage({
+      current: e.detail.url, // 当前显示图片的http链接
+      urls: [e.detail.url] // 需要预览的图片http链接列表
+    })
+  },
+  confirmImage() {
+    var that = this
+    this.cropper.getImg((obj) => {
+      
+    });
+    uploadFile.uploadFile('', that.data.finalUrl, 'file', {
+      'userId': that.data.userAccount
+    }, function (res) {
+      console.log(res);
+      if (true == res) {
+        that.onLoad();
+        // console.log(that.data.userAccount)
+      } else {
+        // 显示消息提示框
+        wx.showToast({
+          title: '上传失败',
+          icon: 'error',
+          duration: 2000
+        })
+      }
+    });
+    that.setData({
+      changeFlag: false
     })
   }
 })

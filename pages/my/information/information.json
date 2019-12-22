@@ -1,6 +1,9 @@
 {
-  "usingComponents": {},
   "enablePullDownRefresh": true,
   "backgroundTextStyle": "dark",
-  "navigationBarTitleText": "个人信息"
+  "navigationBarTitleText": "个人信息",
+  "usingComponents": {
+    "image-cropper": "/component/imageCropper/imageCropper"
+  },
+  "disableScroll": true
 }
