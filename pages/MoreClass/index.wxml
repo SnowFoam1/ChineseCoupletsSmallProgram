@@ -7,12 +7,24 @@
   </scroll-view>
  <!--右侧楹联列表-->
   <scroll-view id="right" scroll-y="true" scroll-top="{{scrollTop}}">
-    <view class="couplets_list" wx:for="{{coupletsArray}}" wx:key="unique" >
+    <!--view class="couplets_list" wx:for="{{coupletsArray}}" wx:key="unique" >
       <view class="couplets_type" bindtap="GetDetail" data-coupletId="{{item.coupletsexistedId}}">
-        <!--view>{{item.coupletsexistedId}}</view-->
         <view >{{item.coupletsexistedUpcouplets}}</view>
         <view >{{item.coupletsexistedDowncouplets}}</view>
       </view>
-    </view>
+    </view-->
+    <view wx:for="{{coupletsArray}}" class="couplets_list"> 
+        <view bindtap="GetDetail" class="couplets_type" data-coupletId="{{item.coupletsexistedId}}">
+          <view class="upcouplets">
+            <view class="type">上联</view>
+            <view class="up">{{item.coupletsexistedUpcouplets}}</view>
+          </view>
+
+          <view class="downcouplets">
+            <view class="type">下联</view>
+            <view class="up">{{item.coupletsexistedDowncouplets}}</view>
+          </view>
+        </view>
+      </view>
   </scroll-view>
 </view>
