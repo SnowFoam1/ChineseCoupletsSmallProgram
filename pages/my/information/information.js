@@ -30,6 +30,7 @@ Page({
    */
   onLoad: function(options) {
     var that = this;
+    that.cropper = that.selectComponent("#imageCropper");
     console.log(that);
     var userAccount = app.globalData.userAccountId;
     that.setData({
@@ -171,26 +172,27 @@ Page({
   confirmImage() {
     var that = this
     this.cropper.getImg((obj) => {
-      
+      console.log("obj",obj)
+      that.data.finalUrl = obj.url
+      uploadFile.uploadFile('', that.data.finalUrl, 'file', {
+        'userId': that.data.userAccount
+      }, function (res) {
+        console.log(res);
+        if (true == res) {
+          that.onLoad();
+          // console.log(that.data.userAccount)
+        } else {
+          // 显示消息提示框
+          wx.showToast({
+            title: '上传失败',
+            icon: 'error',
+            duration: 2000
+          })
+        }
+      });
+      that.setData({
+        changeFlag: false
+      })
     });
-    uploadFile.uploadFile('', that.data.finalUrl, 'file', {
-      'userId': that.data.userAccount
-    }, function (res) {
-      console.log(res);
-      if (true == res) {
-        that.onLoad();
-        // console.log(that.data.userAccount)
-      } else {
-        // 显示消息提示框
-        wx.showToast({
-          title: '上传失败',
-          icon: 'error',
-          duration: 2000
-        })
-      }
-    });
-    that.setData({
-      changeFlag: false
-    })
   }
 })
