@@ -45,7 +45,7 @@ Page({
     console.log(charpterid+ "111111");
     wx.navigateTo({
       url: e + '?bookid=' + bookid + '&charpterid=' + charpterid + '&charptername=' + charptername
-    });
+    }); 
   },
 
   /**
