@@ -5,22 +5,37 @@ Page({
    * 页面的初始数据
    */
   data: {
-    bookName: '楹联简话',
-    bookLabel: '来源、发展、内容'
-
+    items: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function() {
+    var that = this;
+    wx.request({
+      url: 'http://106.54.206.129:8080/study/getStudyList',
+      method: 'GET',
+      header: {
+        'content-type': 'application/json' //默认值
+      },
+      success:function(res){
+        console.log(res);
+        var result = res.data;
+        console.log(result);
+        that.setData({
+          items: result,
+        })
+      }
+    })
 
   },
 
   openPage: function(a) {
-    var e = a.currentTarget.dataset.url;
+    var url = a.currentTarget.dataset.url;
+    var studyid = a.currentTarget.dataset.studyid;
     wx.navigateTo({
-      url: e 
+      url: url + '?studyid=' + studyid
     });
   },
 

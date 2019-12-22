@@ -13,7 +13,8 @@ Page({
     phone: '',
     pass: '',
     code: '',
-    test: '00'
+    test: '00',
+    temp:''
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -93,7 +94,8 @@ Page({
           }
           else {
             that.setData({
-              code: res.data
+              code: res.data,
+              temp:phoneNum
             })
           }
         }
@@ -121,7 +123,7 @@ Page({
   },
 
   Regi: function (param) {
-    var flag = this.CheckUserName(param.username) && this.CheckPassword(param) && this.CheckSmsCode(param);
+    var flag = this.CheckUserName(param.username) && this.CheckPassword(param) && this.CheckSmsCode(param) && this.checkPhone();;
     var that = this;
     if (flag) {
       console.log("修改中");
@@ -225,6 +227,18 @@ Page({
     }
   },
 
+  checkPhone: function () {
+    if (this.data.temp != this.data.phone) {
+      wx.showModal({
+        title: '提示',
+        showCancel: false,
+        content: '手机号与验证码不匹配',
+      })
+      return false;
+    }
+    else return true
+  },
+
   CheckPassword: function (param) {
     var userName = param.username.trim();
     var password = param.password.trim();
@@ -244,9 +258,44 @@ Page({
       });
       return false;
     }
-    else {
+    else if (password.length >= 6 && password.length <= 18) {
+      if (this.isContainLetter(password) && this.isContainNumber(password)) {
+        return true;
+      }
+      else {
+        wx.showModal({
+          title: '提示',
+          showCancel: false,
+          content: '密码长度为6-18位字符,要求包含字母和数字'
+        });
+        return false;
+      }
+    }
+    else 
+    {
       return true;
     }
+  },
+  isContainLetter: function (pass) {
+    var l = pass.length;
+    for (var i = 0; i < l; i++) {
+      console.log(pass[i]);
+      if ((pass[i] <= 'Z' && pass[i] >= 'A') || (pass[i] <= 'z' && pass[i] >= 'a')) {
+        return true;
+      }
+    }
+    return false;
+  },
+
+  isContainNumber: function (pass) {
+    var l = pass.length;
+    for (var i = 0; i < l; i++) {
+      console.log(pass[i]);
+      if ((pass[i] <= '9' && pass[i] >= '0')) {
+        return true;
+      }
+    }
+    return false;
   },
 
   CheckSmsCode: function (param) {
@@ -272,6 +321,7 @@ Page({
     }
     else return true;
   },
+
 
   RedirectTo: function (param) {
     //需要将param转换为字符串

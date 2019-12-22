@@ -38,18 +38,19 @@
         <view wx:if='{{detail.coupletintroOrigin != null}}'>{{detail.coupletintroOrigin}}</view>
         <view wx:if='{{!haveIntro}}'>暂无楹联简介</view>
       </view>
+
       <view class='itembox {{currentData == 1 ? "showItem" : ""}}'>
         <!--view wx:for='{{detail.zhushi}}' wx:key='{{index}}'>{{item}}</view-->
-        <view wx:if='{{detail.coupletsauthorName != null}}'>{{detail.coupletsauthorName}}</view>
+        <!--view wx:if='{{detail.coupletsauthorName != null}}'>{{detail.coupletsauthorName}}</view>
         <view wx:if='{{detail.coupletsauthorDynasty != null}}'>{{detail.coupletsauthorDynasty}}</view>
-        <view wx:if='{{detail.coupletsauthorSex != null}}'>{{detail.coupletsauthorSex}}</view>
-        <view wx:if='{{detail.coupletsauthorRemarks != null}}'>{{detail.coupletsauthorRemarks}}</view>
-        <view wx:if='{{detail.coupletsauthorStyle != null}}'>{{detail.coupletsauthorStyle}}</view>
+        <view wx:if='{{detail.coupletsauthorSex != null}}'>{{detail.coupletsauthorSex}}</view-->
+        <textarea class='text' disabled="true" wx:if='{{detail.coupletsauthorRemarks != null}}'>{{detail.coupletsauthorRemarks}}</textarea>
+        <!--view wx:if='{{detail.coupletsauthorStyle != null}}'>{{detail.coupletsauthorStyle}}</view-->
         <view wx:if='{{!haveAuthor}}'>暂无作者简介</view>
       </view>
       <view class='itembox {{currentData == 2 ? "showItem" : ""}}'>
         <!--view wx:for='{{detail.shangxi}}' wx:key='{{index}}'>{{item}}</view-->
-        <text wx:if='{{detail.coupletintroJSNR != null}}'>{{detail.coupletintroJSNR}}</text>
+        <textarea class='text' disabled="true" wx:if='{{detail.coupletintroJSNR != null}}'>{{detail.coupletintroJSNR}}</textarea>
         <view wx:if='{{!haveJS}}'>暂无赏析</view>
       </view>
     </view>

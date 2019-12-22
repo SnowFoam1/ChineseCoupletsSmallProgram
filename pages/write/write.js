@@ -14,7 +14,7 @@ Page({
     title: "在此输入标题",
     content: "在等你畅所欲言哦",
     ispost: "false",
-    
+    canWrite:true
   },
 
   popSelect: function () {
@@ -113,6 +113,18 @@ Page({
             'content-type': 'application/json' //默认值
           },
           success: function (res) {
+            wx.removeStorage({
+              key: 'label',
+              success: function(res) {},
+            })
+            wx.removeStorage({
+              key: 'title',
+              success: function (res) { },
+            })
+            wx.removeStorage({
+              key: 'content',
+              success: function (res) { },
+            })
             console.log(res);
             that.setData({
               content: '',
@@ -138,41 +150,45 @@ Page({
   {
     console.log(e);
     var that = this;
-    wx.setStorage({
-      key:'label',
-      data:that.data.label,
-    });
+    if(e.detail.value.content == '')
+    {
+      wx.showToast({
+        icon: "none",
+        title: '当前内容未空',
+      })
+    }
+    else
+    {
+      wx.setStorage({
+        key: 'label',
+        data: that.data.label,
+      });
 
-    wx.setStorage({
-      key:'title', 
-      data:e.detail.value.title,
-    });
+      wx.setStorage({
+        key: 'title',
+        data: e.detail.value.title,
+      });
 
-    wx.setStorage({
-      key:'content', 
-      data:e.detail.value.content,
-      success:function()
-      {
-        wx.showToast({
-          title: "保存成功",
-          icon: '',
-          duration: 2000
-        });
-        /*that.setData({
-          isStoreDraft:true
-        })*/
-        //app.globalData.isStoreDraft = true;
-      },
-      fail:function()
-      {
-        wx.showToast({
-          title: "保存失败，请重新尝试",
-          icon: "none",
-          duration: 2000
-        });
-        //console.log("error")
-      }
-    });
+      wx.setStorage({
+        key: 'content',
+        data: e.detail.value.content,
+        success: function () {
+          wx.showToast({
+            title: "保存成功",
+            icon: '',
+            duration: 2000
+          });
+        },
+        fail: function () {
+          wx.showToast({
+            title: "保存失败，请重新尝试",
+            icon: "none",
+            duration: 2000
+          });
+          //console.log("error")
+        }
+      });
+    }
 
   },
   onLoad:function()
@@ -182,7 +198,6 @@ Page({
       var l = wx.getStorageSync('label');
       var t = wx.getStorageSync('title');
       var c = wx.getStorageSync('content');
-      console.log(wx.getStorage('label'));
       console.log(l);
       console.log(t);
       console.log(c);
@@ -208,18 +223,33 @@ Page({
         height: res[0].height + "px"
       });
     });
-    
-    /*if (app.globalData.isLogin == false) {
+
+    if (app.globalData.isLogin == false) {
       wx.showModal({
         title: '提示',
         content: '您尚未登录，请先前往个人中心登录',
+        success:function(res)
+        {
+          if(res.confirm)
+          {
+            wx.switchTab({
+              url: '/pages/my/my',
+            })
+          }
+          if(res.cancel)
+          {
+            console.log(that.data.canWrite)
+            that.setData({
+              canWrite: false
+            })
+            console.log(that.data.canWrite)
+          }
+        }
       })
-    }*/
-    console.log("load");
+    }
     var l = wx.getStorageSync('label');
     var t = wx.getStorageSync('title');
     var c = wx.getStorageSync('content');
-    console.log(wx.getStorage('label'));
     console.log(l);
     console.log(t);
     console.log(c);

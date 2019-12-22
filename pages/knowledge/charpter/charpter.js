@@ -1,25 +1,53 @@
-// pages/knowledge/contents/contents.js
+// pages/knowledge/charpter/charpter.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    bookid: '',
+    items: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var bookid = options.studyid;
+    this.setData({
+      bookid: bookid
+    })
+    var that = this;
+    wx.request({
+      url: 'http://106.54.206.129:8080/study/getCharpterList',
+      data :{
+        bookId: bookid
+      },
+      method: 'GET',
+      header: {
+        'content-type': 'application/json' //默认值
+      },
+      success:function(res){
+        console.log(res);
+        var result = res.data;
+        that.setData({
+          items: result
+        })
+      }
+    })
   },
+
   openPage: function (a) {
     var e = a.currentTarget.dataset.url;
+    var bookid = this.data.bookid;
+    var charpterid = a.currentTarget.dataset.charpterid;
+    var charptername = a.currentTarget.dataset.charptername;
+    console.log(charpterid+ "111111");
     wx.navigateTo({
-      url: e
+      url: e + '?bookid=' + bookid + '&charpterid=' + charpterid + '&charptername=' + charptername
     });
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

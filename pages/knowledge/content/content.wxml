@@ -1,0 +1,12 @@
+<!--pages/knowledge/content/content.wxml-->
+<view class="container">
+  <view class="chapter" >
+    <text>{{charptername}}</text>
+  </view>
+
+  <view class="chapter-content">
+    <text space="emsp">{{item}}</text>
+  </view>
+
+</view>
+

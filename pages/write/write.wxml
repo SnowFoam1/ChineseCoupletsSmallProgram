@@ -1,14 +1,14 @@
 <!--pages/write/write.wxml-->
 <form bindsubmit="onSubmit" bindreset="">
   <view class="container">
-    <view class="selectLabel" bindtap="popSelect">选择标签
-      <text class="label" space="emsp">        {{label}}</text>
+    <view class="selectLabel" bindtap="popSelect" disabled = "{{canWrite == false}}">选择标签
+      <text class="label" space="emsp">{{label}}</text>
     </view>
     <view class='title'>
-      <input name="title" value="{{title}}" placeholder-class="placeholder" placeholder="在此输入标题" />
+      <input disabled = "{{canWrite == false}}" name="title" value="{{title}}" placeholder-class="placeholder" placeholder="在此输入标题" />
     </view>
     <view class='row' id="textareawrap">
-      <textarea fixed="true" value="{{content}}" class='text' space="emsp" maxlength="-1" focus='{{focus}}' name="content" placeholder="在等你畅所欲言哦" />
+      <textarea disabled = "{{canWrite == false}}"  value="{{content}}" class='text' space="emsp" maxlength="-1" focus='{{focus}}' name="content" placeholder="在等你畅所欲言哦" />
     </view>
 
     <view class="handle">

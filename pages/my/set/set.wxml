@@ -24,6 +24,7 @@
       <text>清除痕迹</text>
     </view>
   </view>
+
   <view bindtap="openPage" class="item" data-url="/pages/my/help/help" hoverClass="none">
     <view class='wallet'>
       <image src="/icons/help.png">
@@ -32,6 +33,16 @@
       <text>帮助中心</text>
     </view>
   </view>
+
+  <view bindtap="unLogin" class="item" data-url="/pages/my/help/help" hoverClass="none">
+    <view class='wallet'>
+      <image src="/icons/unLogin.png">
+      </image>
+      <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>
+      <text>退出登录</text>
+    </view>
+  </view>
+
   <view bindtap="openPage" class="item" data-url="/pages/my/about/about" hoverClass="none">
     <view class='wallet'>
       <image src="/icons/about.png">

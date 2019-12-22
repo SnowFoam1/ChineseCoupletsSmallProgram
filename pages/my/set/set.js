@@ -1,5 +1,5 @@
 // pages/set/set.js
-
+var app = getApp();
 Page({
 
   /**
@@ -40,6 +40,25 @@ Page({
     })
   },
 
+  unLogin:function(){
+    console.log("ssss"); 
+    console.log(app.globalData.isLogin)
+    wx.showModal({
+      title: '提示',
+      content: '您确定要退出登录吗？',
+      showCancel: true,
+      success:function(res)
+      {
+        if(res.confirm)
+        {
+          app.globalData.isLogin = false;
+          wx.switchTab({
+            url: '/pages/home/index',
+          })
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

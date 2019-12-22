@@ -5,6 +5,9 @@
   font-size: 14rpx;
   background: #fff;
   color: #000;
+  width: 100%;
+  overflow-x: hidden;
+  height: 100%;
 }
 
 .post {

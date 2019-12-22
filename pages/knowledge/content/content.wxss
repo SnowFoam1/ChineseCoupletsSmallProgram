@@ -1,4 +1,4 @@
-/* pages/knowledge/content1/content1.wxss */
+/* pages/knowledge/content/content.wxss */
 
 .container {
   padding: 0;
@@ -13,8 +13,10 @@
   padding: 30rpx 50rpx 30rpx;
   background: #d64d4d;
   color: #fff;
-  font-size: 39rpx;
-  
+}
+
+.chapter text{
+  font-size: 15px;
 }
 
 .chapter-content {
@@ -22,11 +24,12 @@
   background: #fff;
   margin-top: 12rpx;
   border-radius: 7px;
+  line-height: 50rpx;
 }
 
 .chapter-content text {
-  margin-top: 30rpx;
+  margin-top: 40rpx;
   font-size: 35rpx;
   color: #494848;
-  line-height: 38rpx;
+  margin-bottom: 60rpx;
 }

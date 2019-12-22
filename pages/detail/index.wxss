@@ -99,8 +99,17 @@
 }
 .showItem {
   display: block;
+
+}
+.text{
+  width:100%;
+   text-indent: 2em;
 }
 
+.tip p:last-child{
+		     
+		  text-align: left;
+}
 
 .collect {
   height: 120rpx;
