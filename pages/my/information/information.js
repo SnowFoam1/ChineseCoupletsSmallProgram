@@ -170,15 +170,9 @@ Page({
   },
   confirmImage() {
     var that = this
-    this.cropper.imgReset();
     this.cropper.getImg((obj) => {
-      app.globalData.imgSrc = obj.url;
-      wx.navigateBack({
-        delta: -1
-      })
-      console.log("obj",obj)
-    },
-    );
+      
+    });
     uploadFile.uploadFile('', that.data.finalUrl, 'file', {
       'userId': that.data.userAccount
     }, function (res) {

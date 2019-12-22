@@ -44,6 +44,30 @@ Page({
   onLoad: function (options) {
     //wxSearch.init(this);
     console.log(options);
+    var that = this;
+    wx.request({
+      url: 'http://106.54.206.129:8080/hotSearch',
+      method: 'GET',
+      data: {
+
+      },
+      header: {},
+      success: function (res) {
+        console.log(res);
+        that.setData({
+            hotsSearch: res.data,
+        })
+        console.log()
+      },
+      fail: function () {
+
+      },
+      complete: function () {
+
+      }
+    });
+    console.log(this.data.hotsSearch);
+
     this.setData({
       inputVal:options.word
     });
@@ -261,15 +285,10 @@ Page({
   },
 
   bindGoSearch: function (e) {
-    /*console.log(e);
-    wxSearch.bindGoSearch(e, this)*/
     let searchList_stroage = getStorage('searchList') || [];
     const inputVal = this.data.inputVal;
-
     searchList_stroage.push(inputVal)
-
     setStorage('searchList', searchList_stroage)
-
     this.setData({
       inputVal: ''
     })
@@ -400,15 +419,7 @@ Page({
   },
 
   goSchool(val) {
-    /*wx.showModal({
-      title: '调往搜索页面',
-      content: `你的传值是${val}，带上它去新页面`,
-    })*/
     console.log(val)
-    /*wx.navigateTo({
-      url: '/pages/searchResult/searchResult?word=' + val,
-    })*/
-    //this.onLoad(val);
     wx.redirectTo({
       url: `/pages/searchResult/searchResult?word=`+val
     })
@@ -418,7 +429,7 @@ Page({
   {
     var that = this;
     wx.request({//搜索帖子
-      url: 'http://106.54.206.129:8080/search/searchPost',
+      url: 'http://106.54.206.129:8080/search/searchPostDebug',
       data: {
         searchContent: that.data.inputVal
       },
