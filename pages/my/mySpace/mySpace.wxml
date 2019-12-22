@@ -6,8 +6,9 @@
 
 <scroll-view scroll-y="true" class="container" scroll-y="{{scrollFlag}}">
   <view class="ctnt0" hidden="{{currentNavtab==0 ? '' : true}}">
-    <view class="touchItem {{item.isTouchMove ? 'touch-move-active' : ''}}" wx:for="{{items}}" wx:for-idx="idx" wx:for-item="item" bindtouchstart="touchStart" bindtouchmove="touchMove" data-index="{{index}}" >
-      <view class="feedItem" data-index="{{index}}" bindtap="bindItemTap" data-id="{{item.postId}}" data-account="{{item.userAccount}}" data-title="{{item.postTitle}}" data-content="{{item.postContent}}" data-label="{{labels[item.lableContent-1]}}" data-nickname="{{item.userNickname}}" data-userlabel="{{item.userLabel}}" data-like="{{item.postPsum}}" data-comment="{{item.postRsum}}">
+    <view class="touchItem {{item.isTouchMove ? 'touch-move-active' : ''}}" wx:for="{{items}}" wx:for-idx="idx" wx:for-item="item" bindtouchstart="touchStart" bindtouchmove="touchMove" data-index="{{index}}">
+      <view class="feedItem" data-index="{{index}}" bindtap="bindItemTap" data-id="{{item.postId}}" data-account="{{item.userAccount}}" data-title="{{item.postTitle}}" data-content="{{item.postContent}}" data-label="{{labels[item.lableContent-1]}}" data-nickname="{{item.userNickname}}"
+        data-userlabel="{{item.userLabel}}" data-like="{{item.postPsum}}" data-comment="{{item.postRsum}}">
         <view class="feedSource">
           <a class="">
             <view class="avatar">
@@ -90,7 +91,8 @@
 
   <view class="ctnt2 placehold" hidden="{{currentNavtab==2 ? '' : true}}">
     <block wx:for="{{likes}}" wx:for-index="idx" wx:for-item="like" data-idx="{{idx}}">
-      <view class="feedItem" bindtap="bindlikeTap" data-id="{{like.postId}}" data-account="{{like.userAccount}}" data-title="{{like.postTitle}}" data-content="{{like.postContent}}" data-label="{{labels[like.labelContent-1]}}" data-nickname="{{like.userNickname}}" data-userlabel="{{like.userLabel}}" data-like="{{like.postPsum}}" data-comment="{{like.postRsum}}" data-userportrait="{{like.userPortrait}}">
+      <view class="feedItem" bindtap="bindlikeTap" data-id="{{like.postId}}" data-account="{{like.userAccount}}" data-title="{{like.postTitle}}" data-content="{{like.postContent}}" data-label="{{labels[like.labelContent-1]}}" data-nickname="{{like.userNickname}}"
+        data-userlabel="{{like.userLabel}}" data-like="{{like.postPsum}}" data-comment="{{like.postRsum}}" data-userportrait="{{like.userPortrait}}">
         <view class="feedSource">
           <a class="">
             <view class="avatar">
