@@ -41,8 +41,7 @@ Page({
   },
 
   unLogin:function(){
-    console.log("ssss");
-    app.globalData.isLogin = false;
+    console.log("ssss"); 
     console.log(app.globalData.isLogin)
     wx.showModal({
       title: '提示',
@@ -52,6 +51,7 @@ Page({
       {
         if(res.confirm)
         {
+          app.globalData.isLogin = false;
           wx.switchTab({
             url: '/pages/home/index',
           })
