@@ -50,10 +50,6 @@ Page({
 
     onLoad:function()
     {
-      wx.re
-      //console.log(app);
-      //var test = app.globalData.isLogin;
-      //console.log(test);
       this.setData({
         swipers: [
           { id: "1", up: "潘潘潘潘潘潘", down:"亮亮亮亮亮亮潘潘潘潘潘潘" },
@@ -62,28 +58,24 @@ Page({
       })
       var that = this;
       this.GetMore(that.data.page);
-      /*wx.request({
-          url: '',
+      wx.request({
+        url: 'http://116.62.139.166:8080/ccdm/news/getFiveNews',
           data: {
-            number:0
           },
           header: {},
           method: 'GET',
           dataType: 'json',
           responseType: 'text',
           success: function(res) {
-            var i = 0;
-            var l = res.data.length;
-            for (i = 0; i < l; i++) {
-              var str = "couplets[" + i + "].up"
-              that.setData({
-                [str]: res.data[i].coupletsexistedUpcouplets
-              })
-            }
+            console.log(res);
+            that.setData({
+              swipers:res.data
+            })
+            console.log(that.data.swipers);
           },
           fail: function(res) {},
           complete: function(res) {},
-        })*/
+        })
         /*wx.request({
           url: '',
           data:"初始楹联",

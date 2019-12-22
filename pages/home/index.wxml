@@ -18,8 +18,9 @@
           <swiper-item bindtap="MoreInfo" style="background-color: rgb(255, 255, 255);">
             <!--image class="back2" src="/images/xuan.jpg"></image-->
             <!--image  bindtap="MoreInfo1" class="swiper-item" src="{{item.image}}" mode="aspectFill"/-->
-            <text class="swipersUp">{{item.up}}\n</text>
-            <text class="swipersDown">{{item.down}}</text>
+            <!--text class="swipersUp">{{item.up}}\n</text>
+            <text class="swipersDown">{{item.down}}</text-->
+            <image src="{{item.newsPhoto1}}" mode="aspectToFill" style="width:100%"></image>
           </swiper-item>
         </block>
       </swiper>
