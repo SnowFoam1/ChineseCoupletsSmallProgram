@@ -23,6 +23,7 @@ Page({
     disable_rotate: true, //是否禁用旋转
     disable_ratio: true, //锁定比例
     limit_move: true, //是否限制移动
+    finalUrl: '',
   },
   /**
    * 生命周期函数--监听页面加载
@@ -159,6 +160,9 @@ Page({
   clickcut(e) {
     console.log(e.detail);
     //点击裁剪框阅览图片
+    this.setData({
+      finalUrl: e.detail.url
+    })
     wx.previewImage({
       current: e.detail.url, // 当前显示图片的http链接
       urls: [e.detail.url] // 需要预览的图片http链接列表
@@ -166,16 +170,16 @@ Page({
   },
   confirmImage() {
     var that = this
-    var finalUrl = ''
+    this.cropper.imgReset();
     this.cropper.getImg((obj) => {
-      console.log("obj",obj)
-      finalUrl = obj.url;
+      app.globalData.imgSrc = obj.url;
       wx.navigateBack({
         delta: -1
       })
-    });
-    console.log("finalUrl",finalUrl)
-    uploadFile.uploadFile('', finalUrl, 'file', {
+      console.log("obj",obj)
+    },
+    );
+    uploadFile.uploadFile('', that.data.finalUrl, 'file', {
       'userId': that.data.userAccount
     }, function (res) {
       console.log(res);
