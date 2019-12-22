@@ -35,9 +35,8 @@
     </view>
 
     <image class="tiaowen" src="/icons/tiaowen.png"></image>
-    
     <view >
-      <view wx:for="{{couplets}}" class="couplets_list">
+      <view wx:for="{{couplets}}" class="couplets_list"> 
         <view bindtap="MoreDetail" class="couplets_type" data-coupletId="{{item.coupletsexistedId}}">
           <view class="upcouplets">
             <view class="type">上联</view>
