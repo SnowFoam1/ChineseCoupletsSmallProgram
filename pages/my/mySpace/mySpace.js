@@ -55,6 +55,7 @@ Page({
         var result = res.data;
         for (var i = 0; i < result.length; i++) {
           result[i].postTime = utils.formatTime(result[i].postTime, 'Y-M-D h:m')
+          result[i].postContent = that.entitiesToUtf16(result[i].postContent)
         }
         console.log(result)
         that.setData({
@@ -102,6 +103,7 @@ Page({
             result[i].userPortrait = '/icons/saber.jpg'
           }
           result[i].replyTime = utils.formatTime(result[i].replyTime, 'Y-M-D h:m')
+          result[i].replyContent = that.entitiesToUtf16(result[i].replyContent)
         }
         that.setData({
           replys: result
@@ -125,6 +127,7 @@ Page({
             result[i].userPortrait = '/icons/saber.jpg'
           }
           result[i].postTime = utils.formatTime(result[i].postTime, 'Y-M-D h:m')
+          result[i].postContent = that.entitiesToUtf16(result[i].postContent)
         }
         console.log(result)
         that.setData({
@@ -224,7 +227,7 @@ Page({
     console.log(e.currentTarget.dataset.id);
     console.log(e.currentTarget.dataset.label);
     wx.navigateTo({
-      url: '/pages/postsDisplay/postdetial/postdetail?account=' + account + '&postId=' + postId + '&title=' + title + '&content=' + content + '&label=' + label + '&nickname=' + nickname + '&userlabel=' + userlabel + '&like=' + like + '&comment=' + comment + "&userPortrait=" + userportrait,
+      url: '/pages/postsDisplay/postdetial/postdetail?account=' + account + '&postId=' + postId + '&title=' + title + '&content=' + content + '&label=' + label + '&nickname=' + nickname + '&userlabel=' + userlabel + '&like=' + like + '&comment=' + comment + "&userportrait=" + userportrait,
     })
 
   },
@@ -281,5 +284,13 @@ Page({
    */
   onShareAppMessage: function() {
 
+  },
+
+  entitiesToUtf16: function (str) {
+    return str.replace(/&#(\d+);/g, function (match, dec) {
+      let H = Math.floor((dec - 0x10000) / 0x400) + 0xD800;
+      let L = Math.floor(dec - 0x10000) % 0x400 + 0xDC00;
+      return String.fromCharCode(H, L);
+    });
   }
 })

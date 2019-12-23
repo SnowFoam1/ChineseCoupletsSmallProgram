@@ -25,7 +25,7 @@
         </block>
       </swiper>
     </view>
-
+    <image class="tiaowen" src="/icons/tiaowen.png"></image>
     <view class="big-logo">
       <block wx:for-items="{{logos}}">
         <view class="logoinfo" bindtap="MoreClass" data-index='{{index}}'>

@@ -77,7 +77,6 @@ Page({
         complete: function (res) { console.log(that.data.swipers); },
       });
       this.GetMore(that.data.page);    
-
     },
   
     MoreInfo: function (e) 

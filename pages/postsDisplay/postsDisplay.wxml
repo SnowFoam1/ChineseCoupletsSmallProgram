@@ -27,14 +27,19 @@
   <block wx:for="{{items}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
     <view class="feedItem" bindtap="bindItemTap" data-id="{{item.postId}}" data-account="{{item.userAccount}}" data-title="{{item.postTitle}}" data-content="{{item.postContent}}" data-label="{{labels[item.labelContent-1]}}" data-nickname="{{item.userNickname}}"
       data-userlabel="{{item.userLabel}}" data-like="{{item.postPsum}}" data-comment="{{item.postRsum}}" data-userPortrait="{{item.userPortrait}}">
-      <view class="feedSource">
-        <a class="">
-          <view class="avatar">
-            <image src="{{item.userPortrait}}"></image>
-          </view>
-          <text>{{item.userNickname}}</text>
-          <image class="head" wx:if="{{item.userVip == '是'}}" src="http://106.54.206.129:8080/pictures/会员权益.png"></image>
-        </a>
+      <view class="fee">
+        <view class="feedSource">
+          <a class="">
+            <view class="avatar">
+              <image src="{{item.userPortrait}}"></image>
+            </view>
+            <text>{{item.userNickname}}</text>
+            <image class="head" wx:if="{{item.userVip == '是'}}" src="http://106.54.206.129:8080/pictures/会员权益.png"></image>
+          </a>
+        </view>
+        <view class="cloud">
+          <image src='/icons/cloud.png'></image>
+        </view>
       </view>
       <view class="feedContent">
         <view class="question">

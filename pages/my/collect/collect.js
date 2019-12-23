@@ -48,7 +48,8 @@ Page({
           if (result[i].userPortrait == "") {
             result[i].userPortrait = '/icons/saber.jpg'
           }
-          result[i].postTime = utils.formatTime(result[i].postTime, 'Y-M-D h:m')
+          result[i].postTime = utils.formatTime(result[i].postTime, 'Y-M-D h:m');
+          result[i].postContent = that.entitiesToUtf16(result[i].postContent);
         }
         console.log(result)
         that.setData({
@@ -124,5 +125,13 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  entitiesToUtf16: function (str) {
+    return str.replace(/&#(\d+);/g, function (match, dec) {
+      let H = Math.floor((dec - 0x10000) / 0x400) + 0xD800;
+      let L = Math.floor(dec - 0x10000) % 0x400 + 0xDC00;
+      return String.fromCharCode(H, L);
+    });
   }
 })

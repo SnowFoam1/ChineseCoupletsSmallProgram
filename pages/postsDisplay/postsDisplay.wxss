@@ -97,6 +97,16 @@
   color: rgb(212, 19, 19);
 }
 
+.fee{
+  display: flex;
+  flex-direction: row
+}
+
+.cloud{
+  width: 250rpx;
+  height: 36rpx;
+}
+
 .container .feedItem .feedSource {
   width: 690rpx;
   left: 0;
