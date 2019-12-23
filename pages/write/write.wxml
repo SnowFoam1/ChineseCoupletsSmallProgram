@@ -9,6 +9,7 @@
     </view>
     <view class='row' id="textareawrap">
       <textarea disabled = "{{canWrite == false}}"  value="{{content}}" class='text' space="emsp" maxlength="-1" focus='{{focus}}' name="content" placeholder="在等你畅所欲言哦" />
+      <!--editor></editor-->
     </view>
 
     <view class="handle">
