@@ -315,5 +315,5 @@
 .up{
   color: rgb(56, 56, 56);
   padding-left: 8px;
-  font-size: 16px;
+  font-size: 18px;
 }

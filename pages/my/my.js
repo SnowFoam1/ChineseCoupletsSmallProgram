@@ -96,6 +96,7 @@ Page({
       })
     }
     else{
+      console.log("测试"+app.globalData.isLogin)
       this.change(app.globalData.isLogin);
       wx.setNavigationBarColor({
         frontColor: '#000000',
