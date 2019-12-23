@@ -128,11 +128,11 @@ Page({
     var that = this;
     wx.showActionSheet({
       itemList: ['更换头像'],
-      success: function (res) {
+      success: function(res) {
         console.log(res);
         if (res.tapIndex === 0) {
           wx.chooseImage({
-            success: function (res) {
+            success: function(res) {
               var tempFilePath = res.tempFilePaths;
               console.log(tempFilePath);
               console.log(that.data.userAccount)
