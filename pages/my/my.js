@@ -36,6 +36,10 @@ Page({
     console.log("5555")
     if (app.globalData.isLogin == true) 
     {
+      wx.setNavigationBarColor({
+        frontColor: '#ffffff',
+        backgroundColor: '#c21327',
+      });
       this.change(app.globalData.isLogin);
       console.log(app.globalData.isLogin);
       var that = this;
@@ -93,6 +97,10 @@ Page({
     }
     else{
       this.change(app.globalData.isLogin);
+      wx.setNavigationBarColor({
+        frontColor: '#000000',
+        backgroundColor: '#ffffff',
+      })
     }
   },
 
@@ -158,6 +166,12 @@ Page({
   toLogin: function() {
     wx.redirectTo({
       url: '/pages/login/index',
+    })
+  },
+
+  aboutUs: function () {
+    wx.navigateTo({
+      url: '/pages/my/about/about',
     })
   },
 

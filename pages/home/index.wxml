@@ -1,4 +1,4 @@
-<view style="background-color: rgb(240, 240, 240);">
+<view style="background-color: rgb(229, 42, 42);">
   <view class="container">
     <view class="search flexWrp">
       <view class="search-left flexItem" bindtap="Search">
@@ -11,8 +11,8 @@
     </view>
   </view>
 
-  <scroll-view scroll-y="true" style="height: 100%; width: 100%; display: flex; flex-direction: column; margin-top:20rpx;margin-bottom:10rpx;">
-    <view style="width: 100%; height: auto; margin-bottom:10px;">
+  <scroll-view scroll-y="true" style="height: 100%; width: 100%; display: flex; flex-direction: column; ;margin-bottom:10rpx;">
+    <view style="width: 100%; height: auto; ">
       <swiper  class="view" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="width:100%;height:365rpx;">
         <block wx:for-items="{{swipers}}">
           <swiper-item bindtap="MoreInfo" style="background-color: rgb(255, 255, 255);">

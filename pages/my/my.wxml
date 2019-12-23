@@ -117,10 +117,10 @@
         <text>楹联协会官网</text>
       </view>
       <icon type="info" size="20px" color="rgb(44, 43, 43)"></icon>
-    </view>
-    <view class="item2" hoverClass="none">
+    </view>   
+    <view class="item2" hoverClass="none" bindtap="aboutUs">
       <view class='wallet'>
-        <text>意见反馈</text>
+        <text>关于我们</text>
       </view>
       <icon type="info" size="20px" color="rgb(44, 43, 43)"></icon>
     </view>
