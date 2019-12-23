@@ -18,8 +18,8 @@ Page({
         title: "春联"
         }, 
         {
-          image: "/images/wan.png",
-          title: "挽联"
+          image: "/images/ye.png",
+          title: "行业"
         }, 
         {
           image: "/images/shan.png",
@@ -42,8 +42,8 @@ Page({
         title: "居室"
         },
         {
-          image: "/images/lei.png",
-          title: "更多分类"
+          image: "/images/geng.png",
+          title: "更多"
         }
       ]
     },
