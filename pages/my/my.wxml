@@ -102,7 +102,7 @@
   <view class="photo">
     <image src="/images/hnu.png"></image>
   </view>
-  <button bindtap="toLogin" class="toLogin" type="primary">登录/注册</button>
+  <button bindtap="toLogin" class="toLogin" >登录/注册</button>
 
 
   <view class="nav">

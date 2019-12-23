@@ -1,18 +1,18 @@
 <view class="content">
     <view class = "logo">
-        <image mode="aspectFit" src="/images/csee.png"></image>
+        <image mode="aspectFit" src="/images/hnu.png"></image>
     </view>
     <form bindsubmit="FormSubmit">
         <view class="input-area">
           <input id="username" name="username" maxlength='11' type="text" placeholder="手机号"     bindinput="GetPhoneNum"/>
           <view class="smsCode">
             <input id="smsCode" name="smsCode" maxlength='6' type="text" placeholder="验证码" />
-            <button bindtap = "GetSmsCode" disabled="{{smsCodeDisabled}}" type="primary"   class="GetSmsCodeBtn">{{GetSmsCodeBtnTxt}}</button>
+            <button bindtap = "GetSmsCode" disabled="{{smsCodeDisabled}}" class="butt0">{{GetSmsCodeBtnTxt}}</button>
           </view>
           <input id="password" name="password" maxlength='20' type="password" placeholder="密码" />
         </view>
         <view class="btn-area">
-            <button   disabled="{{RegistDisabled}}" type="primary"  formType="submit"  loading="{{btnLoading}}"> {{RegistBtnTxt}} </button>
+            <button   disabled="{{RegistDisabled}}" class="butt1"  formType="submit"  loading="{{btnLoading}}"> {{RegistBtnTxt}} </button>
             <view class="txt-area">
                  <navigator redirect url="../findpassword/index?type=1"><text class="forgot-password">忘记密码？</text></navigator>
                  <navigator redirect url="../login/index"><text class="register">登录账号</text></navigator>

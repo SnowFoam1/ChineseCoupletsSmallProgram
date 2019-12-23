@@ -13,13 +13,21 @@
   width: 336rpx;
 }
 
-.smsCode .getSmsCodeBtn
-{
+
+.butt0{
+  background-color: rgb(201, 49, 49);
   font-size: 30rpx; 
-  color:#fff;width:216rpx;
+  color:#fff;
+  width:210rpx;
   box-sizing: border-box;
-   height: 80rpx;
-   line-height: 80rpx;
-   margin-top: 10rpx;
+  height: 90rpx;
+   line-height: 90rpx;
+   margin-top: 5rpx;
    margin-right: 0
+}
+
+.butt1{
+  background-color:  rgb(201, 49, 49); 
+  width: 500rpx;
+  color: #fff
 }

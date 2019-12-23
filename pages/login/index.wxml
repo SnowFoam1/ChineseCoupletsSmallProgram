@@ -1,6 +1,6 @@
 <view class="content">
   <view class="logo">
-    <image mode="aspectFit" src="/images/csee.png"></image>
+    <image mode="aspectFit" src="/images/hnu.png"></image>
   </view>
   <form bindsubmit="FormSubmit">
     <view class="input-area">

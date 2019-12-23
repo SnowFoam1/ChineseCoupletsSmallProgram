@@ -45,7 +45,7 @@
 
 .btn-area button
 {
-    /*background-color: #ff9900;*/
+  background-color:rgb(201, 49, 49);
   margin-top: 40rpx;
   color: #fff
 }

@@ -227,8 +227,10 @@
 }
 
 .toLogin{
+  background-color:rgb(201, 49, 49);
   margin-top: 100rpx;
   width: 400rpx;
   height: 80rpx;
   line-height: 80rpx;
+  color: rgb(252, 252, 252);
 }
