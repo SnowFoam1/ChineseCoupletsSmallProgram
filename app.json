@@ -36,7 +36,8 @@
     "pages/my/othersSpace/othersSpace",
     "pages/my/feedback/feedback",
     "pages/my/about/about",
-    "pages/my/help/help"
+    "pages/my/help/help",
+    "pages/swiperDetail/swiperDetail"
   ],
   "tabBar": {
     "list": [

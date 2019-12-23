@@ -18,10 +18,13 @@ module.exports = {
   },
 
   bindInputSearchWord(e, that) {
-    //console.log(e);
+    console.log(e);
     var val = e.detail.value;
     this.matchStroage(that, val)
     //console.log(val);
+    this._setData(that, {
+      inputVal: val
+    })
   },
 
   bindSearchAllShow(e, that) {
@@ -33,14 +36,12 @@ module.exports = {
   bindGoSearch(e, that) {
     let searchList_stroage = getStorage('searchList') || [];
     const inputVal = that.data.tabData.inputVal;
-
     searchList_stroage.push(inputVal)
-
     setStorage('searchList', searchList_stroage)
-
     this._setData(that, {
       inputVal: ''
     })
+    console.log(inputVal);
     this.goSchool(inputVal)
   },
 
@@ -124,8 +125,18 @@ module.exports = {
 
   goSchool(val) {
     console.log(val)
-    wx.navigateTo({
-      url: '/pages/searchResult/searchResult?word='+val,
-    })
+    if(val =='' ||val == undefined)
+    {
+      wx.showToast({
+        title: '搜索内容为空',
+        icon:"none",
+      })
+    }
+    else
+    {
+      wx.navigateTo({
+        url: '/pages/searchResult/searchResult?word=' + val,
+      })
+    }
   }
 }

@@ -56,39 +56,27 @@ Page({
           { id: "2", up: "哈哈哈哈哈", down: "呼呼呼呼呼" }
         ]
       })
+
       var that = this;
-      this.GetMore(that.data.page);
       wx.request({
-        url: 'http://116.62.139.166:8080/ccdm/news/getFiveNews',
-          data: {
-          },
-          header: {},
-          method: 'GET',
-          dataType: 'json',
-          responseType: 'text',
-          success: function(res) {
-            console.log(res);
-            that.setData({
-              swipers:res.data
-            })
-            console.log(that.data.swipers);
-          },
-          fail: function(res) {},
-          complete: function(res) {},
-        })
-        /*wx.request({
-          url: '',
-          data:"初始楹联",
-          header: {},
-          method: 'GET',
-          dataType: 'json',
-          responseType: 'text',
-          success: function (res) {
-            
-          },
-          fail: function (res) { },
-          complete: function (res) { },
-        })*/
+        url: 'http://116.62.139.166:8080/ccdm/news/Indexlist2',
+        data: {
+        },
+        header: {},
+        method: 'GET',
+        dataType: 'json',
+        responseType: 'text',
+        success: function (res) {
+          console.log(res);
+          that.setData({
+            swipers: res.data
+          })
+          console.log(that.data.swipers);
+        },
+        fail: function (res) { console.log(that.data.swipers);},
+        complete: function (res) { console.log(that.data.swipers); },
+      });
+      this.GetMore(that.data.page);    
     },
   
     MoreInfo: function (e) 
@@ -96,7 +84,7 @@ Page({
       if(app.globalData.isLogin)
       {
         wx.navigateTo({
-          url: "/pages/login/index",
+          url: "/pages/swiperDetail/swiperDetail",
         })
       }
       else
@@ -209,7 +197,7 @@ Page({
         url: 'http://106.54.206.129:8080/coupletsExisted/getTenCouplets',
         method: 'GET',
         data: {
-          num: page*10
+          num: page*50
         },
         header: {},
         success: function (res)
