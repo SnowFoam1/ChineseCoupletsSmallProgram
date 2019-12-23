@@ -20,14 +20,14 @@ Page({
     var that = this;
     wx.request({
       url: 'http://106.54.206.129:8080/study/getCharpterList',
-      data :{
+      data: {
         bookId: bookid
       },
       method: 'GET',
       header: {
         'content-type': 'application/json' //默认值
       },
-      success:function(res){
+      success: function (res) {
         console.log(res);
         var result = res.data;
         that.setData({
@@ -40,9 +40,9 @@ Page({
   openPage: function (a) {
     var e = a.currentTarget.dataset.url;
     var bookid = this.data.bookid;
-    var charpterid = a.currentTarget.dataset.charpterid;
+    var charpterid = a.currentTarget.dataset.charpternumber;
     var charptername = a.currentTarget.dataset.charptername;
-    console.log(charpterid+ "111111");
+    console.log(charpterid + "111111");
     wx.navigateTo({
       url: e + '?bookid=' + bookid + '&charpterid=' + charpterid + '&charptername=' + charptername
     });

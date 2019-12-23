@@ -2,7 +2,7 @@
 .detail {
   font-size: 32rpx;
   padding: 30rpx;
-}
+} 
 
 .title {
   font-size: 36rpx;

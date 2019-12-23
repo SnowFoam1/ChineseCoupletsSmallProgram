@@ -28,7 +28,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     var that = this;
     that.cropper = that.selectComponent("#imageCropper");
     console.log(that);
@@ -47,7 +47,7 @@ Page({
       header: {
         'content-type': 'application/json' //默认值
       },
-      success: function(res) {
+      success: function (res) {
         console.log(res)
         var userBirthday = time.formatDate(res.data.userBirthday);
         that.setData({
@@ -68,7 +68,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1]; //当前页面
     let userNickname = currPage.data.userNickname;
@@ -91,11 +91,11 @@ Page({
     })
   },
 
-  onReady: function() {
+  onReady: function () {
 
   },
 
-  onUnload: function() {
+  onUnload: function () {
     var that = this;
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1]; //当前页面
@@ -110,13 +110,13 @@ Page({
     // })
   },
 
-  openPage: function(a) {
+  openPage: function (a) {
     var e = a.currentTarget.dataset.url;
     wx.navigateTo({
       url: e + '?userAccount=' + this.data.userAccount + '&userBirthday=' + this.data.userBirthday
     });
   },
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
     wx.showNavigationBarLoading()
     this.onLoad()
     setTimeout(() => {
@@ -124,7 +124,7 @@ Page({
       wx.stopPullDownRefresh()
     }, 1000);
   },
-  previewImage: function(e) {
+  previewImage: function (e) {
     var that = this;
     wx.showActionSheet({
       itemList: ['更换头像'],
@@ -172,7 +172,7 @@ Page({
   confirmImage() {
     var that = this
     this.cropper.getImg((obj) => {
-      console.log("obj",obj)
+      console.log("obj", obj)
       that.data.finalUrl = obj.url
       uploadFile.uploadFile('', that.data.finalUrl, 'file', {
         'userId': that.data.userAccount
