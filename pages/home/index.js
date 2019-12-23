@@ -18,7 +18,7 @@ Page({
         title: "春联"
         }, 
         {
-          image: "/images/wan.png",
+          image: "/images/ye.png",
           title: "行业"
         }, 
         {
@@ -42,8 +42,8 @@ Page({
         title: "居室"
         },
         {
-          image: "/images/lei.png",
-          title: "更多分类"
+          image: "/images/geng.png",
+          title: "更多"
         }
       ]
     },
@@ -59,7 +59,7 @@ Page({
 
       var that = this;
       wx.request({
-        url: 'http://116.62.139.166:8080/ccdm/news/getFiveNews',
+        url: 'http://116.62.139.166:8080/ccdm/news/Indexlist2',
         data: {
         },
         header: {},
@@ -71,8 +71,9 @@ Page({
           that.setData({
             swipers: res.data
           })
+          console.log(that.data.swipers);
         },
-        fail: function (res) { },
+        fail: function (res) { console.log(that.data.swipers);},
         complete: function (res) { console.log(that.data.swipers); },
       });
       this.GetMore(that.data.page);    
@@ -80,7 +81,6 @@ Page({
   
     MoreInfo: function (e) 
     {
-      console.log(e);
       if(app.globalData.isLogin)
       {
         wx.navigateTo({

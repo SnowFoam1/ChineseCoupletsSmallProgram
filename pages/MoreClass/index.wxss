@@ -20,7 +20,7 @@
 }
 .active{
   background-color:#FFF;
-  color:red;
+  color:rgb(240, 33, 33);
   font-size:17px;
 }
 
