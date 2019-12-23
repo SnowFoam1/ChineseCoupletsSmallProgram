@@ -2,8 +2,9 @@
   <view class="container">
     <view class="search flexWrp">
       <view class="search-left flexItem" bindtap="Search">
-        <image src="../../icons/search.png"></image>
-        <input disabled='true' fixed="true" placeholder="搜索楹联\\用户\\帖子" placeholder-class="search-placeholder" />
+        <image src="../../icons/search.png" ></image>
+        <!-- <input disabled='true' fixed="true" placeholder="搜索楹联\\用户\\帖子" placeholder-class="search-placeholder" /> -->
+        <view class="search-placeholder">搜索楹联\用户\帖子</view>
       </view>
       <!--view class="search-right flexItem" bindtap="upper">
       <!-- <image src="../../images/lighting.png"></image> >

@@ -37,7 +37,9 @@
     "pages/my/feedback/feedback",
     "pages/my/about/about",
     "pages/my/help/help",
-    "pages/swiperDetail/swiperDetail"
+    "pages/swiperDetail/swiperDetail",
+    
+    "pages/out/index"
   ],
   "tabBar": {
     "selectedColor": "#e52a2a",

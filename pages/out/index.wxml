@@ -1,0 +1,4 @@
+<web-view src="http://116.62.139.166:8080/ccdm/"></web-view>
+<!--web-view src="https://duilian.msra.cn/app/couplet.aspx"></web-view-->
+//放心你没有看错就这么一行就行了
+//把你要跳转的界面用src 就可以了，以后要跳转到哪，src里面地址就写哪！
