@@ -85,6 +85,14 @@
         <text>设置中心</text>
       </view>
     </view>
+    <view bindtap="goBaidu" class="item" data-url="/pages/my/set/set" formType="submit" hoverClass="none">
+      <view class='wallet'>
+        <image src="/icons/web.png">
+        </image>
+        <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>
+        <text>楹联协会官网</text>
+      </view>
+    </view>
     <!-- <view bindtap="changePassword" class="item" data-url="/pages/my/set/set" formType="submit" hoverClass="none">
       <view class='wallet'>
         <image src="/icons/changePassword.png">
@@ -112,7 +120,7 @@
         <text></text>
       </view>
     </view-->
-    <view class="item" hoverClass="none">
+    <view class="item" hoverClass="none" bindtap="goBaidu">
       <view class='wallet'>
         <text>楹联协会官网</text>
       </view>

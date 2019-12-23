@@ -168,7 +168,16 @@ Page({
       url: '/pages/login/index',
     })
   },
+  goBaidu: function () {
+    wx.navigateTo({
+      url: '/pages/out/index', //
+      success: function () {
 
+      },  //成功后的回调；
+      fail: function () { },   //失败后的回调；
+      complete: function () { }  //结束后的回调(成功，失败都会执行)
+    })
+  },
   aboutUs: function () {
     wx.navigateTo({
       url: '/pages/my/about/about',

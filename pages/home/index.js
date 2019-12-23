@@ -59,7 +59,7 @@ Page({
 
       var that = this;
       wx.request({
-        url: 'http://116.62.139.166:8080/ccdm/news/Indexlist2',
+        url: 'http://116.62.139.166:8080/ccdm/news/getFiveNews',
         data: {
         },
         header: {},
@@ -81,17 +81,19 @@ Page({
   
     MoreInfo: function (e) 
     {
+      console.log(e);
+      var id = e.currentTarget.dataset.id;
       if(app.globalData.isLogin)
       {
         wx.navigateTo({
-          url: "/pages/swiperDetail/swiperDetail",
+          url: "/pages/swiperDetail/swiperDetail?id="+id,
         })
       }
       else
       {
         wx.showModal({
           title: '提示',
-          content: '请前往个人中心登录后查看楹联详细信息',
+          content: '请前往个人中心登录后查看新闻详细信息',
           showCancel: false
         })
       }
@@ -238,6 +240,7 @@ Page({
           wx.showModal({
             title: '错误',
             content: '获取对联失败，请稍后重新尝试',
+            showCancel:false
           })
           //wx.hideLoading();
         },

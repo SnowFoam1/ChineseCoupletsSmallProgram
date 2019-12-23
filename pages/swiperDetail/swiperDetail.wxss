@@ -10,10 +10,16 @@ view .title {
   font-size: 25px;
   /*text-align: center;*/
   margin-bottom: 10rpx;
-  padding-bottom: 20rpx;
   border-bottom:1px solid rgb(134, 132, 132);
 }
-
+view .time{
+  font-size: 15px;
+  font-style: light;
+  padding-top: 10rpx;
+  text-align:right;
+  margin-right: 20rpx
+}
 view .body {
   font-size: 20px;
+ 
 }
