@@ -40,6 +40,7 @@
     "pages/swiperDetail/swiperDetail"
   ],
   "tabBar": {
+    "selectedColor": "#e52a2a",
     "list": [
       {
         "pagePath": "pages/home/index",

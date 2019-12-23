@@ -9,6 +9,7 @@
 .test{
   width: 100%;
   overflow-x: hidden;
+  height: 100%;
 }
 .header {
   /*padding: 0 25rpx;*/

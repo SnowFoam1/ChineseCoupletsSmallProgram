@@ -3,7 +3,6 @@ var app = getApp()
 Page({
   data:{
     LoginBtnTxt:"登录",
-    LoginBtnBgBgColor:"#ff9900",
     btnLoading:false,
     disabled:false,
     phone:'',
@@ -53,7 +52,7 @@ Page({
     this.setData({
       LoginBtnTxt: "登录中",
       disabled: !this.data.disabled,
-      LoginBtnBgBgColor: "#999",
+      LoginBtnBgBgColor: "#c93131",
       btnLoading: !this.data.btnLoading
     });
   },
@@ -62,16 +61,14 @@ Page({
     this.setData({
       LoginBtnTxt: "登录",
       disabled: !this.data.disabled,
-      LoginBtnBgBgColor: "#ff9900",
+      LoginBtnBgBgColor: "#c93131",
       btnLoading: !this.data.btnLoading
     });
   },
 
   Login:function()
   {
-    //console.log(e.detail.value);
     var that = this;
-    //console.log(this.data.phone);
     if ((this.data.phone == '' )||( this.data.pass == '') )
     {
       //console.log('999');

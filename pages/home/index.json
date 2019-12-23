@@ -1,8 +1,8 @@
 {
-  "navigationBarBackgroundColor": "#ffffff",
-  "navigationBarTextStyle": "black",
+  "navigationBarBackgroundColor": "#e52a2a",
+  "navigationBarTextStyle": "white",
   "navigationBarTitleText": "楹联博物馆",
-  "backgroundColor": "#eeeeee",
-  "backgroundTextStyle": "light",
+ 
+ 
   "enablePullDownRefresh": false
 }
