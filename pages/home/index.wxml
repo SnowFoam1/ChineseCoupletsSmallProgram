@@ -1,4 +1,4 @@
-<view style="background-color: rgb(229, 42, 42);">
+<view style="background-color: rgb(235,235 , 235);">
   <view class="container">
     <view class="search flexWrp">
       <view class="search-left flexItem" bindtap="Search">
@@ -15,7 +15,7 @@
     <view style="width: 100%; height: auto; ">
       <swiper  class="view" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="width:100%;height:365rpx;">
         <block wx:for-items="{{swipers}}">
-          <swiper-item bindtap="MoreInfo" style="background-color: rgb(255, 255, 255);">
+          <swiper-item bindtap="MoreInfo" style="background-color: rgb(255, 255, 255);" data-id='{{item.newsXwbh}}'>
             <!--image class="back2" src="/images/xuan.jpg"></image-->
             <!--image  bindtap="MoreInfo1" class="swiper-item" src="{{item.image}}" mode="aspectFill"/-->
             <!--text class="swipersUp">{{item.up}}\n</text>

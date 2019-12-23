@@ -3,10 +3,8 @@ Page({
     current: 0,
     id: 0
   },
-  onLoad: function (params) {
-    /*this.setData({
-      id: params.id
-    })*/
+  onLoad: function (options) {
+   console.log(options);
   },
   onReady: function () {
     console.log(this.data.id);
