@@ -14,35 +14,35 @@ Page({
       swipers:[],
       logos: [
         {
-        image: "/images/1.png",
+        image: "/images/spring.png",
         title: "春联"
         }, 
         {
-          image: "/images/2.png",
+          image: "/images/wan.png",
           title: "挽联"
         }, 
         {
-          image: "/images/3.png",
+          image: "/images/shan.png",
           title: "山水"
         },
         {
-          image: "/images/4.png",
+          image: "/images/yuan.png",
           title: "园林"
         },
         {
-          image: "/images/renwu.png",
+          image: "/images/gu.png",
           title: "古建"
         },
         {
-          image: "/images/5.png",
+          image: "/images/zong.png",
           title: "宗教"
         },
         {
-          image: "/images/6.png",
+          image: "/images/ju.png",
         title: "居室"
         },
         {
-          image: "/images/7.png",
+          image: "/images/lei.png",
           title: "更多分类"
         }
       ]
