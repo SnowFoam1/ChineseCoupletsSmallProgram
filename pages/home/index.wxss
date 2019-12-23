@@ -24,6 +24,8 @@
   flex: 45;
   background: rgb(231, 78, 78);
   text-align: left;
+  display: flex;
+  flex-direction: row;
 }
 .container .search-left input{
   display: inline-block;
@@ -33,7 +35,8 @@
 .search-placeholder{
   color: #fff;
   line-height: 20rpx;
-  margin-top: 0rpx;
+  margin-top:12px;
+  font-size: 14px;
 }
 .container .search .search-left image{
   display: inline-block;
