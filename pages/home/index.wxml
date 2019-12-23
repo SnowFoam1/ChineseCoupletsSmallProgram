@@ -25,17 +25,21 @@
         </block>
       </swiper>
     </view>
-    <image class="tiaowen" src="/icons/tiaowen.png"></image>
+    <!-- <image class="tiaowen" src="/icons/tiaowen.png"></image> -->
     <view class="big-logo">
+    <view class="place"></view>
+    <image class="tiaowen" src="/icons/tiaowen1.png"></image>
       <block wx:for-items="{{logos}}">
         <view class="logoinfo" bindtap="MoreClass" data-index='{{index}}'>
           <image style="width:110rpx; height: 110rpx;" src="{{item.image}}" mode="aspectFit" />
           <text class="logotext">{{item.title}}</text>
         </view>
       </block>
+      <image class="tiaowen" src="/icons/tiaowen.png"></image>
+      <view class="place"></view>
     </view>
 
-    <image class="tiaowen" src="/icons/tiaowen.png"></image>
+    
     <view >
       <view wx:for="{{couplets}}" class="couplets_list"> 
         <view bindtap="MoreDetail" class="couplets_type" data-coupletId="{{item.coupletsexistedId}}">

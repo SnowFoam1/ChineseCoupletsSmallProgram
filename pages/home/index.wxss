@@ -250,16 +250,19 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width:160rpx; 
-	height: 160rpx; 
-  padding-top: 15px;
-  padding-bottom: 15px;
+	width:120rpx; 
+	height: 120rpx; 
+  padding: 10px 15px;
 }
-
+.place {
+  background-color: rgb(212, 19, 19);
+  height: 3px;
+  width: 100%;
+}
 .logotext
 {
 	color: #aaa;
-	font-size: 38rpx;
+	font-size: 16px;
 }
 
 .tiaowen{
@@ -300,8 +303,8 @@
 
 .type{
   color: rgb(209, 52, 52);
-  font-size: 19px;
-  padding-left: 4px;
+  font-size: 16px;
+  padding-left: 8px;
   width: 13%;
   
 }
@@ -309,5 +312,5 @@
 .up{
   color: rgb(56, 56, 56);
   padding-left: 8px;
-  font-size: 19px;
+  font-size: 16px;
 }
