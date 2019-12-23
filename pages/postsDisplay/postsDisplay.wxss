@@ -181,7 +181,7 @@
   /*height: 10rpx;*/
   font-size: 16px;
   line-height: 20px;
-  color: #5b5b5b;
+  color: #6e6e6e;
 }
 
 .container .feedItem .feedContent .answerBody .answerTxt {
