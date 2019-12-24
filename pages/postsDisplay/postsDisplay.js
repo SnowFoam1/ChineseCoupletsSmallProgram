@@ -35,11 +35,12 @@ Page({
     var that = this
     wx.showModal({
       title: '提示',
-      content: '请登录',
+      content: '请登录后查看帖子详情',
       success: function(res) {
         if (res.confirm) {
           wx.navigateTo({
             url: '/pages/login/index?page=postdetial',
+            /*url: '/pages/my/my?page=postdetial',*/
           })
         } else if (res.cancel) {
           console.log("cancal login")

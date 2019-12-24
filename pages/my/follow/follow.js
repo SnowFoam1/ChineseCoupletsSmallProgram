@@ -11,7 +11,7 @@ Page({
     followFlag:[],
     followState:[
       "+关注",
-      "取消关注"
+      "已关注"
     ]
   },
 
