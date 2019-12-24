@@ -165,10 +165,30 @@ Page({
   },
 
   toLogin: function() {
-    wx.redirectTo({
+    /*wx.redirectTo({
       url: '/pages/login/index',
+    })*/
+    wx.showActionSheet({
+      itemList: ['微信账号登录','楹联协会账号登录'],
+      success:function(res)
+      {
+        if(res.tapIndex == 0)
+        {
+          wx.navigateTo({
+            url: '/pages/wxlogin/wxlogin',
+          })
+        }
+        else if(res.tapIndex == 1)
+        {
+          wx.navigateTo({
+            url: '/pages/login/index',
+          })
+        }
+      }
     })
   },
+
+
   goBaidu: function () {
     wx.navigateTo({
       url: '/pages/out/index', //

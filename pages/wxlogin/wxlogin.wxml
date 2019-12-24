@@ -1,0 +1,14 @@
+<!--pages/wxlogin/wxlogin.wxml-->
+<!--pages/my/about/about.wxml-->
+<view class="content">
+  <view class="logo">
+    <image src="/icons/saber.jpg"></image>
+  </view>
+  <view class="area">
+  <view class="item1">中华楹联数字博物馆</view>
+  <view class="item">团队名称：阿尔托莉雅</view>
+  <view class="item">小程序版本：1.0</view>
+  </view>
+  <button  class="toLogin" bindgetuserinfo="getUser" open-type="getUserInfo">{{btntxt}}</button>
+</view>
+

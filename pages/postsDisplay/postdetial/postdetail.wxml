@@ -22,7 +22,7 @@
           <text wx:if="{{followFlag==-1}}" bindtap="addFollow">+ 关注</text>
         </view>
         <view class="already">
-          <text wx:if="{{followFlag==1}}" bindtap="deleteFollow">已关注</text>
+          <text wx:if="{{followFlag==1}}" bindtap="deleteFollow">取消关注</text>
         </view>
       </view>
     </view>

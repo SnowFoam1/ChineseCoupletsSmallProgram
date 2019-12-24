@@ -1,5 +1,6 @@
 {
   "pages": [
+    
     "pages/home/index",
     "pages/search/index",
     "pages/searchResult/searchResult",
@@ -38,8 +39,8 @@
     "pages/my/about/about",
     "pages/my/help/help",
     "pages/swiperDetail/swiperDetail",
-    
-    "pages/out/index"
+    "pages/out/index",
+    "pages/wxlogin/wxlogin"
   ],
   "tabBar": {
     "selectedColor": "#e52a2a",
