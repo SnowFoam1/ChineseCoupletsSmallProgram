@@ -11,8 +11,9 @@ App({
   },
 
   globalData: {
-    isLogin: false,
-    userAccountId:"18569555739"
+    isLogin: true,
+    userAccountId:"18569555739",
+    isRoot: "0"
   },
 
   /*getUserInfo:function(cb){

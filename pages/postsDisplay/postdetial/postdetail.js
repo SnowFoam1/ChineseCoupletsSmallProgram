@@ -304,7 +304,7 @@ Page({
     var that = this;
     var replyId = e.currentTarget.dataset.replyid;
     var comment = this.data.comment;
-    if(this.data.userId == this.data.userAccount || this.data.userId == e.currentTarget.dataset.userid){
+    if (this.data.userId == this.data.userAccount || this.data.userId == e.currentTarget.dataset.userid || app.globalData.isRoot == '1'){
       wx.showModal({
         title: '提示',
         content: '确定要删除此条回复？',

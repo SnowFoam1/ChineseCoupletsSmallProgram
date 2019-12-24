@@ -16,7 +16,8 @@ Page({
       "凤求凰",
     ],
     postsNumber: 0,
-    finalGroup: false
+    finalGroup: false,
+    tapFlag: true
   },
   selectTap() {
     this.setData({
@@ -50,7 +51,7 @@ Page({
   bindItemTap: function(e) {
     if (app.globalData.isLogin == false) {
       this.goLogin();
-    } else {
+    } else if (this.data.tapFlag == true) {
       var postId = e.currentTarget.dataset.id;
       var account = e.currentTarget.dataset.account;
       var title = e.currentTarget.dataset.title;
@@ -222,7 +223,7 @@ Page({
               result[i].postContent = that.entitiesToUtf16(result[i].postContent)
             }
             console.log(result)
-            if (result.length != 0){
+            if (result.length != 0) {
               that.setData({
                 items: that.data.items.concat(result),
               })
@@ -275,11 +276,52 @@ Page({
   onShareAppMessage: function() {
 
   },
-  entitiesToUtf16:function (str) {
-    return str.replace(/&#(\d+);/g, function (match, dec) {
+  entitiesToUtf16: function(str) {
+    return str.replace(/&#(\d+);/g, function(match, dec) {
       let H = Math.floor((dec - 0x10000) / 0x400) + 0xD800;
       let L = Math.floor(dec - 0x10000) % 0x400 + 0xDC00;
       return String.fromCharCode(H, L);
     });
+  },
+
+  delete: function(e) {
+    var that = this
+    console.log(app.globalData.isRoot);
+    if (app.globalData.isRoot == '1') {
+      that.setData({
+        tapFlag: false
+      })
+      wx.showModal({
+        title: '提示',
+        content: '确认要删除此条动态吗？',
+        success: function(res) {
+          var id = e.currentTarget.dataset.id;
+          if (res.confirm) {
+            console.log('用户点击确定')
+            wx.request({
+              url: 'http://106.54.206.129:8080/post/deletePostById',
+              data: {
+                id: id
+              },
+              header: {
+                "Content-Type": "applciation/json"
+              },
+              method: 'GET',
+              success: function(res) {
+                that.setData({
+                  items: that.data.items
+                })
+                that.onLoad();
+              }
+            })
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+          that.setData({
+            tapFlag: true
+          })
+        }
+      })
+    }
   }
 })

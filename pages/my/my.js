@@ -66,6 +66,7 @@ Page({
           if (result.userScore == "" || result.userScore == null) {
             result.userScore = 0;
           }
+          app.globalData.isRoot = result.userOfassociation;
           that.setData({
             userNickname: result.userNickname,
             userPortrait: result.userPortrait,
