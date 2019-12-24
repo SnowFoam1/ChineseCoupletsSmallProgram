@@ -129,7 +129,7 @@ Page({
                 icon: '',
                 duration: 2000
               });
-              
+              that.getinfo();
               setTimeout(function () {
                 wx.switchTab({
                   url: '/pages/home/index',
@@ -152,6 +152,24 @@ Page({
 
     }
   },
+
+  getinfo:function()
+  {
+    wx.request({
+      url: 'http://106.54.206.129:8080/user/retUser',
+      data: {
+        id: app.globalData.userAccountId
+      },
+      method: 'GET',
+      header: {
+        'content-type': 'application/json' //默认值
+      },
+      success: function (res) {
+        var result = res.data;
+        app.globalData.isRoot = result.userOfassociation;
+      }
+    })
+  }
   
   /*mysubmit:function (param){
     var flag = this.checkUserName(param)&&this.checkPassword(param)
