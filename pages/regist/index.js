@@ -303,8 +303,8 @@ Page({
   CheckSmsCode:function(param)
   {
     var smsCode = param.smsCode.trim();
-    console.log("check",smsCode);
-    console.log("check", this.data.code);
+    console.log("check1",smsCode);
+    console.log("check2", this.data.code);
     if(smsCode != this.data.code)
     {
       wx.showModal({

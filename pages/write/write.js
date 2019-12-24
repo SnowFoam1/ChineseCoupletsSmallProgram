@@ -43,6 +43,9 @@ Page({
   },
 
   onSubmit: function (event) {
+    console.log("hhhhhh");
+    console.log(event);
+    console.log("hhhhh");
     if(event.detail.target.id == "发布")
     {
       this.send(event)

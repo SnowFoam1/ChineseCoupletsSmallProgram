@@ -49,6 +49,31 @@ Page({
       }
     });
   },
+  onShow:function()
+  {
+    var that = this;
+    wx.request({
+      url: 'http://106.54.206.129:8080/hotSearch',
+      method: 'GET',
+      data: {
+      },
+      header: {},
+      success: function (res) {
+        console.log(res);
+        that.setData({
+          tabData: {
+            hotsSearch: res.data,
+          }
+        })
+      },
+      fail: function () {
+
+      },
+      complete: function () {
+
+      }
+    });
+  },
 
   bindSearchAllShow: function (e) {
     wxSearch.bindSearchAllShow(e, this)

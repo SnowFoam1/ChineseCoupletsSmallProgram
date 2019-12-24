@@ -36,13 +36,23 @@ module.exports = {
   bindGoSearch(e, that) {
     let searchList_stroage = getStorage('searchList') || [];
     const inputVal = that.data.tabData.inputVal;
-    searchList_stroage.push(inputVal)
-    setStorage('searchList', searchList_stroage)
-    this._setData(that, {
-      inputVal: ''
-    })
-    console.log(inputVal);
-    this.goSchool(inputVal)
+
+    if (inputVal == '' || inputVal == undefined) {
+      wx.showToast({
+        title: '搜索内容为空',
+        icon: "none",
+      })
+    }
+    else
+    {
+      searchList_stroage.push(inputVal)
+      setStorage('searchList', searchList_stroage)
+      this._setData(that, {
+        inputVal: ''
+      })
+      console.log(inputVal);
+      this.goSchool(inputVal)
+    }
   },
 
   bindDelLog(e, that) {
@@ -125,18 +135,18 @@ module.exports = {
 
   goSchool(val) {
     console.log(val)
-    if(val =='' ||val == undefined)
+    /*if(val =='' ||val == undefined)
     {
       wx.showToast({
         title: '搜索内容为空',
         icon:"none",
       })
-    }
-    else
-    {
+    }*/
+    //else
+    //{
       wx.navigateTo({
         url: '/pages/searchResult/searchResult?word=' + val,
       })
-    }
+    //}
   }
 }
