@@ -103,7 +103,7 @@
 }
 
 .cloud{
-  width: 250rpx;
+  width: 150rpx;
   height: 36rpx;
 }
 
