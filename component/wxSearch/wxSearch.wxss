@@ -17,6 +17,7 @@
   right:32rpx;
   /*margin-right: rpx;*/
   top:50%;
+  color: rgb(229, 42,42);
   transform:translateY(-50%);
   z-index:9;
 }

@@ -1,5 +1,7 @@
 <view class='detail'>
   <view class="head" style="position:fixed;top:0;">
+  <view>
+  <image class="background" src="/images/up.png" mode="scaleToFill"></image>
     <view class='title'>{{couplet.coupletsexistedUpcouplets}}</view>
     <view class="poet">
       <view>{{detail.dynasty}}</view>
@@ -10,7 +12,7 @@
       <view class="couplets">{{detail.coupletsexistedUpcouplets}}</view>
       <view class="couplets">{{detail.coupletsexistedDowncouplets}}</view>
     </view>
-
+  </view> 
     <view class="show">
       <view>浏览量：{{detail.coupletsexistedBrosecount}}</view>
       <view class="left">入库时间：{{date}}</view>  
