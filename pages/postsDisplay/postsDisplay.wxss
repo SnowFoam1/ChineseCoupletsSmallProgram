@@ -16,7 +16,6 @@
   height: 70rpx;
   padding: 12.5rpx 0 12.5rpx 15rpx;
   background: rgb(229, 42, 42);
-  /*border-radius: 3px;*/
   position: fixed;
   top: 0;
   z-index: 1;

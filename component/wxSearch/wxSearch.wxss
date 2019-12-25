@@ -6,14 +6,17 @@
 .text_search{
   box-sizing:border-box;
   padding-left:42rpx;
-  width: 100%;
+  width: 85%;
 	height: 67rpx;
   font-size: 24rpx;
   background-color: #ffffff;
 	border-radius: 10rpx;
 }
 .icon_search{
-  position:absolute;right:48rpx;top:50%;
+  position:absolute;
+  right:32rpx;
+  /*margin-right: rpx;*/
+  top:50%;
   transform:translateY(-50%);
   z-index:9;
 }
