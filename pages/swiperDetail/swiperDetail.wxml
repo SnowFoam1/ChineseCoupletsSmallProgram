@@ -1,7 +1,9 @@
 <view>
-    <view class="title">
-      {{title}}
+    <view class="head">
+      <view class="title"><text>{{title}}</text></view>
       <view class="time">{{time}}</view>
     </view>
-    <rich-text nodes="{{nodes}}" class="body"></rich-text>
+    <view class="news">
+      <rich-text nodes="{{nodes}}" class="body"></rich-text>
+    </view>    
 </view>
