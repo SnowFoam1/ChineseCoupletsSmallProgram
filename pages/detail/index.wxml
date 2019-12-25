@@ -1,21 +1,22 @@
 <view class='detail'>
   <view class="head" style="position:fixed;top:0;">
-  <view>
-  <image class="background" src="/images/up.png" mode="scaleToFill"></image>
-    <view class='title'>{{couplet.coupletsexistedUpcouplets}}</view>
-    <view class="poet">
-      <view>{{detail.dynasty}}</view>
-      <view class="name" data-poet='{{detail.poet}}' bindtap='goPoet'>{{detail.poet}}</view>
+    <view>
+      <view class='title'>{{couplet.coupletsexistedUpcouplets}}</view>
+      <view class="poet">
+        <view>{{detail.dynasty}}</view>
+        <view class="name" data-poet='{{detail.poet}}' bindtap='goPoet'>{{detail.poet}}</view>
+      </view>
+      <image class="background" src="/images/up.png" mode="scaleToFill"></image>
+      <view class="poem">
+        <!--text wx:for='{{detail.content}}' wx:key='{{index}}'>{{item}}</text-->
+        <view class="couplets">{{detail.coupletsexistedUpcouplets}}</view>
+        <view class="couplets">{{detail.coupletsexistedDowncouplets}}</view>
+      </view>
+      <image class="background" src="/images/down.png" mode="scaleToFill"></image>
     </view>
-    <view class="poem">
-      <!--text wx:for='{{detail.content}}' wx:key='{{index}}'>{{item}}</text-->
-      <view class="couplets">{{detail.coupletsexistedUpcouplets}}</view>
-      <view class="couplets">{{detail.coupletsexistedDowncouplets}}</view>
-    </view>
-  </view> 
     <view class="show">
       <view>浏览量：{{detail.coupletsexistedBrosecount}}</view>
-      <view class="left">入库时间：{{date}}</view>  
+      <view class="left">入库时间：{{date}}</view>
     </view>
 
     <view class="tags">
@@ -35,7 +36,7 @@
     </view>
   </view>
 
-  <view class="more" >
+  <view class="more">
     <view class='swiper'>
       <view class='itembox {{currentData == 0 ? "showItem" : ""}}'>
         <view wx:if='{{detail.coupletintroName != null}}'>
