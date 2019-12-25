@@ -77,8 +77,8 @@
 
 .container {
   padding: 55rpx 0 0 0;
-  font-size: 16px;
-  color: rgb(87, 63, 63);
+  font-size: 27rpx;
+  color: rgb(66, 50, 50);
 }
 
 .container .feedItem {
@@ -97,6 +97,10 @@
   font-weight: 600px;
   line-height: 24px;
   color: rgb(212, 19, 19);
+}
+
+.label{
+  width: 190rpx;
 }
 
 .fee{
@@ -186,12 +190,13 @@
   color: #6e6e6e;
 }
 
-.container .feedItem .feedContent .answerBody .answerTxt {
+.answerTxt {
   padding: 0 0 10rpx;
+  padding-left: 18rpx;
+  line-height: 50rpx;
 }
-
-.container .feedItem .feedContent .answerBody .answerTxt text{
-  font-size: 16px;
+.feedItem .feedContent .answerBody .answerTxt text{
+  font-size: 15px;
 }
 
 .container .feedItem .feedContent .answerActions {
@@ -212,8 +217,8 @@
 }
 
 .container .feedItem .feedContent .question .label text {
-  font-size: 14px;
-  font-weight: 600px;
+  font-size: 30rpx;
+  font-weight: 1000rpx;
   line-height: 40rpx;
   color: rgb(212, 19, 19);
 }
@@ -307,4 +312,9 @@
   border-bottom: 1px solid #efefef;
   padding: 10rpx;
   text-align: center;
+}
+
+.show{
+  display: flex;
+  flex-direction: row;
 }
