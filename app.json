@@ -61,7 +61,7 @@
         "pagePath": "pages/write/write",
         "text": "创作",
         "iconPath": "images/writeN.png",
-        "selectedIconPath": "images/wrtieY.png"
+        "selectedIconPath": "images/writeY.png"
       },
       {
         "pagePath": "pages/knowledge/knowledge",

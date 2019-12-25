@@ -297,22 +297,22 @@
 }
 
 .upcouplets{
-  padding-top: 7px;
-  padding-bottom: 7px; 
+  padding-top: 14rpx;
+  padding-bottom: 14rpx; 
   display: flex;
   flex-direction: row;
 }
 
 .type{
   color: rgb(209, 52, 52);
-  font-size: 18px;
-  padding-left: 8px;
+  font-size: 36rpx;
+  padding-left: 16rpx;
   width: 13%;
   
 }
 
 .up{
   color: rgb(56, 56, 56);
-  padding-left: 8px;
-  font-size: 18px;
+  padding-left: 16rpx;
+  font-size: 36rpx;
 }
