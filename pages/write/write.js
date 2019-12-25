@@ -56,7 +56,10 @@ Page({
     }
   },
 
-
+  test:function()
+  {
+    console.log("失焦");
+  },
   send:function(event)
   {
     console.log("发布");

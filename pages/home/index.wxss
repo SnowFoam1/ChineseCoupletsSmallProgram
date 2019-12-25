@@ -14,11 +14,10 @@
   background: rgb(243, 245, 244);
 }
 .container .search{
-  width: 99%;
+  width: 736rpx;
   height: 70rpx;
   padding: 12.5rpx 0 12.5rpx 15rpx;
   background: rgb(229, 42, 42);
-  border-radius: 3px;
 }
 .container .search-left{
   flex: 45;

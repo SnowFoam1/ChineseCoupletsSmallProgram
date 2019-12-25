@@ -18,7 +18,6 @@ module.exports = {
   },
 
   bindInputSearchWord(e, that) {
-    console.log(e);
     var val = e.detail.value;
     this.matchStroage(that, val)
     //console.log(val);
@@ -91,9 +90,9 @@ module.exports = {
     })
   },
 
+ 
   matchStroage(that, val) {//匹配历史搜索
     let searchList_stroage = getStorage('searchList') || [];
-    console.log(searchList_stroage)
     let searchList = []
     if (typeof (val) != undefined && val.length > 0 && typeof (searchList_stroage) != undefined && searchList_stroage.length > 0) 
     {
@@ -109,7 +108,6 @@ module.exports = {
     {
       searchList = searchList_stroage  
     }
-    console.log(searchList);
     this._setData(that, {
       inputVal: val,
       searchList

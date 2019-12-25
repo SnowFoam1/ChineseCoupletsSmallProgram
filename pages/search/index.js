@@ -74,7 +74,6 @@ Page({
       }
     });
   },
-
   bindSearchAllShow: function (e) {
     wxSearch.bindSearchAllShow(e, this)
   },

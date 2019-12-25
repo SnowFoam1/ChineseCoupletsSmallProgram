@@ -292,7 +292,7 @@ Page({
     else {
       searchList_stroage.push(inputVal)
       setStorage('searchList', searchList_stroage)
-      this._setData(that, {
+      this.setData({
         inputVal: ''
       })
       console.log(inputVal);

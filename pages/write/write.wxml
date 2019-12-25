@@ -7,11 +7,14 @@
     <view class='title'>
       <input disabled="{{canWrite == false}}" name="title" value="{{title}}" placeholder-class="placeholder" placeholder="在此输入标题" />
     </view>
-    <view class='row' id="textareawrap">
-      <textarea disabled="{{canWrite == false}}" value="{{content}}" class='text' space="emsp" maxlength="-1" focus='{{focus}}' name="content" placeholder="在等你畅所欲言哦" />
-    </view>
 
-    <view class="handle">
+    <view class='row' id="textareawrap">
+      <textarea disabled="{{canWrite == false}}" value="{{content}}" class='text' space="emsp" maxlength="-1" focus='{{focus}}' name="content" bindblur="test" placeholder="在等你畅所欲言哦" />
+    </view>
+    
+  </view>
+
+  <view class="handle">
       <view class='bottom'>
         <button id="发布" formType="submit" class='btn success'>发布</button>
       </view>
@@ -19,6 +22,5 @@
       <button formType="submit" class='btn success'>取消</button>
       </view-->
       <button id="草稿" class="cancel" formType="submit">保存为草稿</button>
-    </view>
   </view>
 </form>
