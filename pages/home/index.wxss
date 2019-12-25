@@ -35,7 +35,7 @@
 .search-placeholder{
   color: #fff;
   line-height: 20rpx;
-  margin-top:12px;
+  margin-top:26rpx;
   font-size: 14px;
 }
 .container .search .search-left image{

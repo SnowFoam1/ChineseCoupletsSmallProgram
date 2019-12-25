@@ -44,7 +44,8 @@
         <text>{{userLabel}}</text>
       </view>
     </view>
-    <view bindtap="openPage" class="item" hoverClass="none">
+
+    <!--view bindtap="openPage" class="item" hoverClass="none">
       <view class='wallet'>
         <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>
         <text>手机号码</text>
@@ -52,7 +53,8 @@
       <view class="showInfor">
         <text>{{userAccount}}</text>
       </view>
-    </view>
+    </view-->
+
     <view bindtap="openPage" class="item" data-url="/pages/my/information/age/age" formType="submit" hoverClass="none">
       <view class='wallet'>
         <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>

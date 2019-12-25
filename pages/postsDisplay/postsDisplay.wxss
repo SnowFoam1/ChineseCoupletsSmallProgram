@@ -6,7 +6,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  /*padding: 200rpx 0;*/
+  padding: 200rpx 0;
   box-sizing: border-box;
   background: rgb(243, 245, 244);
 }
@@ -22,10 +22,12 @@
   z-index: 1;
 }
 
-.container .search-left {
+.container .search-left{
   flex: 45;
   background: rgb(231, 78, 78);
   text-align: left;
+  display: flex;
+  flex-direction: row;
 }
 
 .container .search-left input {
@@ -34,10 +36,11 @@
   font-size: 16px;
 }
 
-.search-placeholder {
+.search-placeholder{
   color: #fff;
   line-height: 20rpx;
-  margin-top: 0rpx;
+  margin-top:26rpx;
+  font-size: 14px;
 }
 
 .container .search .search-left image {

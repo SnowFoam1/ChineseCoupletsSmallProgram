@@ -241,7 +241,7 @@ Page({
     //console.log("初始请求完成"); 
   },
   Search: function() {
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/search/index',
     })
   },

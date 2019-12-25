@@ -38,9 +38,8 @@ Page({
       content: '请登录后查看帖子详情',
       success: function(res) {
         if (res.confirm) {
-          wx.navigateTo({
-            url: '/pages/login/index?page=postdetial',
-            /*url: '/pages/my/my?page=postdetial',*/
+          wx.switchTab({
+            url: '/pages/my/my',
           })
         } else if (res.cancel) {
           console.log("cancal login")

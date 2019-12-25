@@ -8,7 +8,8 @@
 
 <view class="head_search">
   <input class="text_search " type='text' confirm-type="search" placeholder='{{inputVal ==  null ?  inputVal:"搜索楹联\\帖子\\作者\\用户" }}'  bindfocus="bindShowLog" bindinput="bindInputSearchWord" value="{{inputVal}}"></input>
-  <icon class="icon_search" type='search' size="15" bindtap="bindGoSearch"></icon>
+  <!--icon class="icon_search" type='search' size="15" bindtap="bindGoSearch"></icon-->
+  <view class="icon_search" bindtap="bindGoSearch">搜索</view>
 </view>
 
 <view class="result_search" hidden="{{searchIsHidden}}" bindtap='bindSearchHidden'>
