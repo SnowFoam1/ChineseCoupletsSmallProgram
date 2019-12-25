@@ -49,6 +49,16 @@ Page({
       }
     });
   },
+  checkWordIsInStorage: function (searchHistory, word) {
+    var l = searchHistory.length;
+    for (var i = 0; i < l; i++) {
+      /*console.log(searchList_stroage[i]);*/
+      if (searchHistory[i] == word) {
+        return true;
+      }
+    }
+    return false;
+  },
   onShow:function()
   {
     var that = this;

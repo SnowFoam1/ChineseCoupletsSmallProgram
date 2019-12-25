@@ -32,6 +32,19 @@ module.exports = {
     })
   },
 
+  /*checkWordIsInStorage:function(searchHistory,word)
+  {
+    var l = searchList_stroage.length;
+    for (var i = 0; i < l; i++) 
+    {
+      //console.log(searchList_stroage[i]);
+      if(searchHistory[i] == word)
+      {
+        return true;
+      }
+    }
+    return false;
+  },*/
   bindGoSearch(e, that) {
     let searchList_stroage = getStorage('searchList') || [];
     const inputVal = that.data.tabData.inputVal;
@@ -44,7 +57,11 @@ module.exports = {
     }
     else
     {
-      searchList_stroage.push(inputVal)
+      if(!that.checkWordIsInStorage(searchList_stroage,inputVal)) //不在缓存
+      {
+        searchList_stroage.push(inputVal)
+      }
+      //searchList_stroage.push(inputVal)
       setStorage('searchList', searchList_stroage)
       this._setData(that, {
         inputVal: ''

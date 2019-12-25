@@ -280,6 +280,17 @@ Page({
     this.matchStroage(val)
   },
 
+  checkWordIsInStorage: function (searchHistory, word) {
+    var l = searchHistory.length;
+    for (var i = 0; i < l; i++) {
+      /*console.log(searchList_stroage[i]);*/
+      if (searchHistory[i] == word) {
+        return true;
+      }
+    }
+    return false;
+  },
+
   bindGoSearch: function (e) {
     let searchList_stroage = getStorage('searchList') || [];
     const inputVal = this.data.inputVal;
@@ -289,8 +300,12 @@ Page({
         icon: "none",
       })
     }
-    else {
-      searchList_stroage.push(inputVal)
+    else 
+    {
+      if(!this.checkWordIsInStorage(searchList_stroage,inputVal))
+      {
+        searchList_stroage.push(inputVal)
+      }
       setStorage('searchList', searchList_stroage)
       this.setData({
         inputVal: ''
