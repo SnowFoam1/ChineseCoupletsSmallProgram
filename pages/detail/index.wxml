@@ -8,7 +8,7 @@
     <view class="poem">
       <!--text wx:for='{{detail.content}}' wx:key='{{index}}'>{{item}}</text-->
       <view class="couplets">{{detail.coupletsexistedUpcouplets}}</view>
-      <view class="couplets">{{detail.coupletsexistedDowncouZplets}}</view>
+      <view class="couplets">{{detail.coupletsexistedDowncouplets}}</view>
     </view>
 
     <view class="show">

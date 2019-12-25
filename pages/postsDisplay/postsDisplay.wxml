@@ -1,15 +1,15 @@
 <!--pages/postsDisplay/postsDisplay.wxml-->
 <view class="container">
-    <view class="search flexWrp">
-      <view class="search-left flexItem" bindtap="Search">
-        <image src="../../icons/search.png" ></image>
-        <!-- <input disabled='true' fixed="true" placeholder="搜索楹联\\用户\\帖子" placeholder-class="search-placeholder" /> -->
-        <view class="search-placeholder">搜索楹联\用户\帖子</view>
-      </view>
-      <!--view class="search-right flexItem" bindtap="upper">
+  <view class="search flexWrp">
+    <view class="search-left flexItem" bindtap="Search">
+      <image src="../../icons/search.png"></image>
+      <!-- <input disabled='true' fixed="true" placeholder="搜索楹联\\用户\\帖子" placeholder-class="search-placeholder" /> -->
+      <view class="search-placeholder">搜索楹联\用户\帖子</view>
+    </view>
+    <!--view class="search-right flexItem" bindtap="upper">
       <!-- <image src="../../images/lighting.png"></image> >
     </view-->
-    </view>
+  </view>
 </view>
 
 
@@ -47,14 +47,16 @@
         </view>
       </view>
       <view class="feedContent">
-        <view class="question">
-          <a class="label">
-            <text>【{{labels[item.labelContent-1]}}】</text>
-          </a>
-        </view>
-        <view class="question" qid="{{questionId}}">
-          <view class="questionLink">
-            <text>{{item.postTitle}}</text>
+        <view class="show">
+          <view class="question">
+            <view class="label">
+              <text>【{{labels[item.labelContent-1]}}】</text>
+            </view>
+          </view>
+          <view class="question" qid="{{questionId}}">
+            <view class="questionLink">
+              <text>{{item.postTitle}}</text>
+            </view>
           </view>
         </view>
         <view class="answerBody">
