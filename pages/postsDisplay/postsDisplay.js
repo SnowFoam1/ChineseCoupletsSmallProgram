@@ -190,11 +190,10 @@ Page({
   onReachBottom: function() {
     // console.log("onReachBottom")
     var that = this
-    // console.log(that.data.finalGroup)
     if (that.data.finalGroup == false) {
       var value = that.data.postsNumber + 10;
       // console.log(value);
-      if (that.data.index == 0) {
+      if (that.data.index == 1) {
         wx.request({
           url: 'http://106.54.206.129:8080/post/getTenPostsWithAuthor',
           data: {
@@ -227,10 +226,11 @@ Page({
               that.setData({
                 items: that.data.items.concat(result),
               })
+              console.log(that.data.items)
             }
           }
         })
-      } else if (that.data.index == 1) {
+      } else if (that.data.index == 0) {
         wx.request({
           url: 'http://106.54.206.129:8080/post/getTenPostsWithAuthorByDate',
           data: {

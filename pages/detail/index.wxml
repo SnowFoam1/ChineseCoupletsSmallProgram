@@ -1,23 +1,25 @@
 <view class='detail'>
-  <view class='title'>{{couplet.coupletsexistedUpcouplets}}</view>
-  <view class="poet">
-    <view>{{detail.dynasty}}</view>
-    <view class="name" data-poet='{{detail.poet}}' bindtap='goPoet'>{{detail.poet}}</view>
-  </view>
-  <view class="poem">
-    <!--text wx:for='{{detail.content}}' wx:key='{{index}}'>{{item}}</text-->
-    <view class="couplets">{{detail.coupletsexistedUpcouplets}}</view>
-    <view class="couplets">{{detail.coupletsexistedDowncouplets}}</view>
-  </view>
+  <view class="head" style="position:fixed;top:0;">
+    <view class='title'>{{couplet.coupletsexistedUpcouplets}}</view>
+    <view class="poet">
+      <view>{{detail.dynasty}}</view>
+      <view class="name" data-poet='{{detail.poet}}' bindtap='goPoet'>{{detail.poet}}</view>
+    </view>
+    <view class="poem">
+      <!--text wx:for='{{detail.content}}' wx:key='{{index}}'>{{item}}</text-->
+      <view class="couplets">{{detail.coupletsexistedUpcouplets}}</view>
+      <view class="couplets">{{detail.coupletsexistedDowncouplets}}</view>
+    </view>
 
-  <view class="show">浏览量：{{detail.coupletsexistedBrosecount}}</view>
-  <view class="show">入库时间：{{date}}</view>
+    <view class="show">
+      <view>浏览量：{{detail.coupletsexistedBrosecount}}</view>
+      <view class="left">入库时间：{{date}}</view>  
+    </view>
 
-  <view class="tags">
-    <text wx:for='{{detail.tags}}' wx:key='{{index}}' data-parenttags='标签' data-tags='{{item}}' bindtap='goList'>{{item}}</text>
-  </view>
+    <view class="tags">
+      <text wx:for='{{detail.tags}}' wx:key='{{index}}' data-parenttags='标签' data-tags='{{item}}' bindtap='goList'>{{item}}</text>
+    </view>
 
-  <view class="more">
     <view class='topTabSwiper'>
       <view class='tab  {{currentData == 0 ? "tabBorer" : ""}}' data-current="0" bindtap='checkCurrent'>
         楹联介绍
@@ -29,14 +31,16 @@
         楹联鉴赏
       </view>
     </view>
+  </view>
 
+  <view class="more" >
     <view class='swiper'>
       <view class='itembox {{currentData == 0 ? "showItem" : ""}}'>
         <view wx:if='{{detail.coupletintroName != null}}'>
           <text space="emsp">{{detail.coupletintroName}}</text>
         </view>
         <view wx:if='{{detail.coupletintroOrigin != null}}'>
-          <text space="emsp">  {{detail.coupletintroOrigin}}</text>
+          <text space="emsp"> {{detail.coupletintroOrigin}}</text>
         </view>
         <view wx:if='{{!haveIntro}}'>暂无楹联简介</view>
       </view>
@@ -46,7 +50,7 @@
         <view wx:if='{{!haveAuthor}}'>暂无作者简介</view>
       </view>
       <view class='itembox {{currentData == 2 ? "showItem" : ""}}'>
-        <text class='text' disabled="true" space="emsp" wx:if='{{detail.coupletintroJSNR != null}}'>  {{detail.coupletintroJSNR}}</text>
+        <text class='text' disabled="true" space="emsp" wx:if='{{detail.coupletintroJSNR != null}}'> {{detail.coupletintroJSNR}}</text>
         <view wx:if='{{!haveJS}}'>暂无赏析</view>
       </view>
     </view>

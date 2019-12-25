@@ -23,11 +23,9 @@ App({
   },
 
   globalData: {
-    isLogin: false,
-    userAccountId:"18569555739",
+    isLogin: true,
+    userAccountId:"15574925109",
     isRoot: "0"
   },
-
-  
-  
+  touch: new touch()
 })
