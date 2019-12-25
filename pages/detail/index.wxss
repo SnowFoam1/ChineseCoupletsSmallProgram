@@ -84,8 +84,8 @@
 }
 
 .tabBorer {
-  border-bottom: 1px solid rgb(238, 18, 18);
-  color: rgb(238, 18, 18);
+  border-bottom: 1px solid rgb(230, 21, 21);
+  color: rgb(228, 22, 22);
 }
 
 .swiper {
@@ -109,8 +109,8 @@
 }
 
 .show{
-  padding-left: 34px;
-  color: #cc2121;
+  padding-left: 68rpx;
+  color: #747474;
   padding-top: 5px;
   padding-bottom: 7px;
   display: flex;
@@ -233,5 +233,5 @@
 }
 
 .left{
-  padding-left: 60px;
+  padding-left: 198rpx;
 }
