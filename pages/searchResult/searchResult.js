@@ -1,6 +1,9 @@
 // pages/test/index.js
 import * as wxSearch from '../../component/wxSearch/wxSearch';
-import { getStorage, setStorage } from '../../utils/util';
+import {
+  getStorage,
+  setStorage
+} from '../../utils/util';
 var app = getApp();
 var utils = require('../../utils/util.js');
 Page({
@@ -8,14 +11,14 @@ Page({
   /**
    * 页面的初始数据
    */
-  
+
   data: {
     //searchWord:'',
-    currentData:0,
-    coupletList:'',
-    userList:'',
-    postList:'',
-    top:0,
+    currentData: 0,
+    coupletList: '',
+    userList: '',
+    postList: '',
+    top: 0,
 
     searchList: getStorage('searchList'),
     tabs: ['院校优先', '专业优先', '更多筛选'],
@@ -24,9 +27,9 @@ Page({
     sliderOffset: 0,
     sliderLeft: 0,
     searchIsHidden: true,
-    searchAllShow: false,//全部搜索记录
+    searchAllShow: false, //全部搜索记录
     inputVal: '',
-    searchResult_Couplet:'',
+    searchResult_Couplet: '',
     searchResult_User: '',
     searchResult_Post: '',
     labels: [
@@ -41,61 +44,58 @@ Page({
   * 生命周期函数--监听页面加载
   
   */
-  onLoad: function (options) {
+  onLoad: function(options) {
     //wxSearch.init(this);
     console.log(options);
     var that = this;
     wx.request({
       url: 'http://106.54.206.129:8080/hotSearch',
       method: 'GET',
-      data: {
-      },
+      data: {},
       header: {},
-      success: function (res) {
+      success: function(res) {
         console.log(res);
         that.setData({
-            hotsSearch2: res.data
+          hotsSearch2: res.data
         })
       },
-      fail: function () {
+      fail: function() {
 
       },
-      complete: function () {
+      complete: function() {
 
       }
     });
     this.setData({
-      inputVal:options.word
+      inputVal: options.word
     });
     console.log(this.data.inputVal);
     this.setData({
-      searchResult_Couplet:'加载中......'
+      searchResult_Couplet: '加载中......'
     });
 
-    wx.request({//搜索楹联
+    wx.request({ //搜索楹联
       url: 'http://106.54.206.129:8080/search/searchCouplets',
       data: {
-        searchContent:that.data.inputVal
+        searchContent: that.data.inputVal
       },
       header: {},
       method: 'GET',
       dataType: 'json',
       responseType: 'text',
-      success: function (res) {
-        if(res.data == '')
-        {
+      success: function(res) {
+        if (res.data == '') {
           that.setData({
             searchResult_Couplet: '抱歉，暂无相关楹联'
           })
         }
         that.setData({
-          coupletList:res.data
+          coupletList: res.data
         })
         console.log(that.data.coupletList);
       },
-      fail: function (res) {
-      },
-      complete: function (res) { },
+      fail: function(res) {},
+      complete: function(res) {},
     });
 
     /*wx.request({//搜索用户
@@ -119,32 +119,28 @@ Page({
       complete: function (res) { },
     });*/
 
-    
+
 
   },
 
-  bindPersonalTap: function (e) {
+  bindPersonalTap: function(e) {
     var thisUserAccount = e.currentTarget.dataset.id
-    if(app.globalData.isLogin == false)
-    {
-        wx.showModal({
-          title: '提示',
-          showCancel:false,
-          content: '请登录后查看用户信息',
-        })
-    }
-    else
-    {
+    if (app.globalData.isLogin == false) {
+      wx.showModal({
+        title: '提示',
+        showCancel: false,
+        content: '请登录后查看用户信息',
+      })
+    } else {
       wx.navigateTo({
         url: '/pages/my/othersSpace/othersSpace?thisUserAccount=' + thisUserAccount,
       })
     }
-    
+
   },
-  
-  scrollTopFun(e)
-  {
-    let that = this ;
+
+  scrollTopFun(e) {
+    let that = this;
     that.top = e.detail.scrollTop;
     that.$apply();
   },
@@ -155,30 +151,26 @@ Page({
   
   */
 
-  onReady: function () {
+  onReady: function() {
 
-   
+
 
   },
 
   checkCurrent(e) {
-    if (this.data.currentData == e.target.dataset.current) 
-    {
-      return 
-    }
-    else 
-    {
+    if (this.data.currentData == e.target.dataset.current) {
+      return
+    } else {
       this.setData({
         currentData: e.target.dataset.current
       });
 
       var that = this;
-      if (this.data.currentData == '1')
-      {
+      if (this.data.currentData == '1') {
         this.setData({
           searchResult_User: '加载中......'
         });
-        wx.request({//搜索用户
+        wx.request({ //搜索用户
           url: 'http://106.54.206.129:8080/search/searchUser',
           data: {
             searchContent: that.data.inputVal
@@ -187,7 +179,7 @@ Page({
           method: 'GET',
           dataType: 'json',
           responseType: 'text',
-          success: function (res) {
+          success: function(res) {
             if (res.data == '') {
               that.setData({
                 searchResult_User: '抱歉，暂无相关用户'
@@ -199,17 +191,14 @@ Page({
             })
             console.log(that.data.userList);
           },
-          fail: function (res) {
-          },
-          complete: function (res) { },
+          fail: function(res) {},
+          complete: function(res) {},
         });
-      }
-      else if (this.data.currentData == '2')
-      {
+      } else if (this.data.currentData == '2') {
         this.setData({
           searchResult_Post: '加载中......'
         });
-        wx.request({//搜索帖子
+        wx.request({ //搜索帖子
           url: 'http://106.54.206.129:8080/search/searchPost',
           data: {
             searchContent: that.data.inputVal
@@ -218,7 +207,7 @@ Page({
           method: 'GET',
           dataType: 'json',
           responseType: 'text',
-          success: function (res) {
+          success: function(res) {
             if (res.data == '') {
               that.setData({
                 searchResult_Post: '抱歉，暂无相关帖子'
@@ -232,20 +221,20 @@ Page({
               if (result[i].userPortrait == "" || result[i].userPortrait == null) {
                 result[i].userPortrait = '/icons/saber.jpg'
               }
+              result[i].postContent = that.entitiesToUtf16(result[i].postContent)
             }
             that.setData({
               postList: result,
             })
           },
-          fail: function (res) {
-          },
-          complete: function (res) { },
+          fail: function(res) {},
+          complete: function(res) {},
         });
       }
     }
   },
 
-  moreDetail: function (e)//需要获取楹联id
+  moreDetail: function(e) //需要获取楹联id
   {
     console.log(e);
     if (app.globalData.isLogin) {
@@ -254,9 +243,7 @@ Page({
       wx.navigateTo({
         url: "/pages/detail/index?coupletId=" + coupletId,
       })
-    }
-    else 
-    {
+    } else {
       wx.showModal({
         title: '提示',
         content: '请前往个人中心登录后查看楹联详细信息',
@@ -267,20 +254,20 @@ Page({
   },
 
 
-  bindSearchAllShow: function (e) {
+  bindSearchAllShow: function(e) {
     this.setData({
       searchAllShow: true
     })
   },
 
-  bindInputSearchWord: function (e) {
+  bindInputSearchWord: function(e) {
     /*console.log(e);
     wxSearch.bindInputSearchWord(e, this)*/
     var val = e.detail.value;
     this.matchStroage(val)
   },
 
-  checkWordIsInStorage: function (searchHistory, word) {
+  checkWordIsInStorage: function(searchHistory, word) {
     var l = searchHistory.length;
     for (var i = 0; i < l; i++) {
       /*console.log(searchList_stroage[i]);*/
@@ -291,7 +278,7 @@ Page({
     return false;
   },
 
-  bindGoSearch: function (e) {
+  bindGoSearch: function(e) {
     let searchList_stroage = getStorage('searchList') || [];
     const inputVal = this.data.inputVal;
     if (inputVal == '' || inputVal == undefined) {
@@ -299,11 +286,8 @@ Page({
         title: '搜索内容为空',
         icon: "none",
       })
-    }
-    else 
-    {
-      if(!this.checkWordIsInStorage(searchList_stroage,inputVal))
-      {
+    } else {
+      if (!this.checkWordIsInStorage(searchList_stroage, inputVal)) {
         searchList_stroage.push(inputVal)
       }
       setStorage('searchList', searchList_stroage)
@@ -315,7 +299,7 @@ Page({
     }
   },
 
-  bindClearSearch: function () {
+  bindClearSearch: function() {
     //wxSearch.updataLog(this, [])
     setStorage('searchList', [])
     this.setData({
@@ -345,12 +329,11 @@ Page({
   showlog() {
     let searchList_stroage = getStorage('searchList') || [];
     let searchList = []
-    if (typeof (searchList_stroage) != undefined && searchList_stroage.length > 0) {
+    if (typeof(searchList_stroage) != undefined && searchList_stroage.length > 0) {
       for (var i = 0, len = searchList_stroage.length; i < len; i++) {
         searchList.push(searchList_stroage[i])
       }
-    }
-    else {
+    } else {
       searchList = searchList_stroage
     }
     this.setData({
@@ -379,20 +362,18 @@ Page({
       searchList: list
     })
   },
-  matchStroage(val) {//匹配历史搜索
+  matchStroage(val) { //匹配历史搜索
     let searchList_stroage = getStorage('searchList') || [];
     console.log(searchList_stroage)
     let searchList = []
-    if (typeof (val) != undefined && val.length > 0 && typeof (searchList_stroage) != undefined && searchList_stroage.length > 0) {
+    if (typeof(val) != undefined && val.length > 0 && typeof(searchList_stroage) != undefined && searchList_stroage.length > 0) {
       for (var i = 0, len = searchList_stroage.length; i < len; i++) {
         if (searchList_stroage[i].indexOf(val) != -1) //
         {
           searchList.push(searchList_stroage[i])
         }
       }
-    }
-    else 
-    {
+    } else {
       searchList = searchList_stroage
     }
     console.log(searchList);
@@ -407,19 +388,16 @@ Page({
     this.goSchool(val)
   },
 
-  bindItemTap: function (e) {
+  bindItemTap: function(e) {
     console.log("ssssss")
-    if (app.globalData.isLogin == false) 
-    {
+    if (app.globalData.isLogin == false) {
       //this.goLogin();
       wx.showModal({
         title: '提示',
-        showCancel:false,
+        showCancel: false,
         content: '请登录后查看帖子详情',
       })
-    } 
-    else 
-    {
+    } else {
       var postId = e.currentTarget.dataset.id;
       var account = e.currentTarget.dataset.account;
       var title = e.currentTarget.dataset.title;
@@ -447,16 +425,15 @@ Page({
       })
     }
     else {*/
-      wx.navigateTo({
-        url: '/pages/searchResult/searchResult?word=' + val,
-      })
+    wx.navigateTo({
+      url: '/pages/searchResult/searchResult?word=' + val,
+    })
     //}
   },
 
-  onShow:function()
-  {
+  onShow: function() {
     var that = this;
-    wx.request({//搜索帖子
+    wx.request({ //搜索帖子
       url: 'http://106.54.206.129:8080/search/searchPostDebug',
       data: {
         searchContent: that.data.inputVal
@@ -465,7 +442,7 @@ Page({
       method: 'GET',
       dataType: 'json',
       responseType: 'text',
-      success: function (res) {
+      success: function(res) {
         if (res.data == '') {
           that.setData({
             searchResult_Post: '抱歉，暂无相关帖子'
@@ -479,15 +456,21 @@ Page({
           if (result[i].userPortrait == "" || result[i].userPortrait == null) {
             result[i].userPortrait = '/icons/saber.jpg'
           }
+          result[i].postContent = that.entitiesToUtf16(result[i].postContent)
         }
         that.setData({
           postList: result,
         })
       },
-      fail: function (res) {
-      },
-      complete: function (res) { },
+      fail: function(res) {},
+      complete: function(res) {},
     });
-  }
-
+  },
+  entitiesToUtf16: function(str) {
+    return str.replace(/&#(\d+);/g, function(match, dec) {
+      let H = Math.floor((dec - 0x10000) / 0x400) + 0xD800;
+      let L = Math.floor(dec - 0x10000) % 0x400 + 0xDC00;
+      return String.fromCharCode(H, L);
+    });
+  },
 })
