@@ -69,7 +69,7 @@
 
   <view class="inputBox" style="bottom:{{bottom}}px">
     <view class="input">
-      <textarea class="inputcomment" fixed="true" adjust-position="{{false}}" focus="{{focus}}" value="{{comcontent}}" name="comcontent" bindinput="input" bindfocus="foucus" bindblur="blur" maxlength="-1" placeholder="说点什么吧......" cursor-spacing='150' auto-height="ture"></textarea>
+      <textarea class="inputcomment" fixed="true" adjust-position="{{false}}" focus="{{focus}}" value="{{comcontent}}" name="comcontent" bindinput="input" bindfocus="foucus" bindblur="blur" maxlength="-1" placeholder="说点什么吧......" cursor-spacing='150'></textarea>
     </view>
     <view class="like" bindtap="send">
       <image src="/icons/send.png"></image>
