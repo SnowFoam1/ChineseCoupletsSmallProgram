@@ -7,24 +7,31 @@
 
 view .title {
   width: 100%;
-  font-size: 22px;
-  /*text-align: center;*/
-  
-  padding-left: 12px;
-  padding-right: 30px;
+  font-size: 44rpx;
+  text-align: center;
+  /*padding-left: 24rpx;
+  padding-right: 60rpx;*/
 }
 .title text{
-  font-size: 21px;
-  margin-right: 17px;
+  font-size: 42rpx;
+  margin-right: 34rpx;
 }
 view .time{
-  font-size: 15px;
+  /*font-size: 30rpx;*/
+  /*font-style: light;*/
+  /*padding-top: 10rpx;*/
+  text-align:right;
+  /*margin-right: 20rpx;*/
+  /*margin-bottom: 10rpx;*/
+  border-bottom:1px solid rgb(134, 132, 132);
+  /*color: rgb(236, 46, 46)*/
+}
+.time text{
+  font-size: 30rpx;
   font-style: light;
   padding-top: 10rpx;
-  text-align:right;
   margin-right: 20rpx;
   margin-bottom: 10rpx;
-  border-bottom:1px solid rgb(134, 132, 132);
   color: rgb(236, 46, 46)
 }
 view .body {

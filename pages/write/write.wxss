@@ -81,19 +81,19 @@ page {
   padding-left: 4px;
 }
 
-.bottom .btn {
+/*.bottom .btn {
   flex: 1;
   line-height: 2;
   padding-top: 10rpx;
   padding-bottom: 10rpx;
   margin: 30rpx 3rpx;
-}
+}*/
 
-.btn.success {
+/*.btn.success {
   background: #f7f7f7;
   font-size: 18px;
   color: rgb(216, 14, 14);
-}
+}*/
 
 .handle{
   display: flex;
@@ -102,14 +102,20 @@ page {
   margin-bottom: 0px;
 }
 
-.cancel
-{
-  width: 36.5%;
-  font-size: 16px;
-  color: rgb(216, 14, 14);
-  line-height: 2;
-  padding-top: 10rpx;
-  padding-bottom: 10rpx;
-  margin: 30rpx 3rpx;
+.btn{
+  background-color:rgb(201, 49, 49);
+  margin-top: 100rpx;
+  width: 300rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: rgb(252, 252, 252);
 }
-/* pages/write/write.wxss */
+
+.btn2{
+  background-color:rgb(255, 255, 255);
+  margin-top: 100rpx;
+  width: 300rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: rgb(201, 49, 49);
+}

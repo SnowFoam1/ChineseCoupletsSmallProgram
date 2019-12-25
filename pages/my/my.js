@@ -88,9 +88,17 @@ Page({
         },
         success: function(res) {
           console.log(res)
+          console.log(that.data.signFlag);
           if (res.data == '今日已签到') {
             that.setData({
               signFlag: 1
+            })
+          }
+          else if (res.data == '今日未签到')
+          {
+            console.log("ssss");
+            that.setData({
+              signFlag: 0
             })
           }
         }

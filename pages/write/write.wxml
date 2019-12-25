@@ -15,12 +15,12 @@
   </view>
 
   <view class="handle">
-      <view class='bottom'>
-        <button id="发布" formType="submit" class='btn success'>发布</button>
-      </view>
+      <!--view class='bottom'-->
+        <button id="发布" formType="submit" class='btn'>发布</button>
+      <!--/view-->
       <!--view class='bottom'>
       <button formType="submit" class='btn success'>取消</button>
       </view-->
-      <button id="草稿" class="cancel" formType="submit">保存为草稿</button>
+      <button id="草稿" class="btn2" formType="submit">保存为草稿</button>
   </view>
 </form>
