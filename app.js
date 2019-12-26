@@ -23,7 +23,7 @@ App({
   },
 
   globalData: {
-    isLogin: true,
+    isLogin: false,
     userAccountId:"15574925109",
     isRoot: "0"
   },
