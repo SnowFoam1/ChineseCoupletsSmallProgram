@@ -34,7 +34,7 @@ Page({
       var that = this;
 
       wx.request({
-        url: 'http://106.54.206.129:8080/user/feedback',
+        url: 'http://106.54.206.129:8080/feedback',
         data: {
           account: id,
           content: content

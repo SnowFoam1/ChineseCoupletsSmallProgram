@@ -36,7 +36,7 @@
   flex-direction: column;
   align-items: center;
   padding: 10rpx 0;
-  margin-bottom: 60rpx;
+  margin-bottom: 36rpx;
   margin-top: 30rpx;
   color: rgb(48, 47, 47);
   line-height: 33px;
@@ -64,7 +64,7 @@
 }
 
 .more {
-  padding-top: 450rpx;
+  padding-top: 460rpx;
 }
 
 .tab {
@@ -113,7 +113,7 @@
 .show{
   padding-left: 68rpx;
   color: #747474;
-  padding-top: 5px;
+  padding-top: 9px;
   padding-bottom: 7px;
   display: flex;
   flex-direction: row;
