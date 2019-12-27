@@ -21,7 +21,7 @@
 .active{
   background-color:#FFF;
   color:rgb(240, 33, 33);
-  font-size:17px;
+  font-size:34rpx;
 }
 
 #right{
@@ -75,26 +75,27 @@
 
 .upcouplets{
   padding-top: 10rpx;
-  padding-bottom: 20rpx; 
+  padding-bottom: 10rpx; 
   display: flex;
-  flex-direction: row;
+  /*flex-direction: row;*/
 }
-.downcouplets{
+/*.downcouplets{
   padding-bottom: 14rpx; 
   display: flex;
   flex-direction: row;
-}
+}*/
 
 .type{
   color: rgb(209, 52, 52);
-  font-size: 39rpx;
-  padding-left: 8rpx;
-  width: 13%;
+  font-size: 36rpx;
+  padding-left: 10rpx;
+  width: 15%;
   
 }
 
 .up{
   color: rgb(56, 56, 56);
   padding-left: 16rpx;
-  font-size: 39rpx;
+  width: 85%;
+  font-size: 36rpx;
 }

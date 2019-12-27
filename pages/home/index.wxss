@@ -313,6 +313,7 @@
 
 .up{
   color: rgb(56, 56, 56);
+  width: 87%;
   padding-left: 16rpx;
   font-size: 36rpx;
 }
