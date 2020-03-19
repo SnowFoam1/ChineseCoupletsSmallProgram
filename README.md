@@ -7,8 +7,10 @@
 完整的搜索
 用户分享
 动态交流
+用例图：
 ![Image text](https://github.com/SnowFoam1/ChineseCoupletsSmallProgram/blob/master/img_folder/useCase.png)
 
+部分界面展示
 ![Image text](https://github.com/SnowFoam1/ChineseCoupletsSmallProgram/blob/master/img_folder/homePage.jpg)
 
 ![Image text](https://github.com/SnowFoam1/ChineseCoupletsSmallProgram/blob/master/img_folder/release.jpg)
