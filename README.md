@@ -7,8 +7,13 @@
 完整的搜索
 用户分享
 动态交流
+
 ![Image text](https://github.com/SnowFoam1/ChineseCoupletsSmallProgram/blob/master/img_folder/homePage.jpg)
+
 ![Image text](https://github.com/SnowFoam1/ChineseCoupletsSmallProgram/blob/master/img_folder/release.jpg)
+
 ![Image text](https://github.com/SnowFoam1/ChineseCoupletsSmallProgram/blob/master/img_folder/post.jpg)
+
 ![Image text](https://github.com/SnowFoam1/ChineseCoupletsSmallProgram/blob/master/img_folder/postDetail.jpg)
+
 ![Image text](https://github.com/SnowFoam1/ChineseCoupletsSmallProgram/blob/master/img_folder/me.jpg)
