@@ -183,8 +183,8 @@ Page({
       wx.request({
         url: 'http://106.54.206.129:8080/post/like',
         data: {
-          userId: this.data.userId,
-          postId: this.data.postId
+          userId: that.data.userId,
+          postId: that.data.postId
         },
         method: 'GET',
         header: {
@@ -204,8 +204,8 @@ Page({
       wx.request({
         url: 'http://106.54.206.129:8080/post/cancelLike',
         data: {
-          userId: this.data.userId,
-          postId: this.data.postId
+          userId: that.data.userId,
+          postId: that.data.postId
         },
         method: 'GET',
         header: {
